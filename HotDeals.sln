@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDeals.Website", "HotDeals.Website\HotDeals.Website.csproj", "{4E444C6D-B6E2-4079-8F67-383EF6F6B2EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDeals.Website.Tests", "HotDeals.Website.Tests\HotDeals.Website.Tests.csproj", "{FA206169-329F-46D0-9DED-257F023EB429}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E444C6D-B6E2-4079-8F67-383EF6F6B2EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E444C6D-B6E2-4079-8F67-383EF6F6B2EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E444C6D-B6E2-4079-8F67-383EF6F6B2EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E444C6D-B6E2-4079-8F67-383EF6F6B2EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA206169-329F-46D0-9DED-257F023EB429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA206169-329F-46D0-9DED-257F023EB429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA206169-329F-46D0-9DED-257F023EB429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA206169-329F-46D0-9DED-257F023EB429}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
