@@ -29,5 +29,7 @@ namespace HotDeals.Website.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<HotDeals.Website.Models.Deal> Deals { get; set; }
     }
 }
