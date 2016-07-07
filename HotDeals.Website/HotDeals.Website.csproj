@@ -219,7 +219,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Deal.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,6 +308,12 @@
     <EmbeddedResource Include="Migrations\201607041616509_Initial.resx">
       <DependentUpon>201607041616509_Initial.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HotDeals.Data\HotDeals.Data.csproj">
+      <Project>{8ca3f04f-6624-419f-9e21-82e94afa3b0e}</Project>
+      <Name>HotDeals.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F485D96B-E1D3-424B-B46C-ED0277CD6309}</ProjectGuid>
+    <ProjectGuid>{8CA3F04F-6624-419F-9E21-82E94AFA3B0E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HotDeals.Business</RootNamespace>
-    <AssemblyName>HotDeals.Business</AssemblyName>
+    <RootNamespace>HotDeals.Data</RootNamespace>
+    <AssemblyName>HotDeals.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,16 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\IRepository.cs" />
-    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="HotDealsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IDealRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HotDeals.Data\HotDeals.Data.csproj">
-      <Project>{8ca3f04f-6624-419f-9e21-82e94afa3b0e}</Project>
-      <Name>HotDeals.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HotDeals.Model\HotDeals.Model.csproj">
       <Project>{1d63d0cb-af7e-4b35-be78-23ff2fb06eba}</Project>
       <Name>HotDeals.Model</Name>

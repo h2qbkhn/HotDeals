@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotDeals.Business
+namespace HotDeals.Model.Base
 {
-    public class Class1
+    interface IContentBase
     {
+        Guid Id { get; set; }
     }
 }

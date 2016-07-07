@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDeals.Website", "HotDeals.Website\HotDeals.Website.csproj", "{4E444C6D-B6E2-4079-8F67-383EF6F6B2EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDeals.Website.Tests", "HotDeals.Website.Tests\HotDeals.Website.Tests.csproj", "{FA206169-329F-46D0-9DED-257F023EB429}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDeals.Business", "HotDeals.Business\HotDeals.Business.csproj", "{F485D96B-E1D3-424B-B46C-ED0277CD6309}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDeals.Model", "HotDeals.Model\HotDeals.Model.csproj", "{1D63D0CB-AF7E-4B35-BE78-23FF2FB06EBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDeals.ViewModels", "HotDeals.ViewModels\HotDeals.ViewModels.csproj", "{B95EB851-A8AF-4965-A971-44C74DB885BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDeals.Data", "HotDeals.Data\HotDeals.Data.csproj", "{8CA3F04F-6624-419F-9E21-82E94AFA3B0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{FA206169-329F-46D0-9DED-257F023EB429}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA206169-329F-46D0-9DED-257F023EB429}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA206169-329F-46D0-9DED-257F023EB429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F485D96B-E1D3-424B-B46C-ED0277CD6309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F485D96B-E1D3-424B-B46C-ED0277CD6309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F485D96B-E1D3-424B-B46C-ED0277CD6309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F485D96B-E1D3-424B-B46C-ED0277CD6309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D63D0CB-AF7E-4B35-BE78-23FF2FB06EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D63D0CB-AF7E-4B35-BE78-23FF2FB06EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D63D0CB-AF7E-4B35-BE78-23FF2FB06EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D63D0CB-AF7E-4B35-BE78-23FF2FB06EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B95EB851-A8AF-4965-A971-44C74DB885BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95EB851-A8AF-4965-A971-44C74DB885BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95EB851-A8AF-4965-A971-44C74DB885BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95EB851-A8AF-4965-A971-44C74DB885BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CA3F04F-6624-419F-9E21-82E94AFA3B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA3F04F-6624-419F-9E21-82E94AFA3B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA3F04F-6624-419F-9E21-82E94AFA3B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA3F04F-6624-419F-9E21-82E94AFA3B0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
