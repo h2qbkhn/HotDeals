@@ -8,7 +8,7 @@ using HotDeals.Model;
 
 namespace HotDeals.Business.Repository
 {
-    interface IDealRepository: IRepository<Model.Deal>
+    public interface IDealRepository: IRepository<Model.Deal>
     {
         IEnumerable<Model.Deal> GetByIds(Guid[] ids); 
     }

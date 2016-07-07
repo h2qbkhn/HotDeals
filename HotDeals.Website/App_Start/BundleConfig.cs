@@ -24,11 +24,34 @@ namespace HotDeals.Website
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                      "~/Scripts/app/home-controller.js"));
+                      "~/app/controllers/home-controller.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new Bundle("~/bundles/dependencies").Include(
+                "~/Scripts/jquery-2.1.4.js",
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js",
+                "~/Scripts/lodash.js",
+                "~/Scripts/moment.js",
+                "~/Scripts/moment-with-locales.js",
+                "~/Scripts/angular.js",
+                "~/Scripts/angular-resource.js",
+                "~/Scripts/angular-ui-router.js",
+                "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
+                "~/Scripts/angular-ui/ui-utils.js",
+                "~/Scripts/ag-grid.js",
+                "~/Scripts/angular-breadcrumb.js",
+                "~/Scripts/angular-toastr.tpls.js",
+                "~/Scripts/adal-1.0.4.js",
+                "~/Scripts/adal-angular-1.0.4.js",
+                "~/Scripts/loading-bar.js",
+                "~/Scripts/bootstrap-datepicker.js",
+                "~/Scripts/bootstrap-datepicker.fr.min.js",
+                "~/Scripts/angucomplete-alt.js",
+                "~/Scripts/awesomplete.js"
+                ));
         }
     }
 }
