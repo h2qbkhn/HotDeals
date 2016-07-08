@@ -1,31 +1,32 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@using System.Configuration
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<div id="bodyContainer" ng-app="HotDealsApp">
-    <section id="content">
-        <div class="container">
-            <div class="row">
-                <div class="flip-container text-center col-md-12" ng-controller="HomeCtrl" ng-init="nextQuestion()">
-                    <div class="back" ng-class="{flip: answered, correct: correctAnswer, incorrect:!correctAnswer}">
-                        <p class="lead">{{answer()}}</p>
-                        <p>
-                            <button class="btn btn-info btn-lg next option" ng-click="nextQuestion()" ng-disabled="working">Next Question</button>
-                        </p>
-                    </div>
-                    <div class="front" ng-class="{flip: answered}">
-                        <p class="lead">{{title}}</p>
-                        <div class="row text-center">
-                            <button class="btn btn-info btn-lg option" ng-repeat="option in options" ng-click="sendAnswer(option)" ng-disabled="working">{{option.title}}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+    <base href="/">
 
-@section scripts {
-    @Scripts.Render("~/Scripts/angular.js")
-    @Scripts.Render("~/Scripts/app/home-controller.js")
-}
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta name="viewport" content="width=device-width">
+    <title>HotDeals</title>
+
+    <link rel="stylesheet" href="Content/bootstrap.css" />
+    @*<link rel="stylesheet" href="Content/angular-toastr.css" />*@
+    @*<link rel="stylesheet" href="Content/main.css" />*@
+    @*<link rel="stylesheet" href="Content/ag-grid.css" />*@
+    @*<link rel="stylesheet" href="Content/theme-fresh.css" />*@
+    @*<link rel="stylesheet" href="Content/font-awesome.css" />*@
+    <link rel="stylesheet" href="Content/loading-bar.css" type="text/css" media="all" />
+
+    @*<link rel="stylesheet" href="app/views/home/home.css" />*@
+
+</head>
+<body ng-app="HotDeals" ng-cloak>
+    <div ui-view></div>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/dependencies")
+    @Scripts.Render("~/bundles/app")
+</body>
+</html>
