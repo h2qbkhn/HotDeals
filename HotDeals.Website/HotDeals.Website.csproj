@@ -227,6 +227,7 @@
     <Content Include="app\controllers\main\main-controller.js" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\main\main.html" />
+    <Content Include="app\views\newdeal\newdeal.html" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -417,11 +418,20 @@
       <Project>{8ca3f04f-6624-419f-9e21-82e94afa3b0e}</Project>
       <Name>HotDeals.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HotDeals.Model\HotDeals.Model.csproj">
+      <Project>{1d63d0cb-af7e-4b35-be78-23ff2fb06eba}</Project>
+      <Name>HotDeals.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="app\controllers\home\home-controller.ts" />
     <TypeScriptCompile Include="app\controllers\main\main-controller.ts" />
+    <TypeScriptCompile Include="app\controllers\newdeal\newdeal-controller.ts" />
+    <TypeScriptCompile Include="app\services\apiService.ts" />
+    <TypeScriptCompile Include="app\services\base\baseService.ts" />
+    <TypeScriptCompile Include="app\services\deal\dealService.ts" />
+    <TypeScriptCompile Include="app\helpers\tools.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-breadcrumb\angular-breadcrumb.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-loading-bar\angular-loading-bar.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />

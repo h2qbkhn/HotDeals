@@ -10,19 +10,23 @@ module HQHO.HotDeals {
 
     export interface IHomeScope  extends ng.IScope{
         vm: IHomeViewModel, 
-        _: IHomeScopeMethod
     }
 
     export class HomeController {
-        constructor(private $scope: IHomeScope) {
+        constructor(private $scope: IHomeScope, private api : Services.Api) {
             this.$scope.vm = {
                 
             }
-            this.$scope._.goToPageAdd = function () {
-
-            }
+            this._init();   
         }
+        private _init() {
+            this.api.dealService.getAllEntities().success((data) => {
+                console.log(data); 
+            })
+        }
+
+      
     }
 
-    angular.module('HotDeals').controller('HomeCtrl', HomeController); 
+    angular.module('HotDeals').controller('HomeCtrl', ['$scope','Api',HomeController]); 
 }

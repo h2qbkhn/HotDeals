@@ -40,8 +40,13 @@ namespace HotDeals.Website
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                       "~/app/app.js",
+                      "~/app/helpers/tools.js",
+                      "~/app/services/base/baseService.js",
+                      "~/app/services/deal/dealService.js",
+                      "~/app/services/apiService.js",
                       "~/app/controllers/main/main-controller.js",
-                      "~/app/controllers/home/home-controller.js"
+                      "~/app/controllers/home/home-controller.js",
+                      "~/app/controllers/newdeal/newdeal-controller.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

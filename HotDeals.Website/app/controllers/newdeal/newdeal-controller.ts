@@ -2,21 +2,21 @@
 /// <reference path="../../../Scripts/typings/angularjs/angular-resource.d.ts"/>
 module HQHO.HotDeals {
     "use strict";
-    export interface IMainViewModel {
+    export interface INewDealViewModel {
         //TODO add members
     }
 
-    export interface IMainScope extends ng.IScope {
-        vm: IMainViewModel
+    export interface INewDealScope extends ng.IScope {
+        vm: INewDealViewModel
     }
 
-    export class MainController {
-        constructor(private $scope: IMainScope) {
+    export class NewDealController {
+        constructor(private $scope: INewDealScope) {
             this.$scope.vm = {
 
             }
         }
     }
 
-    angular.module('HotDeals').controller('MainCtrl', ['$scope', MainController]);
+    angular.module('HotDeals').controller('NewDealCtrl', NewDealController);
 }

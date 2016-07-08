@@ -41,10 +41,20 @@ module HQHO.HotDeals {
                    
                 }, ncyBreadcrumb: { skip: true }
             });
+
+            // home page
             states.push({
                 name: "main.home", controller: "HomeCtrl", url: "/home", templateUrl: "app/views/home/home.html", ncyBreadcrumb: { label: "Home" },
                 resolve: {
                     
+                }
+            });
+
+            //new deal page
+            states.push({
+                name: "main.newdeal", controller: "NewDealCtrl", url: "/newdeal", templateUrl: "app/views/newdeal/newdeal.html", ncyBreadcrumb: { label: "New deal" },
+                resolve: {
+
                 }
             });
            
