@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,22 @@ namespace HotDeals.Model
     public class Deal : ContentBase
     {
         public string Title { get; set; }
-        [Display(Name = "Release Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime ReleaseDate { get; set; }
-        public string Genre { get; set; }
+        public Guid? TypeDealId { get; set; }
+        [ForeignKey("TypeDealId")]
+        public virtual TypeDeal TypeDeal { get; set;  }
+        public Guid? CategoryId {get; set;}
+        [ForeignKey("CategoryId")]
+        public virtual Category Category { get; set; }
+        public Guid? SubCategoryId { get; set; }
+        [ForeignKey("SubCategoryId")]
+        public virtual SubCategory SubCategory { get; set;  }
+        public string LinkTo { get; set;  }
+        public string NameSeller { get; set;  }
+        public string SrcImg { get; set; }
         public decimal Price { get; set; }
-
+        public string Description { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set;  }
     }
+   
 }

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Http;
 using HotDeals.Business.Repository;
 using HotDeals.Model;
+using HotDeals.ViewModels;
 using System.Web.Http.Description;
+using AutoMapper.QueryableExtensions;
 
 namespace HotDeals.Website.Controllers
 {
@@ -20,16 +18,17 @@ namespace HotDeals.Website.Controllers
         public DealsController() { }
         public DealsController(IDealRepository dealRepository)
         {
-            this._dealRepository = dealRepository; 
+            this._dealRepository = dealRepository;
         }
         [Route("{debug?}")]
         [HttpGet]
         [ResponseType(typeof(IList<Deal>))]
-        public IHttpActionResult GetAllDeals(string debug= null)
+        public IHttpActionResult GetAllDeals(string debug = null)
         {
-            List<Deal> deals;
-            deals =_dealRepository.GetAll().AsQueryable().OrderBy(d=>d.Title).ToList(); 
-            return Ok(deals); 
+           List<DealViewModel>  deals = this._dealRepository.GetAll().AsQueryable().OrderBy(d => d.Title)
+                .ProjectTo<DealViewModel>()
+                .ToList();
+            return Ok(deals);
         }
 
 

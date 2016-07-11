@@ -52,8 +52,14 @@
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\DealRepository.cs" />
+    <Compile Include="Repository\ICategoryRepository.cs" />
     <Compile Include="Repository\IDealRepository.cs" />
+    <Compile Include="Repository\ISubCategoryRepository.cs" />
+    <Compile Include="Repository\ITypeDealRepository.cs" />
+    <Compile Include="Repository\SubCategoryRepository.cs" />
+    <Compile Include="Repository\TypeDealRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HotDeals.Data\HotDeals.Data.csproj">

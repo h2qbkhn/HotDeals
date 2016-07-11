@@ -21,6 +21,7 @@ module HQHO.HotDeals {
         }
         private _init() {
             this.api.dealService.getAllEntities().success((data) => {
+                debugger 
                 console.log(data); 
             })
         }
