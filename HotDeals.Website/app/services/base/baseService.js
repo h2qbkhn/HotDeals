@@ -1,0 +1,22 @@
+var HQHO;
+(function (HQHO) {
+    var HotDeals;
+    (function (HotDeals) {
+        var Services;
+        (function (Services) {
+            "use strict";
+            var BaseService = (function () {
+                function BaseService($http, name) {
+                    this.$http = $http;
+                    this.name = name;
+                }
+                BaseService.prototype.getAllEntities = function () {
+                    return this.$http.get(HotDeals.Tools.apiServiceBaseUrl + this.name);
+                };
+                return BaseService;
+            })();
+            Services.BaseService = BaseService;
+        })(Services = HotDeals.Services || (HotDeals.Services = {}));
+    })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
+})(HQHO || (HQHO = {}));
+//# sourceMappingURL=baseService.js.map
