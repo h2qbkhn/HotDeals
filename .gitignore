@@ -243,3 +243,19 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/HotDeals.Website/app/services/deal/dealService.js.map
+/HotDeals.Website/app/services/deal/dealService.js
+/HotDeals.Website/app/services/base/baseService.js.map
+/HotDeals.Website/app/services/base/baseService.js
+/HotDeals.Website/app/services/apiService.js.map
+/HotDeals.Website/app/services/apiService.js
+/HotDeals.Website/app/helpers/tools.js.map
+/HotDeals.Website/app/helpers/tools.js
+/HotDeals.Website/app/controllers/newdeal/newdeal-controller.js.map
+/HotDeals.Website/app/controllers/newdeal/newdeal-controller.js
+/HotDeals.Website/app/controllers/main/main-controller.js.map
+/HotDeals.Website/app/controllers/main/main-controller.js
+/HotDeals.Website/app/controllers/home/home-controller.js.map
+/HotDeals.Website/app/controllers/home/home-controller.js
+/HotDeals.Website/app/app.js.map
+/HotDeals.Website/app/app.js
