@@ -12,7 +12,8 @@ namespace HotDeals.Data
     {
         public HotDealsContext(): base("name=HotDealsConnectionString")
         {
-            Database.SetInitializer<HotDealsContext>(new HotDealsDbInitializer());
+            //Database.SetInitializer<HotDealsContext>(new HotDealsDbInitializer());
+            Database.SetInitializer<HotDealsContext>(null);
         }
         public DbSet<Deal> Deals { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -21,7 +22,7 @@ namespace HotDeals.Data
     }
 
 
-    public class HotDealsDbInitializer : DropCreateDatabaseAlways<HotDealsContext>
+    public class HotDealsDbInitializer : CreateDatabaseIfNotExists<HotDealsContext>
     {
         protected override void Seed(HotDealsContext context)
         {

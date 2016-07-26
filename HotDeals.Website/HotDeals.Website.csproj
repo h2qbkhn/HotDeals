@@ -228,6 +228,7 @@
     <Compile Include="Controllers\DealsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,6 +242,7 @@
     <Content Include="app\app.js" />
     <Content Include="app\controllers\home\home-controller.js" />
     <Content Include="app\controllers\main\main-controller.js" />
+    <Content Include="app\controllers\newdeal\newdeal-controller.js" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\main\main.html" />
     <Content Include="app\views\newdeal\newdeal.html" />
@@ -452,6 +454,7 @@
     <TypeScriptCompile Include="app\services\base\baseService.ts" />
     <TypeScriptCompile Include="app\services\deal\dealService.ts" />
     <TypeScriptCompile Include="app\helpers\tools.ts" />
+    <TypeScriptCompile Include="app\services\sub_category\subCategoryService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-breadcrumb\angular-breadcrumb.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-loading-bar\angular-loading-bar.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />

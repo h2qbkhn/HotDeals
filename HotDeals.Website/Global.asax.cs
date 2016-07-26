@@ -47,12 +47,18 @@ namespace HotDeals.Website
                 cfg.CreateMap<DealViewModel, Deal>()
                 .ForMember(x => x.Title, a => a.MapFrom(y => y.Title))
                 .ForMember(x => x.Category, a => a.Ignore())
-                .ForMember(x => x.CategoryId, a => a.MapFrom(y=> y.CategoryId))
+                .ForMember(x => x.CategoryId, a => a.MapFrom(y => y.CategoryId))
                 .ForMember(x => x.SubCategory, a => a.Ignore())
                 .ForMember(x => x.SubCategoryId, a => a.MapFrom(y => y.SubCategoryId))
                 .ForMember(x => x.TypeDeal, a => a.Ignore())
-                .ForMember(x => x.TypeDealId, a => a.MapFrom(y => y.TypeDealId))
-                ; 
+                .ForMember(x => x.TypeDealId, a => a.MapFrom(y => y.TypeDealId));
+
+                cfg.CreateMap<SubCategory, SubCategoryViewModel>()
+                .ForMember(x => x.Label, a => a.MapFrom(y => y.Label));
+
+                cfg.CreateMap<SubCategoryViewModel, SubCategory>()
+                .ForMember(x => x.Label, a => a.MapFrom(y => y.Label)); 
+                
             }); 
         }
     }

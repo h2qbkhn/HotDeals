@@ -11,12 +11,18 @@ module HQHO.HotDeals {
     }
 
     export class NewDealController {
-        constructor(private $scope: INewDealScope) {
+        constructor(private $scope: INewDealScope, private api : Services.Api) {
             this.$scope.vm = {
 
             }
+            this._init(); 
+        }
+        private  _init() {
+            this.api.subCategoryService.getAllEntities().success((data) => {
+                console.log(data); 
+            })
         }
     }
 
-    angular.module('HotDeals').controller('NewDealCtrl', NewDealController);
+    angular.module('HotDeals').controller('NewDealCtrl',['$scope','Api',   NewDealController]);
 }

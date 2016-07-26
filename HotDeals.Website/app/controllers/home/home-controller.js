@@ -14,12 +14,11 @@ var HQHO;
             }
             HomeController.prototype._init = function () {
                 this.api.dealService.getAllEntities().success(function (data) {
-                    debugger;
                     console.log(data);
                 });
             };
             return HomeController;
-        })();
+        }());
         HotDeals.HomeController = HomeController;
         angular.module('HotDeals').controller('HomeCtrl', ['$scope', 'Api', HomeController]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));

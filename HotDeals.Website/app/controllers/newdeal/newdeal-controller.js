@@ -6,14 +6,21 @@ var HQHO;
     (function (HotDeals) {
         "use strict";
         var NewDealController = (function () {
-            function NewDealController($scope) {
+            function NewDealController($scope, api) {
                 this.$scope = $scope;
+                this.api = api;
                 this.$scope.vm = {};
+                this._init();
             }
+            NewDealController.prototype._init = function () {
+                this.api.subCategoryService.getAllEntities().success(function (data) {
+                    console.log(data);
+                });
+            };
             return NewDealController;
-        })();
+        }());
         HotDeals.NewDealController = NewDealController;
-        angular.module('HotDeals').controller('NewDealCtrl', NewDealController);
+        angular.module('HotDeals').controller('NewDealCtrl', ['$scope', 'Api', NewDealController]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
 //# sourceMappingURL=newdeal-controller.js.map

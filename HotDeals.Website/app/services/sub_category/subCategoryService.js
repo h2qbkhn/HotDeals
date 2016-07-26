@@ -10,16 +10,16 @@ var HQHO;
         var Services;
         (function (Services) {
             "use strict";
-            var DealService = (function (_super) {
-                __extends(DealService, _super);
-                function DealService($http) {
-                    _super.call(this, $http, "deals");
+            var SubCategoryService = (function (_super) {
+                __extends(SubCategoryService, _super);
+                function SubCategoryService($http) {
+                    _super.call(this, $http, "subCategories");
                 }
-                return DealService;
+                return SubCategoryService;
             }(Services.BaseService));
-            Services.DealService = DealService;
-            angular.module('HotDeals').service('DealServ', DealService);
+            Services.SubCategoryService = SubCategoryService;
+            angular.module('HotDeals').service('SubCategoryServ', SubCategoryService);
         })(Services = HotDeals.Services || (HotDeals.Services = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=dealService.js.map
+//# sourceMappingURL=subCategoryService.js.map
