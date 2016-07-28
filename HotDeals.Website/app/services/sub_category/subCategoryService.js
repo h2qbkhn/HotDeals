@@ -15,6 +15,13 @@ var HQHO;
                 function SubCategoryService($http) {
                     _super.call(this, $http, "subCategories");
                 }
+                SubCategoryService.prototype.getSubCategoriesByCategoryId = function (categoryId) {
+                    return this.$http.get(HotDeals.Tools.apiServiceBaseUrl + this.name + '/search/', {
+                        params: {
+                            categoryId: categoryId
+                        }
+                    });
+                };
                 return SubCategoryService;
             })(Services.BaseService);
             Services.SubCategoryService = SubCategoryService;

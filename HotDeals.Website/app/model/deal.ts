@@ -4,7 +4,7 @@
         title: string; 
         typeDealId: string; 
         categoryId: string; 
-        subcaterogyId: string; 
+        subcategoryId: string; 
         linkTo: string; 
         nameSeller: string; 
         srcImg: string; 
@@ -18,7 +18,7 @@
         public title: string = "";
         public typeDealId: string = "";
         public categoryId: string = "";
-        public subcaterogyId: string = "";
+        public subcategoryId: string = "";
         public linkTo: string = "";
         public nameSeller: string = "";
         public srcImg: string = "";

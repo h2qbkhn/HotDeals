@@ -10,7 +10,7 @@ var HQHO;
                     this.title = "";
                     this.typeDealId = "";
                     this.categoryId = "";
-                    this.subcaterogyId = "";
+                    this.subcategoryId = "";
                     this.linkTo = "";
                     this.nameSeller = "";
                     this.srcImg = "";

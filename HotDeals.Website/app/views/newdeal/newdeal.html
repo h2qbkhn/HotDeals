@@ -4,15 +4,17 @@
             <div class="form-group">
                 <label for="categoryIpt">Category</label>
                 <select class="form-control" id="categoryIpt"
-                        ng-model="newDeal.categoryId"
+                        ng-model="currentDeal.categoryId"
+                        ng-change="mt.categoryChanged()"
                         ng-options="category.id as category.label for category in vm.categories">
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="subcategoryIpt">SubCategory</label>
+                <label for="subcategoryIpt">Sub-Category</label>
                 <select class="form-control" id="subcategoryIpt"
-                        ng-model="newDeal.subcategoryId"
+                        ng-model="currentDeal.subcategoryId"
+                        ng-change="mt.subcategoryChanged()"
                         ng-options="subcategory.id as subcategory.label for subcategory in vm.subcategories"></select>
             </div>
         </div>     

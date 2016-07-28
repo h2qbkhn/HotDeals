@@ -33,5 +33,7 @@ namespace HotDeals.Website.Controllers
                .ToList();
             return Ok(categories);
         }
+
+        
     }
 }

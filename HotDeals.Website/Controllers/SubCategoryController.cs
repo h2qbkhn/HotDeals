@@ -33,5 +33,27 @@ namespace HotDeals.Website.Controllers
                .ToList();
             return Ok(subCategories); 
         }
+
+        [Route("search/{categoryId?}")]
+        [HttpGet]
+        [ResponseType(typeof(IList<SubCategory>))]
+        public IHttpActionResult getSubCategoriesByCategoryId(string categoryId)
+        {
+            if(categoryId == null)
+            {
+                BadRequest("CategoryId is null"); 
+            }
+            Guid guidCategoryId;
+            Guid.TryParse(categoryId, out guidCategoryId); 
+            if(guidCategoryId == Guid.Empty)
+            {
+                BadRequest("CategoryId is not valid"); 
+            }
+            List<SubCategoryViewModel> subCategories = this._subCategoryRepository.Query(
+                x => x.Category.Id.ToString() == categoryId)
+                .ProjectTo<SubCategoryViewModel>()
+                .ToList();
+            return Ok(subCategories); 
+        }
     }
 }

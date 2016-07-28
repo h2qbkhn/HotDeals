@@ -16,15 +16,22 @@ var HQHO;
                     categories: [],
                     subcategories: []
                 };
-                this.$scope.newDeal = new Deal();
+                this.$scope.currentDeal = new Deal();
+                this.$scope.mt = {
+                    categoryChanged: this.categoryChanged.bind(this),
+                    subcategoryChanged: this.subcategoryChanged.bind(this),
+                };
                 this._init();
             }
             NewDealController.prototype._init = function () {
+                var _this = this;
                 return this.$q.all([
                     this._getAllCategories(),
-                    this._getAllSubCategories()
                 ]).then(function () {
-                    console.info("ready");
+                    _this.$scope.currentDeal.categoryId = _this.$scope.vm.categories[0].id;
+                    var promises = [];
+                    promises.push(_this._getSubCategoriesByCategoryId(_this.$scope.currentDeal.categoryId));
+                    return _this.$q.all(promises);
                 });
             };
             NewDealController.prototype._getAllCategories = function () {
@@ -38,6 +45,26 @@ var HQHO;
                 return this.api.subCategoryService.getAllEntities().success(function (subcategories) {
                     _this.$scope.vm.subcategories = subcategories;
                 });
+            };
+            NewDealController.prototype._getSubCategoriesByCategoryId = function (categoryId) {
+                var _this = this;
+                return this.api.subCategoryService.getSubCategoriesByCategoryId(categoryId).success(function (data) {
+                    _this.$scope.vm.subcategories = data;
+                });
+            };
+            NewDealController.prototype.categoryChanged = function () {
+                var that = this;
+                var currentCategoryId = that.$scope.currentDeal.categoryId;
+                var promises = [];
+                promises.push(that._getSubCategoriesByCategoryId(currentCategoryId));
+                return that.$q.all(promises)
+                    .then(function () {
+                    if (that.$scope.vm.subcategories && that.$scope.vm.subcategories.length > 0) {
+                        that.$scope.currentDeal.subcategoryId = that.$scope.vm.subcategories[0].id;
+                    }
+                });
+            };
+            NewDealController.prototype.subcategoryChanged = function () {
             };
             return NewDealController;
         })();

@@ -8,10 +8,15 @@ module HQHO.HotDeals {
         categories: any; 
         subcategories: any; 
     }
+    export interface INewDealScopeMethod {
+        subcategoryChanged: () => void; 
+        categoryChanged: () => void; 
+    }
 
     export interface INewDealScope extends ng.IScope {
         vm: INewDealViewModel; 
-        newDeal: Deal; 
+        currentDeal: Deal;
+        mt: INewDealScopeMethod 
     }
 
     export class NewDealController {
@@ -22,15 +27,23 @@ module HQHO.HotDeals {
                 categories: [], 
                 subcategories: []
             }
-            this.$scope.newDeal = new Deal(); 
+            this.$scope.currentDeal = new Deal(); 
+
+            this.$scope.mt = {
+                categoryChanged : this.categoryChanged.bind(this),
+                subcategoryChanged : this.subcategoryChanged.bind(this),
+            } 
+
             this._init(); 
         }
         private _init(): ng.IPromise<any> {
             return this.$q.all([
                 this._getAllCategories(), 
-                this._getAllSubCategories()
             ]).then(() => {
-                console.info("ready");  
+                this.$scope.currentDeal.categoryId = this.$scope.vm.categories[0].id; 
+                var promises = []; 
+                promises.push(this._getSubCategoriesByCategoryId(this.$scope.currentDeal.categoryId));
+                return this.$q.all(promises);  
             });       
         }
 
@@ -44,6 +57,28 @@ module HQHO.HotDeals {
             return this.api.subCategoryService.getAllEntities().success((subcategories) => {
                 this.$scope.vm.subcategories = subcategories;
             })
+        }
+
+        private _getSubCategoriesByCategoryId(categoryId: string) {
+            return this.api.subCategoryService.getSubCategoriesByCategoryId(categoryId).success((data) => {
+                this.$scope.vm.subcategories = data; 
+            })
+        }
+        
+        public categoryChanged() {
+            var that = this; 
+            var currentCategoryId = that.$scope.currentDeal.categoryId;
+            var promises = []; 
+            promises.push(that._getSubCategoriesByCategoryId(currentCategoryId));
+            return that.$q.all(promises)
+                .then(() => {
+                    if (that.$scope.vm.subcategories && that.$scope.vm.subcategories.length > 0) {
+                        that.$scope.currentDeal.subcategoryId = that.$scope.vm.subcategories[0].id;
+                    }
+                })
+        }
+        public subcategoryChanged() {
+
         }
     }
 
