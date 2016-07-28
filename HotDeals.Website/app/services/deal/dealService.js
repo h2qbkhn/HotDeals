@@ -16,7 +16,7 @@ var HQHO;
                     _super.call(this, $http, "deals");
                 }
                 return DealService;
-            }(Services.BaseService));
+            })(Services.BaseService);
             Services.DealService = DealService;
             angular.module('HotDeals').service('DealServ', DealService);
         })(Services = HotDeals.Services || (HotDeals.Services = {}));

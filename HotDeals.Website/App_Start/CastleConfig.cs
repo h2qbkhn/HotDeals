@@ -28,6 +28,8 @@ namespace HotDeals.Website
                 .ImplementedBy<DealRepository>().LifestylePerWebRequest());
             container.Register(Component.For<ISubCategoryRepository>()
                 .ImplementedBy<SubCategoryRepository>().LifestylePerWebRequest());
+            container.Register(Component.For<ICategoryRepository>()
+                .ImplementedBy<CategoryRepository>().LifestylePerWebRequest());
 
         }
     }

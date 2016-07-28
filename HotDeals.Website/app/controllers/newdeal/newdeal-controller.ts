@@ -3,7 +3,7 @@
 module HQHO.HotDeals {
     "use strict";
     export interface INewDealViewModel {
-        //TODO add members
+        
     }
 
     export interface INewDealScope extends ng.IScope {
@@ -11,15 +11,33 @@ module HQHO.HotDeals {
     }
 
     export class NewDealController {
-        constructor(private $scope: INewDealScope, private api : Services.Api) {
+        categories: any; 
+        subcategories: any; 
+        constructor(private $scope: INewDealScope, private api: Services.Api,
+        private $q: ng.IQService) {
             this.$scope.vm = {
-
+                
             }
             this._init(); 
         }
-        private  _init() {
-            this.api.subCategoryService.getAllEntities().success((data) => {
-                console.log(data); 
+        private _init(): ng.IPromise<any> {
+            return this.$q.all([
+                this._getAllCategories(), 
+                this._getAllSubCategories()
+            ]).then(() => {
+                console.info("ready"); 
+            });       
+        }
+
+        private _getAllCategories() {
+            return this.api.categoryService.getAllEntities().success((data) => {
+                this.categories = data;
+            }); 
+        }
+
+        private _getAllSubCategories() {
+            return this.api.subCategoryService.getAllEntities().success((data) => {
+                this.subcategories = data;
             })
         }
     }

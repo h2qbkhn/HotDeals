@@ -225,6 +225,7 @@
     <Compile Include="Castle\WindsorWebApiInstaller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionsController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DealsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -452,6 +453,7 @@
     <TypeScriptCompile Include="app\controllers\newdeal\newdeal-controller.ts" />
     <TypeScriptCompile Include="app\services\apiService.ts" />
     <TypeScriptCompile Include="app\services\base\baseService.ts" />
+    <TypeScriptCompile Include="app\services\category\categoryService.ts" />
     <TypeScriptCompile Include="app\services\deal\dealService.ts" />
     <TypeScriptCompile Include="app\helpers\tools.ts" />
     <TypeScriptCompile Include="app\services\sub_category\subCategoryService.ts" />

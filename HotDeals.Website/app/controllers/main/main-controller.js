@@ -11,7 +11,7 @@ var HQHO;
                 this.$scope.vm = {};
             }
             return MainController;
-        }());
+        })();
         HotDeals.MainController = MainController;
         angular.module('HotDeals').controller('MainCtrl', ['$scope', MainController]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));

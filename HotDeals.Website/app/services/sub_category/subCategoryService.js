@@ -16,7 +16,7 @@ var HQHO;
                     _super.call(this, $http, "subCategories");
                 }
                 return SubCategoryService;
-            }(Services.BaseService));
+            })(Services.BaseService);
             Services.SubCategoryService = SubCategoryService;
             angular.module('HotDeals').service('SubCategoryServ', SubCategoryService);
         })(Services = HotDeals.Services || (HotDeals.Services = {}));

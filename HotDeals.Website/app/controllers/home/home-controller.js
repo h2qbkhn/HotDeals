@@ -18,7 +18,7 @@ var HQHO;
                 });
             };
             return HomeController;
-        }());
+        })();
         HotDeals.HomeController = HomeController;
         angular.module('HotDeals').controller('HomeCtrl', ['$scope', 'Api', HomeController]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
