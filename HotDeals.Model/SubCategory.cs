@@ -9,7 +9,6 @@ namespace HotDeals.Model
         public string Label { get; set;  }
         public Guid? CategoryId { get; set;  }
         [ForeignKey("CategoryId")]
-
         public virtual Category Category { get; set;  }
     }
 }

@@ -65,6 +65,12 @@ namespace HotDeals.Website
                 cfg.CreateMap<CategoryViewModel, Category>()
                 .ForMember(x => x.Label, a => a.MapFrom(y => y.Label));
 
+                cfg.CreateMap<TypeDeal, TypeDealViewModel>()
+                .ForMember(x => x.Label, a => a.MapFrom(y => y.Label));
+
+                cfg.CreateMap<TypeDealViewModel, TypeDeal>()
+                .ForMember(x => x.Label, a => a.MapFrom(y => y.Label));
+
             }); 
         }
     }

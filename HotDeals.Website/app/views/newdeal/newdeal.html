@@ -1,23 +1,54 @@
 ﻿<form>
     <div class="container">
-        <div class="row">
-            <div class="form-group">
-                <label for="categoryIpt">Category</label>
-                <select class="form-control" id="categoryIpt"
-                        ng-model="currentDeal.categoryId"
-                        ng-change="mt.categoryChanged()"
-                        ng-options="category.id as category.label for category in vm.categories">
-                </select>
-            </div>
+        <div class="form-group">
+            <label for="titleIpt">Title</label>
+            <input type="text" class="form-control" id="titleIpt" ng-model="currentDeal.title" />
+        </div>
 
-            <div class="form-group">
-                <label for="subcategoryIpt">Sub-Category</label>
-                <select class="form-control" id="subcategoryIpt"
-                        ng-model="currentDeal.subcategoryId"
-                        ng-change="mt.subcategoryChanged()"
-                        ng-options="subcategory.id as subcategory.label for subcategory in vm.subcategories"></select>
-            </div>
-        </div>     
+        <div class="form-group">
+            <label for="priceIpt">Price</label>
+            <input type="number" class="form-control" id="priceIpt" ng-model="currentDeal.price" />
+        </div>
 
+        <div class="form-group">
+            <label for="endDateIpt">End</label>
+            <input type="date" class="form-control" id="endDateIpt" ng-model="currentDeal.endDate" />
+        </div>
+
+        <div class="form-group">
+            <label for="startDateIpt">Start</label>
+            <input type="date" class="form-control" id="startDateIpt" ng-model="currentDeal.startDate" />
+        </div>
+
+        <div class="form-group">
+            <label for="typedealIpt">Type of deal</label>
+            <select class="form-control" id="typedealIpt"
+                    ng-model="currentDeal.typeDealId"
+                    ng-change="mt.typedealChanged()"
+                    ng-options="option.id as option.label for option in vm.typedeals"></select>
+        </div>
+
+        <div class="form-group">
+            <label for="categoryIpt">Category</label>
+            <select class="form-control" id="categoryIpt"
+                    ng-model="currentDeal.categoryId"
+                    ng-change="mt.categoryChanged()"
+                    ng-options="category.id as category.label for category in vm.categories"></select>
+        </div>
+
+        <div class="form-group">
+            <label for="subcategoryIpt">Sub-Category</label>
+            <select class="form-control" id="subcategoryIpt"
+                    ng-model="currentDeal.subcategoryId"
+                    ng-change="mt.subcategoryChanged()"
+                    ng-options="subcategory.id as subcategory.label for subcategory in vm.subcategories"></select>
+        </div>
+
+        <div class="form-group">
+            <label for="descriptionIpt">Description</label>
+            <textarea rows="3" class="form-control" id="descriptionIpt" ng-model="currentDeal.description"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
     </div>
 </form>

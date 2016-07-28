@@ -7,10 +7,12 @@ module HQHO.HotDeals {
     export interface INewDealViewModel {
         categories: any; 
         subcategories: any; 
+        typedeals: any; 
     }
     export interface INewDealScopeMethod {
         subcategoryChanged: () => void; 
-        categoryChanged: () => void; 
+        categoryChanged: () => void;
+        typedealChanged: () => void;   
     }
 
     export interface INewDealScope extends ng.IScope {
@@ -25,19 +27,22 @@ module HQHO.HotDeals {
             private $timeout: ng.ITimeoutService,private api: Services.Api) {
             this.$scope.vm = {
                 categories: [], 
-                subcategories: []
+                subcategories: [], 
+                typedeals: []
             }
             this.$scope.currentDeal = new Deal(); 
 
             this.$scope.mt = {
                 categoryChanged : this.categoryChanged.bind(this),
-                subcategoryChanged : this.subcategoryChanged.bind(this),
+                subcategoryChanged: this.subcategoryChanged.bind(this),
+                typedealChanged: this.typedealChanged.bind(this), 
             } 
 
             this._init(); 
         }
         private _init(): ng.IPromise<any> {
             return this.$q.all([
+                this._getAllTypeDeals(), 
                 this._getAllCategories(), 
             ]).then(() => {
                 this.$scope.currentDeal.categoryId = this.$scope.vm.categories[0].id; 
@@ -45,6 +50,12 @@ module HQHO.HotDeals {
                 promises.push(this._getSubCategoriesByCategoryId(this.$scope.currentDeal.categoryId));
                 return this.$q.all(promises);  
             });       
+        }
+
+        private _getAllTypeDeals() {
+            return this.api.typedealService.getAllEntities().success((data) => {
+                this.$scope.vm.typedeals = data;
+            });
         }
 
         private _getAllCategories() {
@@ -63,6 +74,10 @@ module HQHO.HotDeals {
             return this.api.subCategoryService.getSubCategoriesByCategoryId(categoryId).success((data) => {
                 this.$scope.vm.subcategories = data; 
             })
+        }
+
+        public typedealChanged() {
+
         }
         
         public categoryChanged() {
