@@ -244,6 +244,7 @@
     <Content Include="app\controllers\home\home-controller.js" />
     <Content Include="app\controllers\main\main-controller.js" />
     <Content Include="app\controllers\newdeal\newdeal-controller.js" />
+    <Content Include="app\model\deal.js" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\main\main.html" />
     <Content Include="app\views\newdeal\newdeal.html" />
@@ -451,6 +452,7 @@
     <TypeScriptCompile Include="app\controllers\home\home-controller.ts" />
     <TypeScriptCompile Include="app\controllers\main\main-controller.ts" />
     <TypeScriptCompile Include="app\controllers\newdeal\newdeal-controller.ts" />
+    <TypeScriptCompile Include="app\model\deal.ts" />
     <TypeScriptCompile Include="app\services\apiService.ts" />
     <TypeScriptCompile Include="app\services\base\baseService.ts" />
     <TypeScriptCompile Include="app\services\category\categoryService.ts" />

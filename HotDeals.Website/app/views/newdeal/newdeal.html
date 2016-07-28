@@ -2,59 +2,20 @@
     <div class="container">
         <div class="row">
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <label for="categoryIpt">Category</label>
+                <select class="form-control" id="categoryIpt"
+                        ng-model="newDeal.categoryId"
+                        ng-options="category.id as category.label for category in vm.categories">
+                </select>
             </div>
-        </div>
-        <div class="row">
+
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="subcategoryIpt">SubCategory</label>
+                <select class="form-control" id="subcategoryIpt"
+                        ng-model="newDeal.subcategoryId"
+                        ng-options="subcategory.id as subcategory.label for subcategory in vm.subcategories"></select>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-6">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                </div>
-            </div>
-           
-        </div>
-
-        <div class="row">
-            <div class="col-xs-2">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                </div>
-            </div>
-            <div class="col-xs-2">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                </div>
-            </div>
-            <div class="col-xs-2">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                </div>
-            </div>
-        </div>
+        </div>     
 
     </div>
 </form>

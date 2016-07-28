@@ -10,7 +10,7 @@
             this.$http = $http; 
             this.name = name; 
         }
-        public getAllEntities(): any {
+        public getAllEntities(): ng.IHttpPromise<any>  {
             return this.$http.get(Tools.apiServiceBaseUrl + this.name); 
         }
     }

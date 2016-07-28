@@ -22,13 +22,16 @@ namespace HotDeals.Data
     }
 
 
-    public class HotDealsDbInitializer : CreateDatabaseIfNotExists<HotDealsContext>
+    public class HotDealsDbInitializer : DropCreateDatabaseIfModelChanges<HotDealsContext>
     {
         protected override void Seed(HotDealsContext context)
         {
             var demoCategory = new Category() { Label = "Services" };
             var demoSubCategory = new SubCategory() { Label = "Voyages" };
             var demoTypeDeal = new TypeDeal() { Label = "Free" };
+
+            demoCategory.SubCategories = new List<SubCategory>(); 
+            demoCategory.SubCategories.Add(demoSubCategory);
 
             var categories = new List<Category>();
             categories.Add(demoCategory); 
