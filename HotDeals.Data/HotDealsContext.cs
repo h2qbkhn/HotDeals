@@ -22,7 +22,7 @@ namespace HotDeals.Data
     }
 
 
-    public class HotDealsDbInitializer : DropCreateDatabaseAlways<HotDealsContext>
+    public class HotDealsDbInitializer : DropCreateDatabaseIfModelChanges<HotDealsContext>
     {
         protected override void Seed(HotDealsContext context)
         {

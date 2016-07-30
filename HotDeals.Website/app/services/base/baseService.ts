@@ -13,6 +13,9 @@
         public getAllEntities(): ng.IHttpPromise<any>  {
             return this.$http.get(Tools.apiServiceBaseUrl + this.name); 
         }
+        public addEntity(entity: any, params? : any): ng.IHttpPromise<any> {
+            return this.$http.post(Tools.apiServiceBaseUrl + this.name, entity, params); 
+        }
     }
 
 }

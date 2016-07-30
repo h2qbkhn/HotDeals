@@ -13,12 +13,14 @@ module HQHO.HotDeals {
         subcategoryChanged: () => void; 
         categoryChanged: () => void;
         typedealChanged: () => void;   
+        saveNewDeal: () => void;
     }
 
     export interface INewDealScope extends ng.IScope {
         vm: INewDealViewModel; 
         currentDeal: Deal;
-        mt: INewDealScopeMethod 
+        mt: INewDealScopeMethod; 
+        dateOptions: any; 
     }
 
     export class NewDealController {
@@ -32,11 +34,22 @@ module HQHO.HotDeals {
             }
             this.$scope.currentDeal = new Deal(); 
 
+            this.$scope.dateOptions = {
+                dateDisabled: false,
+                formatYear: 'yy',
+                maxDate: new Date(2020, 5, 22),
+                minDate: new Date(),
+                startingDay: 1
+            };
+
             this.$scope.mt = {
                 categoryChanged : this.categoryChanged.bind(this),
                 subcategoryChanged: this.subcategoryChanged.bind(this),
                 typedealChanged: this.typedealChanged.bind(this), 
+                saveNewDeal: this.saveNewDeal.bind(this), 
             } 
+
+
 
             this._init(); 
         }
@@ -94,6 +107,16 @@ module HQHO.HotDeals {
         }
         public subcategoryChanged() {
 
+        }
+
+        public saveNewDeal() {
+            var that = this; 
+            var dealToAdd = this.$scope.currentDeal; 
+            dealToAdd.startDate = dealToAdd.startDate ? dealToAdd.startDate : new Date(); 
+            dealToAdd.endDate = dealToAdd.endDate ? dealToAdd.endDate : new Date(); 
+            return that.api.dealService.addEntity(dealToAdd).success((data) => {
+                
+            })
         }
     }
 

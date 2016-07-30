@@ -7,6 +7,7 @@ using HotDeals.Model;
 using HotDeals.ViewModels;
 using System.Web.Http.Description;
 using AutoMapper.QueryableExtensions;
+using AutoMapper;
 
 namespace HotDeals.Website.Controllers
 {
@@ -31,6 +32,17 @@ namespace HotDeals.Website.Controllers
             return Ok(deals);
         }
 
+        [Route("{debug?}")]
+        [HttpPost]
+        [ResponseType(typeof(DealViewModel))]
+        public IHttpActionResult Post(DealViewModel dealVm)
+        {
+            Deal deal = Mapper.Map<DealViewModel, Deal>(dealVm);
+            this._dealRepository.Add(deal); 
+            return Ok("a deal is added");
+        }
+
+        
 
     }
 }

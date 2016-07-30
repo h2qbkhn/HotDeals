@@ -13,6 +13,9 @@ var HQHO;
                 BaseService.prototype.getAllEntities = function () {
                     return this.$http.get(HotDeals.Tools.apiServiceBaseUrl + this.name);
                 };
+                BaseService.prototype.addEntity = function (entity, params) {
+                    return this.$http.post(HotDeals.Tools.apiServiceBaseUrl + this.name, entity, params);
+                };
                 return BaseService;
             })();
             Services.BaseService = BaseService;
