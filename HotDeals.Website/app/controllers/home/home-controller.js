@@ -9,12 +9,15 @@ var HQHO;
             function HomeController($scope, api) {
                 this.$scope = $scope;
                 this.api = api;
-                this.$scope.vm = {};
+                this.$scope.vm = {
+                    deals: []
+                };
                 this._init();
             }
             HomeController.prototype._init = function () {
+                var _this = this;
                 this.api.dealService.getAllEntities().success(function (data) {
-                    console.log(data);
+                    _this.$scope.vm.deals = data;
                 });
             };
             return HomeController;

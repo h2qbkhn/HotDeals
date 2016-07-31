@@ -245,8 +245,14 @@
     <Content Include="app\controllers\home\home-controller.js" />
     <Content Include="app\controllers\main\main-controller.js" />
     <Content Include="app\controllers\newdeal\newdeal-controller.js" />
+    <Content Include="app\directives\date-directive.js" />
+    <Content Include="app\directives\templates\date-input.html" />
+    <Content Include="app\images\bg_home.jpg" />
+    <Content Include="app\images\logo_areas.png" />
     <Content Include="app\model\deal.js" />
+    <Content Include="app\views\home\home.css" />
     <Content Include="app\views\home\home.html" />
+    <Content Include="app\views\main\main.css" />
     <Content Include="app\views\main\main.html" />
     <Content Include="app\views\newdeal\newdeal.html" />
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -266,6 +272,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="gulpfile.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\angular-breadcrumb.js" />
@@ -300,6 +307,7 @@
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="app\views\home\home.less" />
     <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="app\views\main\main.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -453,6 +461,7 @@
     <TypeScriptCompile Include="app\controllers\home\home-controller.ts" />
     <TypeScriptCompile Include="app\controllers\main\main-controller.ts" />
     <TypeScriptCompile Include="app\controllers\newdeal\newdeal-controller.ts" />
+    <TypeScriptCompile Include="app\directives\date-directive.ts" />
     <TypeScriptCompile Include="app\model\deal.ts" />
     <TypeScriptCompile Include="app\services\apiService.ts" />
     <TypeScriptCompile Include="app\services\base\baseService.ts" />

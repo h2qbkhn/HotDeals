@@ -1,0 +1,72 @@
+.hq-card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border: none;
+  border-radius: 0;
+}
+.container-deal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-bottom: 30px;
+  background-color: white;
+  padding: 15px;
+}
+.container-deal .img-deal {
+  max-width: 250px;
+  max-height: 250px;
+}
+.container-deal .img-deal a[name=image-link-deal] img {
+  cursor: pointer;
+}
+.container-deal .img-deal .container-price [name=price] {
+  margin-bottom: 0px;
+  margin-top: 15px;
+  border: 2px solid;
+  line-height: 40px;
+  font-style: italic;
+  text-align: center;
+}
+.container-deal .img-deal .container-price [name=price]::after {
+  content: " €";
+}
+.container-deal .detail-deal {
+  width: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.container-deal .detail-deal [name=title] {
+  font-style: oblique;
+  text-align: center;
+  padding-bottom: 15px;
+}
+.container-deal .detail-deal [name=description] {
+  text-align: center;
+  background-color: lightgray;
+}
+.container-deal .degree-deal {
+  width: 100px;
+  padding-left: 15px;
+  border-left: 0.01px dotted;
+  border-left-color: blue;
+}
+.container-deal .degree-deal .degree-text {
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.container-deal .degree-deal .degree-text [name=degree] {
+  color: lightblue;
+  font-weight: bolder;
+}
+.container-deal .degree-deal .degree-text .degree-btn {
+  width: 100%;
+  cursor: pointer;
+}
+.container-deal .degree-deal .degree-text .degree-btn.plus {
+  background-color: blue;
+}
+.container-deal .degree-deal .degree-text .degree-btn.minus {
+  background-color: red;
+}

@@ -47,6 +47,7 @@ namespace HotDeals.Website
                       "~/app/services/category/categoryService.js",
                       "~/app/services/sub_category/subCategoryService.js",
                       "~/app/services/apiService.js",
+                      "~/app/directives/date-directive.js",
                       "~/app/model/deal.js",
                       "~/app/controllers/main/main-controller.js",
                       "~/app/controllers/home/home-controller.js",
@@ -55,7 +56,8 @@ namespace HotDeals.Website
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css"
+                      ));
         }
     }
 }

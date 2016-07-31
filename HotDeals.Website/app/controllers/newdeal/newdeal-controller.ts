@@ -2,67 +2,63 @@
 /// <reference path="../../../Scripts/typings/angularjs/angular-resource.d.ts"/>
 module HQHO.HotDeals {
     "use strict";
-    import Deal = HQHO.HotDeals.Models.Deal; 
+    import Deal = HQHO.HotDeals.Models.Deal;
 
     export interface INewDealViewModel {
-        categories: any; 
-        subcategories: any; 
-        typedeals: any; 
+        categories: any;
+        subcategories: any;
+        typedeals: any;
     }
     export interface INewDealScopeMethod {
-        subcategoryChanged: () => void; 
+        subcategoryChanged: () => void;
         categoryChanged: () => void;
-        typedealChanged: () => void;   
+        typedealChanged: () => void;
         saveNewDeal: () => void;
     }
 
     export interface INewDealScope extends ng.IScope {
-        vm: INewDealViewModel; 
+        vm: INewDealViewModel;
         currentDeal: Deal;
-        mt: INewDealScopeMethod; 
-        dateOptions: any; 
+        mt: INewDealScopeMethod;
+        dateOptions: any;
     }
 
     export class NewDealController {
-       
+
         constructor(private $scope: INewDealScope, private $q: ng.IQService,
-            private $timeout: ng.ITimeoutService,private api: Services.Api) {
+            private $state,
+            private $timeout: ng.ITimeoutService, private api: Services.Api) {
             this.$scope.vm = {
-                categories: [], 
-                subcategories: [], 
+                categories: [],
+                subcategories: [],
                 typedeals: []
             }
-            this.$scope.currentDeal = new Deal(); 
-
-            this.$scope.dateOptions = {
-                dateDisabled: false,
-                formatYear: 'yy',
-                maxDate: new Date(2020, 5, 22),
-                minDate: new Date(),
-                startingDay: 1
-            };
+            this.$scope.currentDeal = new Deal();
 
             this.$scope.mt = {
-                categoryChanged : this.categoryChanged.bind(this),
+                categoryChanged: this.categoryChanged.bind(this),
                 subcategoryChanged: this.subcategoryChanged.bind(this),
-                typedealChanged: this.typedealChanged.bind(this), 
-                saveNewDeal: this.saveNewDeal.bind(this), 
-            } 
+                typedealChanged: this.typedealChanged.bind(this),
+                saveNewDeal: this.saveNewDeal.bind(this),
+            }
 
+            this.$scope.currentDeal.startDate = new Date(2014, 10, 9);
 
-
-            this._init(); 
+            this._init();
         }
         private _init(): ng.IPromise<any> {
             return this.$q.all([
-                this._getAllTypeDeals(), 
-                this._getAllCategories(), 
+                this._getAllTypeDeals(),
+                this._getAllCategories(),
             ]).then(() => {
-                this.$scope.currentDeal.categoryId = this.$scope.vm.categories[0].id; 
-                var promises = []; 
+                this.$scope.currentDeal.categoryId = this.$scope.vm.categories[0].id;
+                var promises = [];
                 promises.push(this._getSubCategoriesByCategoryId(this.$scope.currentDeal.categoryId));
-                return this.$q.all(promises);  
-            });       
+                return this.$q.all(promises);
+            }).then(() => {
+                this.$scope.currentDeal.typeDealId = this.$scope.vm.typedeals[0].id; 
+                this.$scope.currentDeal.subcategoryId = this.$scope.vm.subcategories[0].id; 
+            });
         }
 
         private _getAllTypeDeals() {
@@ -74,7 +70,7 @@ module HQHO.HotDeals {
         private _getAllCategories() {
             return this.api.categoryService.getAllEntities().success((categories) => {
                 this.$scope.vm.categories = categories;
-            }); 
+            });
         }
 
         private _getAllSubCategories() {
@@ -85,18 +81,18 @@ module HQHO.HotDeals {
 
         private _getSubCategoriesByCategoryId(categoryId: string) {
             return this.api.subCategoryService.getSubCategoriesByCategoryId(categoryId).success((data) => {
-                this.$scope.vm.subcategories = data; 
+                this.$scope.vm.subcategories = data;
             })
         }
 
         public typedealChanged() {
 
         }
-        
+
         public categoryChanged() {
-            var that = this; 
+            var that = this;
             var currentCategoryId = that.$scope.currentDeal.categoryId;
-            var promises = []; 
+            var promises = [];
             promises.push(that._getSubCategoriesByCategoryId(currentCategoryId));
             return that.$q.all(promises)
                 .then(() => {
@@ -110,15 +106,16 @@ module HQHO.HotDeals {
         }
 
         public saveNewDeal() {
-            var that = this; 
-            var dealToAdd = this.$scope.currentDeal; 
-            dealToAdd.startDate = dealToAdd.startDate ? dealToAdd.startDate : new Date(); 
-            dealToAdd.endDate = dealToAdd.endDate ? dealToAdd.endDate : new Date(); 
+            var that = this;
+            var dealToAdd = this.$scope.currentDeal;
+            dealToAdd.startDate = dealToAdd.startDate ? dealToAdd.startDate : new Date();
+            dealToAdd.endDate = dealToAdd.endDate ? dealToAdd.endDate : new Date();
+            dealToAdd.creationDate = dealToAdd.endDate ? dealToAdd.endDate : new Date();
             return that.api.dealService.addEntity(dealToAdd).success((data) => {
-                
+                that.$state.go("main.home");
             })
         }
     }
 
-    angular.module('HotDeals').controller('NewDealCtrl',['$scope','$q', '$timeout', 'Api',   NewDealController]);
+    angular.module('HotDeals').controller('NewDealCtrl', ['$scope', '$q', '$state', '$timeout', 'Api', NewDealController]);
 }

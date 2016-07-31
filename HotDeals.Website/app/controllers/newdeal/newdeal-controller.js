@@ -7,9 +7,10 @@ var HQHO;
         "use strict";
         var Deal = HQHO.HotDeals.Models.Deal;
         var NewDealController = (function () {
-            function NewDealController($scope, $q, $timeout, api) {
+            function NewDealController($scope, $q, $state, $timeout, api) {
                 this.$scope = $scope;
                 this.$q = $q;
+                this.$state = $state;
                 this.$timeout = $timeout;
                 this.api = api;
                 this.$scope.vm = {
@@ -18,19 +19,13 @@ var HQHO;
                     typedeals: []
                 };
                 this.$scope.currentDeal = new Deal();
-                this.$scope.dateOptions = {
-                    dateDisabled: false,
-                    formatYear: 'yy',
-                    maxDate: new Date(2020, 5, 22),
-                    minDate: new Date(),
-                    startingDay: 1
-                };
                 this.$scope.mt = {
                     categoryChanged: this.categoryChanged.bind(this),
                     subcategoryChanged: this.subcategoryChanged.bind(this),
                     typedealChanged: this.typedealChanged.bind(this),
                     saveNewDeal: this.saveNewDeal.bind(this),
                 };
+                this.$scope.currentDeal.startDate = new Date(2014, 10, 9);
                 this._init();
             }
             NewDealController.prototype._init = function () {
@@ -43,6 +38,9 @@ var HQHO;
                     var promises = [];
                     promises.push(_this._getSubCategoriesByCategoryId(_this.$scope.currentDeal.categoryId));
                     return _this.$q.all(promises);
+                }).then(function () {
+                    _this.$scope.currentDeal.typeDealId = _this.$scope.vm.typedeals[0].id;
+                    _this.$scope.currentDeal.subcategoryId = _this.$scope.vm.subcategories[0].id;
                 });
             };
             NewDealController.prototype._getAllTypeDeals = function () {
@@ -90,13 +88,15 @@ var HQHO;
                 var dealToAdd = this.$scope.currentDeal;
                 dealToAdd.startDate = dealToAdd.startDate ? dealToAdd.startDate : new Date();
                 dealToAdd.endDate = dealToAdd.endDate ? dealToAdd.endDate : new Date();
+                dealToAdd.creationDate = dealToAdd.endDate ? dealToAdd.endDate : new Date();
                 return that.api.dealService.addEntity(dealToAdd).success(function (data) {
+                    that.$state.go("main.home");
                 });
             };
             return NewDealController;
         })();
         HotDeals.NewDealController = NewDealController;
-        angular.module('HotDeals').controller('NewDealCtrl', ['$scope', '$q', '$timeout', 'Api', NewDealController]);
+        angular.module('HotDeals').controller('NewDealCtrl', ['$scope', '$q', '$state', '$timeout', 'Api', NewDealController]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
 //# sourceMappingURL=newdeal-controller.js.map

@@ -22,6 +22,7 @@ module HQHO.HotDeals {
             //enabled content
             $rootScope.isLoading = false;
         });
+        
     }]);
 
     app.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "cfpLoadingBarProvider", "$breadcrumbProvider", "$locationProvider",
@@ -66,7 +67,9 @@ module HQHO.HotDeals {
             }
             $urlRouterProvider.otherwise("/home");
            
-           cfpLoadingBarProvider.includeSpinner = false;
+            cfpLoadingBarProvider.includeSpinner = false;
+
+            
         }
     ]);
 }

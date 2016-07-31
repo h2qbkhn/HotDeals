@@ -1,20 +1,49 @@
-﻿<div class="row">
-    <div class="col-md-8">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Panel title</h3>
+﻿<head>
+    <link href="app/views/home/home.css" rel="stylesheet" />
+</head>
+<div class="row">
+    <div class="col-md-8">     
+        <div class="hq-card container-deal" ng-repeat="deal in vm.deals">
+            <div class="img-deal">
+                <a name="image-link-deal">
+                    <img src="app/images/logo_areas.png" />
+                </a>              
+                <div class="container-price">
+                    <div name="price">{{deal.price}}</div>
+                </div>
             </div>
-            <div class="panel-body">
-                Panel content
+            <div class="detail-deal">
+                <div name="title">
+                    {{deal.title}}
+                </div>
+                <div name="description">
+                    {{deal.description}}
+                </div>
+            </div>
+
+            <div class="degree-deal">
+                <div class="degree-btn plus">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+                </div>
+
+                <div class="degree-text">
+                    <div name="degree">100°</div>
+                </div>
+
+                <div class="degree-btn minus">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                </div>
             </div>
         </div>
+
     </div>
     <div class="col-md-4">
         <div class="container">
             <div class="row">
-                <button class="btn btn-block btn-info"
-                        ui-sref="main.newdeal({})">Add new deal</button>
+                <button class="btn btn-block btn-info hq-card btn-lg"
+                        ui-sref="main.newdeal({})">Ajouter un deal</button>
             </div>
+
         </div>
     </div>
 </div>

@@ -26,7 +26,7 @@
         public description: string = "";
         public startDate: Date;
         public endDate: Date;
-
+        public creationDate: Date; 
         constructor() {
 
         }
