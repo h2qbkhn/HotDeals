@@ -2,14 +2,17 @@
     <link href="app/views/home/home.css" rel="stylesheet" />
 </head>
 <div class="row">
-    <div class="col-md-8">     
+    <div class="col-md-8">
         <div class="hq-card container-deal" ng-repeat="deal in vm.deals">
             <div class="img-deal">
                 <a name="image-link-deal">
                     <img src="app/images/logo_areas.png" />
-                </a>              
+                </a>
                 <div class="container-price">
                     <div name="price">{{deal.price}}</div>
+                </div>
+                <div class="container-oldprice">
+                    <div name="oldprice">{{deal.oldPrice}}</div>
                 </div>
             </div>
             <div class="detail-deal">
@@ -21,27 +24,35 @@
                 </div>
             </div>
 
-            <div class="degree-deal">
-                <div class="degree-btn plus">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+            <div class="container-degree-online">
+                <div class="container-online">
+                    <div class="online-text" ng-if="deal.isOnline">En ligne</div>
+                    <div class="online-text" ng-if="!deal.isOnline">En magasin</div>
                 </div>
+                <div class="container-degree hq-btn">
+                    <div class="btn btn-block btn-success">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </div>
 
-                <div class="degree-text">
-                    <div name="degree">100°</div>
-                </div>
+                    <div class="degree-text">
+                       100°
+                    </div>
 
-                <div class="degree-btn minus">
-                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    <div class="btn btn-block btn-warning hq-btn">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
+
     <div class="col-md-4">
         <div class="container">
             <div class="row">
                 <button class="btn btn-block btn-info hq-card btn-lg"
-                        ui-sref="main.newdeal({})">Ajouter un deal</button>
+                        ui-sref="main.newdeal({})">
+                    Ajouter un deal
+                </button>
             </div>
 
         </div>

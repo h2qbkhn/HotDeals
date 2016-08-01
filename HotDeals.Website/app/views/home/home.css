@@ -8,22 +8,30 @@
   background-color: white;
   padding: 15px;
 }
-.container-deal .img-deal {
-  max-width: 250px;
-  max-height: 250px;
-}
 .container-deal .img-deal a[name=image-link-deal] img {
   cursor: pointer;
+  max-width: 100px;
+  max-height: 100px;
+  width: 100px;
+  height: 100px;
 }
 .container-deal .img-deal .container-price [name=price] {
   margin-bottom: 0px;
-  margin-top: 15px;
+  margin-top: 10px;
   border: 2px solid;
-  line-height: 40px;
+  line-height: 30px;
   font-style: italic;
   text-align: center;
 }
 .container-deal .img-deal .container-price [name=price]::after {
+  content: " €";
+}
+.container-deal .img-deal .container-oldprice [name=oldprice] {
+  margin-top: 10px;
+  text-decoration: line-through;
+  text-align: center;
+}
+.container-deal .img-deal .container-oldprice [name=oldprice]::after {
   content: " €";
 }
 .container-deal .detail-deal {
@@ -40,28 +48,18 @@
   text-align: center;
   background-color: lightgray;
 }
-.container-deal .degree-deal {
-  width: 100px;
-  padding-left: 15px;
-  border-left: 0.01px dotted;
-  border-left-color: blue;
+.container-deal .container-degree-online {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
 }
-.container-deal .degree-deal .degree-text {
-  width: 100%;
+.container-deal .container-degree-online .container-online {
+  color: green;
   margin-bottom: 15px;
-  margin-top: 15px;
 }
-.container-deal .degree-deal .degree-text [name=degree] {
+.container-deal .container-degree-online .container-degree .degree-text {
+  line-height: 45px;
   color: lightblue;
   font-weight: bolder;
-}
-.container-deal .degree-deal .degree-text .degree-btn {
-  width: 100%;
-  cursor: pointer;
-}
-.container-deal .degree-deal .degree-text .degree-btn.plus {
-  background-color: blue;
-}
-.container-deal .degree-deal .degree-text .degree-btn.minus {
-  background-color: red;
+  text-align: center;
 }

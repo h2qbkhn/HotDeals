@@ -1,84 +1,79 @@
-﻿
+﻿@sizeImage: 100px;
 .container-deal {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     background-color: white;
     padding: 15px;
-
     .img-deal {
-        max-width: 250px;
-        max-height: 250px;
-
         a[name=image-link-deal] {
             img {
                 cursor: pointer;
+                max-width: @sizeImage;
+                max-height: @sizeImage;
+                width: @sizeImage;
+                height: @sizeImage;
             }
         }
-
         .container-price {
             [name=price] {
                 margin-bottom: 0px;
-                margin-top: 15px;
+                margin-top: 10px;
                 border: 2px solid;
-                line-height: 40px;
+                line-height: 30px;
                 font-style: italic;
                 text-align: center;
-
                 &::after {
                     content: " €";
                 }
             }
         }
-    }
 
+        .container-oldprice{
+        	[name=oldprice]{
+        		margin-top: 10px; 
+        		text-decoration: line-through;
+        		text-align: center;
+        		&::after {
+                    content: " €";
+                }
+        	}
+        }
+    }
     .detail-deal {
         width: 100%;
         margin-left: 15px;
         margin-right: 15px;
-
         [name=title] {
             text-align: center;
             font-style: oblique;
             text-align: center;
             padding-bottom: 15px;
+            font-weight: bolder;
         }
-
         [name=description] {
             text-align: center;
             background-color: lightgray;
         }
     }
-
-    .degree-deal {
-        width: 100px;
-        padding-left: 15px;
-            border-left: 0.01px dotted;
-            border-left-color: blue;
-        .degree-text {
-            width: 100%;
+    .container-degree-online {
+        display: flex;
+        flex-direction: column;
+        min-width: 100px;
+        .container-online {
             margin-bottom: 15px;
-            margin-top: 15px;
-            
-            [name=degree] {
+            color: green;
+            margin-bottom: 15px;
+        }
+        .container-degree {
+            .degree-text {
+                line-height: 45px;
                 color: lightblue;
                 font-weight: bolder;
-            }
-
-            .degree-btn {
-                width: 100%;
-                cursor: pointer;
-
-                &.plus {
-                    background-color: blue;
-                }
-
-                &.minus {
-                    background-color: red;
-                }
+                text-align: center;
             }
         }
     }
