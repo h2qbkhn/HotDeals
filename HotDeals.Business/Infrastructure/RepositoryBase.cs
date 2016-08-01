@@ -13,7 +13,6 @@ namespace HotDeals.Business.Infrastructure
 
         public RepositoryBase()
         {
-
         }
 
         protected IDbSet<T> DbSet
