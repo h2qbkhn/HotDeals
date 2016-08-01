@@ -1,0 +1,30 @@
+﻿.setPaddingLeftRight(@x) {
+	padding-right: @x; 
+	padding-left: @x; 
+}
+.zone-newdeal {
+    background-color: white;
+    padding: 30px;
+    &.zone-title {
+        .zone-start-date,
+        .zone-end-date, 
+        .zone-prix, 
+        .zone-code-reduction {
+            .setPaddingLeftRight(0px); 
+        }
+        .zone-image {
+            margin-top: 25px;
+        }
+        .container-thumbnail {
+        	display: flex; 
+        	flex-direction: column;
+
+         	img{
+         		margin-bottom: 15px; 
+         	}
+
+        }
+       
+    }
+    &.zone-category {}
+}

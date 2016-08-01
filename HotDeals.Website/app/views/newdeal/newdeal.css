@@ -1,0 +1,21 @@
+.zone-newdeal {
+  background-color: white;
+  padding: 30px;
+}
+.zone-newdeal.zone-title .zone-start-date,
+.zone-newdeal.zone-title .zone-end-date,
+.zone-newdeal.zone-title .zone-prix,
+.zone-newdeal.zone-title .zone-code-reduction {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.zone-newdeal.zone-title .zone-image {
+  margin-top: 25px;
+}
+.zone-newdeal.zone-title .container-thumbnail {
+  display: flex;
+  flex-direction: column;
+}
+.zone-newdeal.zone-title .container-thumbnail img {
+  margin-bottom: 15px;
+}

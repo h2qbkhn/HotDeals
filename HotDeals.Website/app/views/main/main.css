@@ -4,3 +4,26 @@ body {
   background-position: center center;
   background-size: cover;
 }
+button[type=button] {
+  border-radius: 0px;
+}
+input.form-control,
+textarea.form-control,
+select.form-control {
+  border-radius: 0px;
+}
+input.form-control[type=text],
+input.form-control[type=number],
+input.form-control[type=date] {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  box-shadow: none;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.hq-card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border: none;
+  border-radius: 0;
+}

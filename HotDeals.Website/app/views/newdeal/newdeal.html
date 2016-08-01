@@ -1,58 +1,103 @@
-﻿<form novalidate >
-    <div class="container">
-        <div class="form-group">
-            <label for="titleIpt">Title</label>
-            <input type="text" ng-required="true" class="form-control" id="titleIpt" ng-model="currentDeal.title" />
+﻿<head>
+    <link href="app/views/newdeal/newdeal.css" rel="stylesheet" />
+</head>
+<form class="form-horizontal" novalidate>
+    <div class="container-fluid">
+        <div class="col-md-3 hq-card zone-newdeal zone-category">
+            <div class="form-group">
+                <label for="typedealIpt">Type of deal(*)</label>
+                <select class="form-control" id="typedealIpt" ng-model="currentDeal.typeDealId" ng-change="mt.typedealChanged()" ng-options="option.id as option.label for option in vm.typedeals"></select>
+            </div>
+            <div class="form-group">
+                <label for="categoryIpt">Category(*)</label>
+                <select class="form-control" id="categoryIpt" ng-model="currentDeal.categoryId" ng-change="mt.categoryChanged()" ng-options="category.id as category.label for category in vm.categories"></select>
+            </div>
+            <div class="form-group">
+                <label for="subcategoryIpt">Sub-Category(*)</label>
+                <select class="form-control" id="subcategoryIpt" ng-model="currentDeal.subcategoryId" ng-change="mt.subcategoryChanged()" ng-options="subcategory.id as subcategory.label for subcategory in vm.subcategories"></select>
+            </div>
         </div>
+        <div class="col-md-8 col-md-offset-1 hq-card zone-newdeal zone-title">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <label for="titleIpt">Title(*)</label>
+                        <input type="text" ng-required="true" class="form-control" id="titleIpt" ng-model="currentDeal.title" />
+                    </div>
 
-        <div class="form-group">
-            <label for="priceIpt">Price</label>
-            <input type="number" class="form-control" id="priceIpt" ng-model="currentDeal.price" />
+                    <div class="form-group">
+                        <label for="linkToIpt">Lien du deal(*)</label>
+                        <input type="text" class="form-control" id="linkToIpt" ng-model="currentDeal.linkTo" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nameSellerIpt">Nom du marchant</label>
+                        <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.nameSeller" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nameSellerIpt">Adresse du marchant</label>
+                        <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.addressSeller" />
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-md-offset-1 zone-image">
+                    <div class="form-group">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn" ng-class="currentDeal.isOnline === 1 ? 'btn-success': ''"
+                                    ng-click="currentDeal.isOnline = 1">En ligne</button>
+                            <button type="button" class="btn" ng-class="currentDeal.isOnline === 0 ? 'btn-success': ''"
+                                    ng-click="currentDeal.isOnline = 0 ">En magasin</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkToIpt">Image</label>
+                        <div class="container-thumbnail">
+                            <img src="app/images/logo_areas.png" alt="...">
+                            <button type="button" class="btn btn-primary btn-block">Choisir un image</button>
+                            <button type="button" class="btn btn-default btn-block">Ajouter un lien</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-2 zone-prix">
+                    <label for="priceIpt">Prix</label>
+                    <input type="number" class="form-control" id="priceIpt" ng-model="currentDeal.price" />
+                </div>
+                <div class="col-md-2 col-md-offset-1">
+                    <label for="oldPriceIpt">Prix habituel</label>
+                    <input type="number" class="form-control" id="oldPriceIpt" ng-model="currentDeal.oldPrice" />
+                </div>
+                <div class="col-md-5 col-md-offset-2 zone-code-reduction">
+                    <label for="codeReductionIpt">Code de réduction</label>
+                    <input type="text" class="form-control" id="codeReductionIpt" ng-model="currentDeal.codeReduction" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5 zone-start-date">
+                    <label for="startDateIpt">Start</label>
+                    <input type="date" class="form-control" id="startDateIpt" ng-model="currentDeal.startDate" />
+                </div>
+
+                <div class="col-md-5 col-md-offset-2 zone-end-date">
+                    <label for="endDateIpt">End</label>
+                    <input type="date" class="form-control" id="endDateIpt" ng-model="currentDeal.endDate" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="descriptionIpt">Description</label>
+                <textarea rows="4" class="form-control" id="descriptionIpt" ng-model="currentDeal.description"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" ng-click="mt.saveNewDeal()" class="form-control btn btn-primary" id="submit" value="Submit" />
+            </div>
         </div>
-
-        <div class="form-group">
-            <label for="endDateIpt">End</label>
-            <input type="date" class="form-control" id="endDateIpt" ng-model="currentDeal.endDate" />
-        </div>
-
-        <div class="form-group">
-            <label for="startDateIpt">Start</label>
-            <input type="date" class="form-control" id="startDateIpt" ng-model="currentDeal.startDate" />
-        </div>
-
-        <!--<div class="form-group">
-           <hd-date-input model="currentDeal.startDate"></hd-date-input>
-        </div>-->
-
-        <div class="form-group">
-            <label for="typedealIpt">Type of deal</label>
-            <select class="form-control" id="typedealIpt"
-                    ng-model="currentDeal.typeDealId"
-                    ng-change="mt.typedealChanged()"
-                    ng-options="option.id as option.label for option in vm.typedeals"></select>
-        </div>
-
-        <div class="form-group">
-            <label for="categoryIpt">Category</label>
-            <select class="form-control" id="categoryIpt"
-                    ng-model="currentDeal.categoryId"
-                    ng-change="mt.categoryChanged()"
-                    ng-options="category.id as category.label for category in vm.categories"></select>
-        </div>
-
-        <div class="form-group">
-            <label for="subcategoryIpt">Sub-Category</label>
-            <select class="form-control" id="subcategoryIpt"
-                    ng-model="currentDeal.subcategoryId"
-                    ng-change="mt.subcategoryChanged()"
-                    ng-options="subcategory.id as subcategory.label for subcategory in vm.subcategories"></select>
-        </div>
-
-        <div class="form-group">
-            <label for="descriptionIpt">Description</label>
-            <textarea rows="3" class="form-control" id="descriptionIpt" ng-model="currentDeal.description"></textarea>
-        </div>
-
-        <input type="submit" ng-click="mt.saveNewDeal()" class="form-control" id="submit" value="Submit"/>
     </div>
 </form>

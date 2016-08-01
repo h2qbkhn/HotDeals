@@ -4,37 +4,27 @@ module HQHO.HotDeals {
     "use strict";
     import Deal = HQHO.HotDeals.Models.Deal;
 
-    export interface INewDealViewModel {
-        categories: any;
-        subcategories: any;
-        typedeals: any;
+    export interface INewDealViewModel extends IBaseViewModel {
+
     }
-    export interface INewDealScopeMethod {
+    export interface INewDealScopeMethod extends IBaseScopeMethod {
         subcategoryChanged: () => void;
         categoryChanged: () => void;
         typedealChanged: () => void;
         saveNewDeal: () => void;
     }
 
-    export interface INewDealScope extends ng.IScope {
-        vm: INewDealViewModel;
+    export interface INewDealScope extends IBaseScope {
         currentDeal: Deal;
-        mt: INewDealScopeMethod;
-        dateOptions: any;
     }
 
-    export class NewDealController {
+    export class NewDealController extends BaseController {
 
-        constructor(private $scope: INewDealScope, private $q: ng.IQService,
-            private $state,
-            private $timeout: ng.ITimeoutService, private api: Services.Api) {
-            this.$scope.vm = {
-                categories: [],
-                subcategories: [],
-                typedeals: []
-            }
+        constructor(private $scope: INewDealScope, $q: ng.IQService,
+            $state, $timeout: ng.ITimeoutService, api: Services.Api) {
+            super($q, $state, $timeout, api);
+
             this.$scope.currentDeal = new Deal();
-
             this.$scope.mt = {
                 categoryChanged: this.categoryChanged.bind(this),
                 subcategoryChanged: this.subcategoryChanged.bind(this),
@@ -43,46 +33,29 @@ module HQHO.HotDeals {
             }
 
             this.$scope.currentDeal.startDate = new Date(2014, 10, 9);
+            this.$scope.currentDeal.endDate = new Date(2014, 10, 9);
 
             this._init();
         }
         private _init(): ng.IPromise<any> {
-            return this.$q.all([
-                this._getAllTypeDeals(),
-                this._getAllCategories(),
-            ]).then(() => {
-                this.$scope.currentDeal.categoryId = this.$scope.vm.categories[0].id;
-                var promises = [];
-                promises.push(this._getSubCategoriesByCategoryId(this.$scope.currentDeal.categoryId));
-                return this.$q.all(promises);
-            }).then(() => {
-                this.$scope.currentDeal.typeDealId = this.$scope.vm.typedeals[0].id; 
-                this.$scope.currentDeal.subcategoryId = this.$scope.vm.subcategories[0].id; 
-            });
-        }
-
-        private _getAllTypeDeals() {
-            return this.api.typedealService.getAllEntities().success((data) => {
-                this.$scope.vm.typedeals = data;
-            });
-        }
-
-        private _getAllCategories() {
-            return this.api.categoryService.getAllEntities().success((categories) => {
-                this.$scope.vm.categories = categories;
-            });
-        }
-
-        private _getAllSubCategories() {
-            return this.api.subCategoryService.getAllEntities().success((subcategories) => {
-                this.$scope.vm.subcategories = subcategories;
-            })
-        }
-
-        private _getSubCategoriesByCategoryId(categoryId: string) {
-            return this.api.subCategoryService.getSubCategoriesByCategoryId(categoryId).success((data) => {
-                this.$scope.vm.subcategories = data;
-            })
+            var that = this;
+            return that.loadReferences()               
+                .then(() => {
+                    that.$scope.currentDeal.categoryId = that.categories[0].id;
+                    var promises = [];
+                    promises.push(that._getSubCategoriesByCategoryId(that.$scope.currentDeal.categoryId));
+                    return that.$q.all(promises);
+                }).then(() => {
+                    that.$scope.currentDeal.typeDealId = that.typedeals[0].id;
+                    that.$scope.currentDeal.subcategoryId = that.subcategories[0].id;
+                })
+                .then(() => {
+                    that.$scope.vm = {
+                        categories: that.categories,
+                        subcategories: that.subcategories,
+                        typedeals: that.typedeals,
+                    }
+                });
         }
 
         public typedealChanged() {

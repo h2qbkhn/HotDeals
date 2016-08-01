@@ -49,6 +49,7 @@ namespace HotDeals.Website
                       "~/app/services/apiService.js",
                       "~/app/directives/date-directive.js",
                       "~/app/model/deal.js",
+                      "~/app/controllers/base/base-controller.js",
                       "~/app/controllers/main/main-controller.js",
                       "~/app/controllers/home/home-controller.js",
                       "~/app/controllers/newdeal/newdeal-controller.js"

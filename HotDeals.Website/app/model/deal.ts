@@ -7,11 +7,15 @@
         subcategoryId: string; 
         linkTo: string; 
         nameSeller: string; 
+        addressSeller: string; 
         srcImg: string; 
         price: number;
+        oldPrice: number; 
+        codeReduction: string; 
         description: string; 
         startDate: Date; 
         endDate: Date; 
+        isOnline: number; 
     }
 
     export class Deal implements IDeal {
@@ -21,12 +25,16 @@
         public subcategoryId: string = "";
         public linkTo: string = "";
         public nameSeller: string = "";
+        public addressSeller: string = "";
         public srcImg: string = "";
-        public price: number = null ;
+        public price: number = null;
+        public oldPrice: number = null; 
+        public codeReduction: string = ""; 
         public description: string = "";
         public startDate: Date;
         public endDate: Date;
         public creationDate: Date; 
+        public isOnline: number = 1; 
         constructor() {
 
         }

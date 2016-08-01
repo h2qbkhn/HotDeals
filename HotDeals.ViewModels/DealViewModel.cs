@@ -15,11 +15,15 @@ namespace HotDeals.ViewModels
         public Guid SubCategoryId { get; set; }
         public string LinkTo { get; set; }
         public string NameSeller { get; set; }
+        public string AddressSeller { get; set; }
         public string SrcImg { get; set; }
         public decimal Price { get; set; }
+        public decimal OldPrice { get; set; }
+        public string CodeReduction { get; set; }
         public string Description { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime CreationDate { get; set; }
+        public int IsOnline { get; set;  }
     }
 }

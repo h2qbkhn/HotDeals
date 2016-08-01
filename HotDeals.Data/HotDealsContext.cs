@@ -12,8 +12,8 @@ namespace HotDeals.Data
     {
         public HotDealsContext(): base("name=HotDealsConnectionString")
         {
-            //Database.SetInitializer<HotDealsContext>(new HotDealsDbInitializer());
-            Database.SetInitializer<HotDealsContext>(null);
+            Database.SetInitializer<HotDealsContext>(new HotDealsDbInitializer());
+            //Database.SetInitializer<HotDealsContext>(null);
         }
         public DbSet<Deal> Deals { get; set; }
         public DbSet<Category> Categories { get; set; }

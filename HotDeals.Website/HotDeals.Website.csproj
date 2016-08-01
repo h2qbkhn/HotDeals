@@ -242,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\base\base-controller.js" />
     <Content Include="app\controllers\home\home-controller.js" />
     <Content Include="app\controllers\main\main-controller.js" />
     <Content Include="app\controllers\newdeal\newdeal-controller.js" />
@@ -254,6 +255,7 @@
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\main\main.css" />
     <Content Include="app\views\main\main.html" />
+    <Content Include="app\views\newdeal\newdeal.css" />
     <Content Include="app\views\newdeal\newdeal.html" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
@@ -308,6 +310,7 @@
     <Content Include="app\views\home\home.less" />
     <Content Include="Scripts\angular-resource.min.js.map" />
     <Content Include="app\views\main\main.less" />
+    <Content Include="app\views\newdeal\newdeal.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -458,6 +461,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\controllers\base\base-controller.ts" />
     <TypeScriptCompile Include="app\controllers\home\home-controller.ts" />
     <TypeScriptCompile Include="app\controllers\main\main-controller.ts" />
     <TypeScriptCompile Include="app\controllers\newdeal\newdeal-controller.ts" />

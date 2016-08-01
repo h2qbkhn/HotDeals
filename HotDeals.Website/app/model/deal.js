@@ -13,9 +13,13 @@ var HQHO;
                     this.subcategoryId = "";
                     this.linkTo = "";
                     this.nameSeller = "";
+                    this.addressSeller = "";
                     this.srcImg = "";
                     this.price = null;
+                    this.oldPrice = null;
+                    this.codeReduction = "";
                     this.description = "";
+                    this.isOnline = 1;
                 }
                 return Deal;
             })();

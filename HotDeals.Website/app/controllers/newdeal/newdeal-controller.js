@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 /// <reference path="../../../Scripts/typings/angularjs/angular.d.ts"/>
 /// <reference path="../../../Scripts/typings/angularjs/angular-resource.d.ts"/>
 var HQHO;
@@ -6,18 +11,11 @@ var HQHO;
     (function (HotDeals) {
         "use strict";
         var Deal = HQHO.HotDeals.Models.Deal;
-        var NewDealController = (function () {
+        var NewDealController = (function (_super) {
+            __extends(NewDealController, _super);
             function NewDealController($scope, $q, $state, $timeout, api) {
+                _super.call(this, $q, $state, $timeout, api);
                 this.$scope = $scope;
-                this.$q = $q;
-                this.$state = $state;
-                this.$timeout = $timeout;
-                this.api = api;
-                this.$scope.vm = {
-                    categories: [],
-                    subcategories: [],
-                    typedeals: []
-                };
                 this.$scope.currentDeal = new Deal();
                 this.$scope.mt = {
                     categoryChanged: this.categoryChanged.bind(this),
@@ -26,45 +24,27 @@ var HQHO;
                     saveNewDeal: this.saveNewDeal.bind(this),
                 };
                 this.$scope.currentDeal.startDate = new Date(2014, 10, 9);
+                this.$scope.currentDeal.endDate = new Date(2014, 10, 9);
                 this._init();
             }
             NewDealController.prototype._init = function () {
-                var _this = this;
-                return this.$q.all([
-                    this._getAllTypeDeals(),
-                    this._getAllCategories(),
-                ]).then(function () {
-                    _this.$scope.currentDeal.categoryId = _this.$scope.vm.categories[0].id;
+                var that = this;
+                return that.loadReferences()
+                    .then(function () {
+                    that.$scope.currentDeal.categoryId = that.categories[0].id;
                     var promises = [];
-                    promises.push(_this._getSubCategoriesByCategoryId(_this.$scope.currentDeal.categoryId));
-                    return _this.$q.all(promises);
+                    promises.push(that._getSubCategoriesByCategoryId(that.$scope.currentDeal.categoryId));
+                    return that.$q.all(promises);
                 }).then(function () {
-                    _this.$scope.currentDeal.typeDealId = _this.$scope.vm.typedeals[0].id;
-                    _this.$scope.currentDeal.subcategoryId = _this.$scope.vm.subcategories[0].id;
-                });
-            };
-            NewDealController.prototype._getAllTypeDeals = function () {
-                var _this = this;
-                return this.api.typedealService.getAllEntities().success(function (data) {
-                    _this.$scope.vm.typedeals = data;
-                });
-            };
-            NewDealController.prototype._getAllCategories = function () {
-                var _this = this;
-                return this.api.categoryService.getAllEntities().success(function (categories) {
-                    _this.$scope.vm.categories = categories;
-                });
-            };
-            NewDealController.prototype._getAllSubCategories = function () {
-                var _this = this;
-                return this.api.subCategoryService.getAllEntities().success(function (subcategories) {
-                    _this.$scope.vm.subcategories = subcategories;
-                });
-            };
-            NewDealController.prototype._getSubCategoriesByCategoryId = function (categoryId) {
-                var _this = this;
-                return this.api.subCategoryService.getSubCategoriesByCategoryId(categoryId).success(function (data) {
-                    _this.$scope.vm.subcategories = data;
+                    that.$scope.currentDeal.typeDealId = that.typedeals[0].id;
+                    that.$scope.currentDeal.subcategoryId = that.subcategories[0].id;
+                })
+                    .then(function () {
+                    that.$scope.vm = {
+                        categories: that.categories,
+                        subcategories: that.subcategories,
+                        typedeals: that.typedeals,
+                    };
                 });
             };
             NewDealController.prototype.typedealChanged = function () {
@@ -94,7 +74,7 @@ var HQHO;
                 });
             };
             return NewDealController;
-        })();
+        })(HotDeals.BaseController);
         HotDeals.NewDealController = NewDealController;
         angular.module('HotDeals').controller('NewDealCtrl', ['$scope', '$q', '$state', '$timeout', 'Api', NewDealController]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
