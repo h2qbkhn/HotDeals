@@ -8,21 +8,15 @@
             super($http, "deals"); 
         }
 
-        public getAllEntitiesByProperties(searchPropertyDeal: SearchPropertyDeal) : ng.IHttpPromise<any>{
-            if (searchPropertyDeal.categoryId == null && searchPropertyDeal.subCategoryId == null
-            && searchPropertyDeal.typeDealId === null && searchPropertyDeal.typeLocation === null)
-                return this.getAllEntities();
-            else {
-                return this.$http.get(Tools.apiServiceBaseUrl + this.name + '/search/', {
-                    params: {
-                        typeDealId: searchPropertyDeal.typeDealId, 
-                        categoryId: searchPropertyDeal.categoryId,
-                        subCategoryId: searchPropertyDeal.subCategoryId, 
-                        typeLocation: searchPropertyDeal.typeLocation
-                    }
-                })
-            }
-        }
+        public getEntitiesByTypeDealId(typeDealId: string, isHot: boolean = true, maxNb :number = 10) : ng.IHttpPromise<any> {
+            return this.$http.get(Tools.apiServiceBaseUrl + this.name + '/search/', {
+                params: {
+                    typeDealId: typeDealId, 
+                    isHot: isHot ? 1 : 0, 
+                    maxNumber: maxNb
+                }
+            })
+        }      
         
     }
 

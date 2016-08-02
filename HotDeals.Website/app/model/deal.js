@@ -15,6 +15,7 @@ var HQHO;
                 function Deal() {
                     _super.call(this);
                     this.title = "";
+                    this.degree = null;
                     this.typeDealId = "";
                     this.typeDealLabel = "";
                     this.typeDealValue = null;

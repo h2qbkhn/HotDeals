@@ -8,6 +8,7 @@ using HotDeals.ViewModels;
 using System.Web.Http.Description;
 using AutoMapper.QueryableExtensions;
 using AutoMapper;
+using System;
 
 namespace HotDeals.Website.Controllers
 {
@@ -21,10 +22,10 @@ namespace HotDeals.Website.Controllers
         {
             this._dealRepository = dealRepository;
         }
-        [Route("{debug?}")]
+        [Route("")]
         [HttpGet]
         [ResponseType(typeof(IList<Deal>))]
-        public IHttpActionResult GetAllDeals(string debug = null)
+        public IHttpActionResult GetAllDeals()
         {
            List<DealViewModel>  deals = this._dealRepository.GetAll().AsQueryable().OrderBy(d => d.Title)
                 .ProjectTo<DealViewModel>()
@@ -32,7 +33,7 @@ namespace HotDeals.Website.Controllers
             return Ok(deals);
         }
 
-        [Route("{debug?}")]
+        [Route("")]
         [HttpPost]
         [ResponseType(typeof(DealViewModel))]
         public IHttpActionResult Post(DealViewModel dealVm)
@@ -40,7 +41,30 @@ namespace HotDeals.Website.Controllers
             Deal deal = Mapper.Map<DealViewModel, Deal>(dealVm);
             this._dealRepository.Add(deal); 
             return Ok("a deal is added");
-        }      
-
+        }   
+        
+        [Route("search/{typeDealId?}/{isHot?}/{maxNumber?}")] 
+        [HttpGet]
+        [ResponseType(typeof(IList<Deal>))]
+        public IHttpActionResult GetDealsByTypeDealId(string typeDealId, int isHot = 1, int maxNumber = 10)
+        {
+            if (typeDealId == null)
+            {
+                BadRequest("CategoryId is null");
+            }
+            Guid guidTypeDealId;
+            Guid.TryParse(typeDealId, out guidTypeDealId);
+            if (guidTypeDealId == Guid.Empty)
+            {
+                BadRequest("CategoryId is not valid");
+            }
+            List<DealViewModel> hotdeals = this._dealRepository
+                .Query(x => x.TypeDeal.Id.ToString() == typeDealId)
+                .OrderByDescending(d => d.Degree)    
+                .Take(maxNumber)    
+               .ProjectTo<DealViewModel>()
+               .ToList();
+            return Ok(hotdeals);
+        }
     }
 }

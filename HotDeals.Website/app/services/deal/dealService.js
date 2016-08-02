@@ -15,20 +15,16 @@ var HQHO;
                 function DealService($http) {
                     _super.call(this, $http, "deals");
                 }
-                DealService.prototype.getAllEntitiesByProperties = function (searchPropertyDeal) {
-                    if (searchPropertyDeal.categoryId == null && searchPropertyDeal.subCategoryId == null
-                        && searchPropertyDeal.typeDealId === null && searchPropertyDeal.typeLocation === null)
-                        return this.getAllEntities();
-                    else {
-                        return this.$http.get(HotDeals.Tools.apiServiceBaseUrl + this.name + '/search/', {
-                            params: {
-                                typeDealId: searchPropertyDeal.typeDealId,
-                                categoryId: searchPropertyDeal.categoryId,
-                                subCategoryId: searchPropertyDeal.subCategoryId,
-                                typeLocation: searchPropertyDeal.typeLocation
-                            }
-                        });
-                    }
+                DealService.prototype.getEntitiesByTypeDealId = function (typeDealId, isHot, maxNb) {
+                    if (isHot === void 0) { isHot = true; }
+                    if (maxNb === void 0) { maxNb = 10; }
+                    return this.$http.get(HotDeals.Tools.apiServiceBaseUrl + this.name + '/search/', {
+                        params: {
+                            typeDealId: typeDealId,
+                            isHot: isHot ? 1 : 0,
+                            maxNumber: maxNb
+                        }
+                    });
                 };
                 return DealService;
             })(Services.BaseService);

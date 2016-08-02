@@ -10,6 +10,7 @@ namespace HotDeals.ViewModels
     public class DealViewModel : ContentBase
     {
         public string Title { get; set; }
+        public decimal Degree { get; set;  }
         public Guid TypeDealId { get; set; }
         public Guid CategoryId { get; set; }
         public Guid SubCategoryId { get; set; }

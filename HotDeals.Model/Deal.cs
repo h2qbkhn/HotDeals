@@ -13,6 +13,7 @@ namespace HotDeals.Model
     public class Deal : ContentBase
     {
         public string Title { get; set; }
+        public decimal Degree { get; set;  }
         public Guid? TypeDealId { get; set; }
         [ForeignKey("TypeDealId")]
         public virtual TypeDeal TypeDeal { get; set;  }

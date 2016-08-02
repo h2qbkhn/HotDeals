@@ -13,6 +13,7 @@ var HQHO;
         var Category = HQHO.HotDeals.Models.Category;
         var SubCategory = HQHO.HotDeals.Models.SubCategory;
         var TypeDeal = HQHO.HotDeals.Models.TypeDeal;
+        var ETypeDeal = HQHO.HotDeals.Enums.ETypeDeal;
         var HomeController = (function (_super) {
             __extends(HomeController, _super);
             function HomeController($scope, $q, $state, $timeout, api) {
@@ -20,6 +21,9 @@ var HQHO;
                 this.$scope = $scope;
                 this.$scope.vm.deals = new Array();
                 this.$scope.vm.filteredDeals = new Array();
+                this.$scope.vm.hotCodePromos = new Array();
+                this.$scope.vm.hotFrees = new Array();
+                this.$scope.vm.hotBonPlans = new Array();
                 this.$scope.vm.searchPropertyDeal = {
                     categoryId: null,
                     subCategoryId: null,
@@ -43,10 +47,27 @@ var HQHO;
                     var promises = [];
                     promises.push(that.getAllEntities());
                     return that.$q.all(promises);
+                }).then(function () {
+                    var promises = [];
+                    that.typedeals.forEach(function (itm, index) {
+                        promises.push(that.getHotDeals(itm.id, itm.value));
+                    });
+                    return that.$q.all(promises);
                 })
                     .then(function () {
                     that.setupReferencesForSearch();
                     that.searchPropertiesChanged();
+                });
+            };
+            HomeController.prototype.getHotDeals = function (typeDealId, value) {
+                var that = this;
+                return that.api.dealService.getEntitiesByTypeDealId(typeDealId, true, 10).success(function (data) {
+                    if (value === ETypeDeal.BonPlan)
+                        that.$scope.vm.hotBonPlans = data;
+                    if (value === ETypeDeal.CodePromo)
+                        that.$scope.vm.hotCodePromos = data;
+                    if (value === ETypeDeal.Free)
+                        that.$scope.vm.hotFrees = data;
                 });
             };
             HomeController.prototype.setupReferencesForSearch = function () {

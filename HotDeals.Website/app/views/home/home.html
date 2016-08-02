@@ -33,7 +33,7 @@
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </div>
                     <div class="degree-text">
-                        100°
+                        {{deal.degree}}
                     </div>
                     <div class="btn btn-block btn-warning hq-btn">
                         <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
@@ -62,6 +62,30 @@
                 <div class="form-group">
                     <label for="subcategoryIpt">Sub-Category</label>
                     <select class="form-control" id="subcategoryIpt" ng-model="vm.searchPropertyDeal.subCategoryId" ng-change="mt.searchPropertiesChanged()" ng-options="subcategory.id as subcategory.label for subcategory in vm.searchSubCategories"></select>
+                </div>
+            </div>
+
+            <div class="hq-card row zone-search">
+                <div class="title_zone_hot">
+                </div>
+                <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotBonPlans">
+                    <div class="item_zone_hot">{{hotdeal.title}}</div>
+                </div>
+            </div>
+
+            <div class="hq-card row zone-search">
+                <div class="title_zone_hot">
+                </div>
+                <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotCodePromos">
+                    <div class="item_zone_hot">{{hotdeal.title}}</div>
+                </div>
+            </div>
+
+            <div class="hq-card row zone-search">
+                <div class="title_zone_hot">
+                </div>
+                <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotFrees">
+                    <div class="item_zone_hot">{{hotdeal.title}}</div>
                 </div>
             </div>
 

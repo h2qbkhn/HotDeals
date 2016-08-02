@@ -1,30 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
-using HotDeals.Model; 
-
-namespace HotDeals.Data
+namespace HotDeals.Data.Migrations
 {
-    public class HotDealsContext: DbContext
+    using System;
+    using System.Data.Entity;
+    using System.Collections.Generic; 
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+    using HotDeals.Model; 
+
+    internal sealed class Configuration : DbMigrationsConfiguration<HotDeals.Data.HotDealsContext>
     {
-        public HotDealsContext(): base("name=HotDealsConnectionString")
+        public Configuration()
         {
-            //Database.SetInitializer<HotDealsContext>(new HotDealsDbInitializer());
-            Database.SetInitializer<HotDealsContext>(null);
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "HotDeals.Data.HotDealsContext";
         }
-        public DbSet<Deal> Deals { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<SubCategory> SubCategories { get; set; }
-        public DbSet<TypeDeal> TypeDeals { get; set; }
-    }
 
-
-    public class HotDealsDbInitializer : DropCreateDatabaseIfModelChanges<HotDealsContext>
-    {
-        protected override void Seed(HotDealsContext context)
+        protected override void Seed(HotDeals.Data.HotDealsContext context)
         {
             var demoCategory1 = new Category() { Label = "Services" };
             var demoCategory2 = new Category() { Label = "Mode" };
@@ -35,7 +26,7 @@ namespace HotDeals.Data
             var demoSubCategory3 = new SubCategory() { Label = "Informatique" };
             var demoSubCategory4 = new SubCategory() { Label = "Others" };
 
-            demoCategory1.SubCategories = new List<SubCategory>(); 
+            demoCategory1.SubCategories = new List<SubCategory>();
             demoCategory1.SubCategories.Add(demoSubCategory1);
 
             demoCategory2.SubCategories = new List<SubCategory>();
@@ -46,8 +37,8 @@ namespace HotDeals.Data
             demoCategory3.SubCategories.Add(demoSubCategory4);
 
             var categories = new List<Category>();
-            categories.Add(demoCategory1); 
-            categories.Add(demoCategory2); 
+            categories.Add(demoCategory1);
+            categories.Add(demoCategory2);
             categories.Add(demoCategory3);
             categories.ForEach(cat => context.Categories.Add(cat));
 
@@ -59,8 +50,8 @@ namespace HotDeals.Data
 
             #region typedeal
             var demoTypeDeal1 = new TypeDeal() { Value = 3, Label = "Free" };
-            var demoTypeDeal2 = new TypeDeal() { Value= 1,  Label = "Bon plan" };
-            var demoTypeDeal3 = new TypeDeal() { Value = 2,  Label = "Code promo" };
+            var demoTypeDeal2 = new TypeDeal() { Value = 1, Label = "Bon plan" };
+            var demoTypeDeal3 = new TypeDeal() { Value = 2, Label = "Code promo" };
             var typeDeals = new List<TypeDeal>();
             typeDeals.Add(demoTypeDeal1);
             typeDeals.Add(demoTypeDeal2);
@@ -68,13 +59,14 @@ namespace HotDeals.Data
             typeDeals.ForEach(type => context.TypeDeals.Add(type));
             #endregion
 
-            var demoDeal1 = new Deal() {
+            var demoDeal1 = new Deal()
+            {
                 Title = "Demo 1",
-                Degree= 100, 
-                Description = "Third party compilation tools may work with Bootstrap, but they are not supported by our core team", 
-                Price = 100, 
-                OldPrice = 80, 
-                IsOnline = 1,               
+                Degree = 100,
+                Description = "Third party compilation tools may work with Bootstrap, but they are not supported by our core team",
+                Price = 100,
+                OldPrice = 80,
+                IsOnline = 1,
                 Category = demoCategory1,
                 SubCategory = demoSubCategory1,
                 TypeDeal = demoTypeDeal1,
@@ -113,12 +105,10 @@ namespace HotDeals.Data
                 EndDate = new DateTime(2015, 12, 31),
                 CreationDate = new DateTime(2015, 12, 31)
             };
-            context.Deals.Add(demoDeal1); 
-            context.Deals.Add(demoDeal2); 
+            context.Deals.Add(demoDeal1);
+            context.Deals.Add(demoDeal2);
             context.Deals.Add(demoDeal3);
-            context.SaveChanges(); 
-
-            base.Seed(context);
+            context.SaveChanges();
         }
     }
 }

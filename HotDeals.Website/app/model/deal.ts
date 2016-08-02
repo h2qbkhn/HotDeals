@@ -5,6 +5,7 @@
 
     export class Deal extends Base implements IDeal {
         public title: string = "";
+        public degree: number = null; 
         public typeDealId: string = "";
         public typeDealLabel: string = ""; 
         public typeDealValue: number = null; 

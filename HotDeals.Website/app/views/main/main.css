@@ -1,12 +1,9 @@
-html {
-  width: 100%;
-  height: 100%;
-}
 body {
   background-image: url('../../images/bg_home.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  background-attachment: fixed;
 }
 .mainpage {
   margin-bottom: 30px;

@@ -7,10 +7,14 @@ module HQHO.HotDeals {
     import SubCategory = HQHO.HotDeals.Models.SubCategory;
     import TypeDeal = HQHO.HotDeals.Models.TypeDeal;
     import SearchPropertyDeal = HQHO.HotDeals.Models.SearchPropertyDeal;
+    import ETypeDeal = HQHO.HotDeals.Enums.ETypeDeal;
 
     export interface IHomeViewModel extends IBaseViewModel {
         deals: Array<Deal>;
         filteredDeals: Array<Deal>;
+        hotCodePromos: Array<Deal>;
+        hotFrees: Array<Deal>;
+        hotBonPlans: Array<Deal>;
         searchPropertyDeal: any;
         searchCategories: Array<Category>;
         searchSubCategories: Array<SubCategory>;
@@ -31,15 +35,20 @@ module HQHO.HotDeals {
             super($q, $state, $timeout, api);
             this.$scope.vm.deals = new Array<Deal>();
             this.$scope.vm.filteredDeals = new Array<Deal>();
+
+            this.$scope.vm.hotCodePromos = new Array<Deal>();
+            this.$scope.vm.hotFrees = new Array<Deal>();
+            this.$scope.vm.hotBonPlans = new Array<Deal>();
+
             this.$scope.vm.searchPropertyDeal = {
                 categoryId: null,
-                subCategoryId: null, 
-                typeDealId: null, 
-                typeLocation : null
-            }; 
-            this; $scope.vm.searchTypeDeals = []; 
-            this; $scope.vm.searchSubCategories = []; 
-            this; $scope.vm.searchCategories = []; 
+                subCategoryId: null,
+                typeDealId: null,
+                typeLocation: null
+            };
+            this; $scope.vm.searchTypeDeals = [];
+            this; $scope.vm.searchSubCategories = [];
+            this; $scope.vm.searchCategories = [];
 
             this.$scope.mt = {
                 searchPropertiesChanged: this.searchPropertiesChanged.bind(this)
@@ -52,11 +61,29 @@ module HQHO.HotDeals {
                 var promises = [];
                 promises.push(that.getAllEntities());
                 return that.$q.all(promises);
+            }).then(() => {
+                var promises = [];
+                that.typedeals.forEach((itm, index) => {
+                    promises.push(that.getHotDeals(itm.id, itm.value));
+                })
+                return that.$q.all(promises);
             })
                 .then(() => {
                     that.setupReferencesForSearch();
                     that.searchPropertiesChanged();
                 })
+        }
+
+        public getHotDeals(typeDealId: string, value: number) {
+            var that = this;
+            return that.api.dealService.getEntitiesByTypeDealId(typeDealId, true, 10).success((data) => {
+                if (value === ETypeDeal.BonPlan)
+                    that.$scope.vm.hotBonPlans = data;
+                if (value === ETypeDeal.CodePromo)
+                    that.$scope.vm.hotCodePromos = data;
+                if (value === ETypeDeal.Free)
+                    that.$scope.vm.hotFrees = data;
+            })
         }
 
         public setupReferencesForSearch() {
@@ -78,13 +105,13 @@ module HQHO.HotDeals {
         }
 
         private _setupSubCategoriesForSearch() {
-            var that = this; 
-            that.$scope.vm.searchSubCategories = []; 
+            var that = this;
+            that.$scope.vm.searchSubCategories = [];
             that.$scope.vm.searchSubCategories.push(new SubCategory("All"));
             that.subcategories.forEach((itm) => {
                 that.$scope.vm.searchSubCategories.push(itm);
             })
-            that.$scope.vm.searchPropertyDeal.subCategoryId = null; 
+            that.$scope.vm.searchPropertyDeal.subCategoryId = null;
         }
 
         public getAllEntities(): ng.IHttpPromise<any> {
@@ -103,7 +130,7 @@ module HQHO.HotDeals {
                 promises.push(that._getSubCategoriesByCategoryId(that.$scope.vm.searchPropertyDeal.categoryId));
             }
             return that.$q.all(promises).then(() => {
-                that._setupSubCategoriesForSearch(); 
+                that._setupSubCategoriesForSearch();
                 that.$scope.vm.filteredDeals = that.$scope.vm.deals.filter((itm) => {
                     var searchPropertyDeal = that.$scope.vm.searchPropertyDeal;
                     if ((searchPropertyDeal.categoryId && itm.categoryId != searchPropertyDeal.categoryId)) {
@@ -117,8 +144,8 @@ module HQHO.HotDeals {
                     }
                     return true;
                 })
-            });           
-            
+            });
+
         }
 
     }
