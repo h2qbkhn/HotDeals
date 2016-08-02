@@ -13,7 +13,7 @@ var HQHO;
                     this.typedealService = typedealService;
                 }
                 return Api;
-            })();
+            }());
             Services.Api = Api;
             angular.module('HotDeals').service('Api', ['DealServ', 'SubCategoryServ', 'CategoryServ', 'TypeDealServ', Api]);
         })(Services = HotDeals.Services || (HotDeals.Services = {}));

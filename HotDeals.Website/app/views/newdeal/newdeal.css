@@ -2,8 +2,16 @@ form[name=newdeal_form] .form-group {
   margin-left: 0px;
   margin-right: 0px;
 }
+form[name=newdeal_form] .list-group {
+  border-radius: 0px;
+  margin-bottom: 0px !important;
+}
+form[name=newdeal_form] .list-group .hq-list-group-item {
+  cursor: pointer;
+  border-radius: 0px;
+}
 form[name=newdeal_form] input.has-error {
-  border-color: red;
+  border-color: #d9534f;
 }
 form[name=newdeal_form] .zone-newdeal {
   background-color: white;

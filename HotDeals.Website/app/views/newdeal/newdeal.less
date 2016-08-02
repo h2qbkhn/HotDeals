@@ -2,16 +2,26 @@
     padding-right: @x;
     padding-left: @x;
 }
-@color_error = #d9534f; 
-form[name=newdeal_form] {
+
+
+form[name=newdeal_form] {   
 	.form-group{
 		margin-left: 0px; 
-		margin-right: 0px; 
+		margin-right: 0px;      
 	}
+
+    .list-group{
+        border-radius: 0px; 
+        margin-bottom: 0px !important; 
+        .hq-list-group-item {
+            cursor: pointer;
+            border-radius: 0px; 
+        }
+    }
 
 	input{
 		&.has-error{
-			border-color: @color_error; 
+			border-color: #d9534f; 
 		}
 	}
     .zone-newdeal {

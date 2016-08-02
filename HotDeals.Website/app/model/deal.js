@@ -32,7 +32,7 @@ var HQHO;
                     this.isOnline = 1;
                 }
                 return Deal;
-            })(Models.Base);
+            }(Models.Base));
             Models.Deal = Deal;
         })(Models = HotDeals.Models || (HotDeals.Models = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));

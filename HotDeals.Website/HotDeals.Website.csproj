@@ -249,7 +249,7 @@
     <Content Include="app\directives\date-directive.js" />
     <Content Include="app\directives\templates\date-input.html" />
     <Content Include="app\images\bg_home.jpg" />
-    <Content Include="app\images\logo_areas.png" />
+    <Content Include="app\images\demo.png" />
     <Content Include="app\model\base\base.js" />
     <Content Include="app\model\deal.js" />
     <Content Include="app\views\home\home.css" />

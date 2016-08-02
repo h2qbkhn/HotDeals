@@ -52,12 +52,12 @@ module HQHO.HotDeals {
             return that.loadReferences()
                 .then(() => {
                     that.$scope.currentDeal.categoryId = that.categories[0].id;
+                    that.$scope.currentDeal.typeDealId = that.typedeals[0].id;
                     var promises = [];
                     promises.push(that._getSubCategoriesByCategoryId(that.$scope.currentDeal.categoryId));
                     return that.$q.all(promises);
                 }).then(() => {
-                    that.$scope.currentDeal.typeDealId = that.typedeals[0].id;
-                    that.typedealChanged(); 
+                    that.typedealChanged(that.$scope.currentDeal.typeDealId); 
                     that.$scope.currentDeal.subcategoryId = that.subcategories[0].id;
                 })
                 .then(() => {
@@ -84,8 +84,9 @@ module HQHO.HotDeals {
             return this.$scope.currentDeal.typeDealValue = ETypeDeal.BonPlan; 
         }
 
-        public typedealChanged() {
+        public typedealChanged(id: string) {
             var that = this;
+            that.$scope.currentDeal.typeDealId = id; 
             var found = that.typedeals.filter((itm) => {
                 return itm.id === that.$scope.currentDeal.typeDealId;
             });

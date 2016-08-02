@@ -17,7 +17,7 @@ var HQHO;
                     return this.$http.post(HotDeals.Tools.apiServiceBaseUrl + this.name, entity, params);
                 };
                 return BaseService;
-            })();
+            }());
             Services.BaseService = BaseService;
         })(Services = HotDeals.Services || (HotDeals.Services = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
