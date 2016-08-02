@@ -3,7 +3,7 @@
 </head>
 <div class="row">
     <div class="col-md-8">
-        <div class="hq-card container-deal" ng-repeat="deal in vm.deals">
+        <div class="hq-card container-deal" ng-repeat="deal in vm.filteredDeals">
             <div class="img-deal">
                 <a name="image-link-deal">
                     <img src="app/images/logo_areas.png" />
@@ -23,7 +23,6 @@
                     {{deal.description}}
                 </div>
             </div>
-
             <div class="container-degree-online">
                 <div class="container-online">
                     <div class="online-text" ng-if="deal.isOnline">En ligne</div>
@@ -33,11 +32,9 @@
                     <div class="btn btn-block btn-success">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </div>
-
                     <div class="degree-text">
-                       100°
+                        100°
                     </div>
-
                     <div class="btn btn-block btn-warning hq-btn">
                         <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                     </div>
@@ -45,14 +42,27 @@
             </div>
         </div>
     </div>
-
     <div class="col-md-4">
-        <div class="container">
+        <div class="container side-right">
             <div class="row">
-                <button class="btn btn-block btn-info hq-card btn-lg"
-                        ui-sref="main.newdeal({})">
+                <button class="btn btn-block btn-info hq-card btn-lg" ui-sref="main.newdeal({})">
                     Ajouter un deal
                 </button>
+            </div>
+
+            <div class="hq-card row zone-search">
+                <div class="form-group">
+                    <label for="typedealIpt">Type of deal</label>
+                    <select class="form-control" id="typedealIpt" ng-model="vm.searchPropertyDeal.typeDealId" ng-change="mt.searchPropertiesChanged()" ng-options="option.id as option.label for option in vm.searchTypeDeals"></select>
+                </div>
+                <div class="form-group">
+                    <label for="categoryIpt">Category</label>
+                    <select class="form-control" id="categoryIpt" ng-model="vm.searchPropertyDeal.categoryId" ng-change="mt.searchPropertiesChanged()" ng-options="category.id as category.label for category in vm.searchCategories"></select>
+                </div>
+                <div class="form-group">
+                    <label for="subcategoryIpt">Sub-Category</label>
+                    <select class="form-control" id="subcategoryIpt" ng-model="vm.searchPropertyDeal.subCategoryId" ng-change="mt.searchPropertiesChanged()" ng-options="subcategory.id as subcategory.label for subcategory in vm.searchSubCategories"></select>
+                </div>
             </div>
 
         </div>

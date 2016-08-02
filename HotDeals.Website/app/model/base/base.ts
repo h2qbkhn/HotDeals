@@ -5,8 +5,8 @@
     }
 
     export class Base implements IBase{
-        public id: string = ""; 
-        
+        public id: string = null; 
+        constructor() { };
     }
 
 }

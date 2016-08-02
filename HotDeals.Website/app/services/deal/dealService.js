@@ -15,6 +15,21 @@ var HQHO;
                 function DealService($http) {
                     _super.call(this, $http, "deals");
                 }
+                DealService.prototype.getAllEntitiesByProperties = function (searchPropertyDeal) {
+                    if (searchPropertyDeal.categoryId == null && searchPropertyDeal.subCategoryId == null
+                        && searchPropertyDeal.typeDealId === null && searchPropertyDeal.typeLocation === null)
+                        return this.getAllEntities();
+                    else {
+                        return this.$http.get(HotDeals.Tools.apiServiceBaseUrl + this.name + '/search/', {
+                            params: {
+                                typeDealId: searchPropertyDeal.typeDealId,
+                                categoryId: searchPropertyDeal.categoryId,
+                                subCategoryId: searchPropertyDeal.subCategoryId,
+                                typeLocation: searchPropertyDeal.typeLocation
+                            }
+                        });
+                    }
+                };
                 return DealService;
             })(Services.BaseService);
             Services.DealService = DealService;

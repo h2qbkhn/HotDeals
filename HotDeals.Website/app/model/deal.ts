@@ -1,27 +1,14 @@
 ﻿module HQHO.HotDeals.Models {
     "use strict"; 
     export interface IDeal extends IBase {
-        title: string; 
-        typeDealId: string; 
-        categoryId: string; 
-        subcategoryId: string; 
-        linkTo: string; 
-        nameSeller: string; 
-        addressSeller: string; 
-        srcImg: string; 
-        price: number;
-        oldPrice: number; 
-        codeReduction: string; 
-        description: string; 
-        startDate: Date; 
-        endDate: Date; 
-        isOnline: number; 
     }
 
     export class Deal extends Base implements IDeal {
         public title: string = "";
         public typeDealId: string = "";
         public typeDealLabel: string = ""; 
+        public typeDealValue: number = null; 
+        public isCodePromo: boolean; 
         public categoryId: string = "";
         public subcategoryId: string = "";
         public linkTo: string = "";

@@ -3,6 +3,9 @@
 module HQHO.HotDeals {
     "use strict";
     import Deal = HQHO.HotDeals.Models.Deal;
+    import TypeDeal = HQHO.HotDeals.Models.TypeDeal;
+
+    import ETypeDeal = HQHO.HotDeals.Enums.ETypeDeal;
 
     export interface INewDealViewModel extends IBaseViewModel {
 
@@ -12,6 +15,9 @@ module HQHO.HotDeals {
         categoryChanged: () => void;
         typedealChanged: () => void;
         saveNewDeal: () => void;
+        isCodePromo: () => boolean; 
+        isFree: () => boolean; 
+        isBonPlan: () => boolean; 
     }
 
     export interface INewDealScope extends IBaseScope {
@@ -19,7 +25,7 @@ module HQHO.HotDeals {
     }
 
     export class NewDealController extends BaseController {
-
+        public selectedTypeDeal: TypeDeal;
         constructor(private $scope: INewDealScope, $q: ng.IQService,
             $state, $timeout: ng.ITimeoutService, api: Services.Api) {
             super($q, $state, $timeout, api);
@@ -30,6 +36,10 @@ module HQHO.HotDeals {
                 subcategoryChanged: this.subcategoryChanged.bind(this),
                 typedealChanged: this.typedealChanged.bind(this),
                 saveNewDeal: this.saveNewDeal.bind(this),
+
+                isCodePromo : this.isCodePromo.bind(this), 
+                isBonPlan : this.isBonPlan.bind(this), 
+                isFree: this.isFree.bind(this), 
             }
 
             this.$scope.currentDeal.startDate = new Date(2014, 10, 9);
@@ -39,7 +49,7 @@ module HQHO.HotDeals {
         }
         private _init(): ng.IPromise<any> {
             var that = this;
-            return that.loadReferences()               
+            return that.loadReferences()
                 .then(() => {
                     that.$scope.currentDeal.categoryId = that.categories[0].id;
                     var promises = [];
@@ -47,6 +57,7 @@ module HQHO.HotDeals {
                     return that.$q.all(promises);
                 }).then(() => {
                     that.$scope.currentDeal.typeDealId = that.typedeals[0].id;
+                    that.typedealChanged(); 
                     that.$scope.currentDeal.subcategoryId = that.subcategories[0].id;
                 })
                 .then(() => {
@@ -59,16 +70,28 @@ module HQHO.HotDeals {
         }
 
         private _isFormValid() {
-            var that = this; 
-            return !that.$scope['newdeal_form']['$invalid']; 
+            var that = this;
+            return !that.$scope['newdeal_form']['$invalid'];
+        }
+
+        public isCodePromo() {
+            return this.$scope.currentDeal.typeDealValue === ETypeDeal.CodePromo; 
+        }
+        public isFree() {
+            return this.$scope.currentDeal.typeDealValue = ETypeDeal.Free; 
+        }
+        public isBonPlan() {
+            return this.$scope.currentDeal.typeDealValue = ETypeDeal.BonPlan; 
         }
 
         public typedealChanged() {
-            var that = this; 
+            var that = this;
             var found = that.typedeals.filter((itm) => {
                 return itm.id === that.$scope.currentDeal.typeDealId;
-            }); 
-            that.$scope.currentDeal.typeDealLabel = found[0].label; 
+            });
+            that.$scope.currentDeal.typeDealLabel = found[0].label;
+            that.$scope.currentDeal.typeDealValue = found[0].value;
+            
         }
 
         public categoryChanged() {
@@ -79,11 +102,11 @@ module HQHO.HotDeals {
             return that.$q.all(promises)
                 .then(() => {
                     if (that.subcategories && that.subcategories.length > 0) {
-                        that.$scope.vm.subcategories = that.subcategories; 
+                        that.$scope.vm.subcategories = that.subcategories;
                         that.$scope.currentDeal.subcategoryId = that.subcategories[0].id;
                     }
                 })
-               
+
         }
         public subcategoryChanged() {
 
@@ -91,14 +114,14 @@ module HQHO.HotDeals {
 
         public saveNewDeal() {
             var that = this;
-            if (!that._isFormValid()) return; 
+            if (!that._isFormValid()) return;
             var dealToAdd = this.$scope.currentDeal;
             dealToAdd.creationDate = dealToAdd.endDate ? dealToAdd.endDate : new Date();
             return that.api.dealService.addEntity(dealToAdd).success((data) => {
                 that.$state.go("main.home");
             })
         }
-        
+
     }
 
     angular.module('HotDeals').controller('NewDealCtrl', ['$scope', '$q', '$state', '$timeout', 'Api', NewDealController]);

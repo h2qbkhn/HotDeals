@@ -41,6 +41,7 @@ namespace HotDeals.Website
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                       "~/app/app.js",
                       "~/app/helpers/tools.js",
+                      "~/app/helpers/enums/enums.js",
                       "~/app/services/base/baseService.js",
                       "~/app/services/deal/dealService.js",
                       "~/app/services/typedeal/typedealService.js",

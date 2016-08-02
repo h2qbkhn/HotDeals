@@ -64,3 +64,8 @@
   font-weight: bolder;
   text-align: center;
 }
+.side-right .zone-search {
+  margin-top: 30px;
+  background-color: white;
+  padding: 15px;
+}

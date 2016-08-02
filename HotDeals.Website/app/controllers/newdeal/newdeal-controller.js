@@ -11,6 +11,7 @@ var HQHO;
     (function (HotDeals) {
         "use strict";
         var Deal = HQHO.HotDeals.Models.Deal;
+        var ETypeDeal = HQHO.HotDeals.Enums.ETypeDeal;
         var NewDealController = (function (_super) {
             __extends(NewDealController, _super);
             function NewDealController($scope, $q, $state, $timeout, api) {
@@ -22,6 +23,9 @@ var HQHO;
                     subcategoryChanged: this.subcategoryChanged.bind(this),
                     typedealChanged: this.typedealChanged.bind(this),
                     saveNewDeal: this.saveNewDeal.bind(this),
+                    isCodePromo: this.isCodePromo.bind(this),
+                    isBonPlan: this.isBonPlan.bind(this),
+                    isFree: this.isFree.bind(this),
                 };
                 this.$scope.currentDeal.startDate = new Date(2014, 10, 9);
                 this.$scope.currentDeal.endDate = new Date(2014, 10, 9);
@@ -37,6 +41,7 @@ var HQHO;
                     return that.$q.all(promises);
                 }).then(function () {
                     that.$scope.currentDeal.typeDealId = that.typedeals[0].id;
+                    that.typedealChanged();
                     that.$scope.currentDeal.subcategoryId = that.subcategories[0].id;
                 })
                     .then(function () {
@@ -51,12 +56,22 @@ var HQHO;
                 var that = this;
                 return !that.$scope['newdeal_form']['$invalid'];
             };
+            NewDealController.prototype.isCodePromo = function () {
+                return this.$scope.currentDeal.typeDealValue === ETypeDeal.CodePromo;
+            };
+            NewDealController.prototype.isFree = function () {
+                return this.$scope.currentDeal.typeDealValue = ETypeDeal.Free;
+            };
+            NewDealController.prototype.isBonPlan = function () {
+                return this.$scope.currentDeal.typeDealValue = ETypeDeal.BonPlan;
+            };
             NewDealController.prototype.typedealChanged = function () {
                 var that = this;
                 var found = that.typedeals.filter(function (itm) {
                     return itm.id === that.$scope.currentDeal.typeDealId;
                 });
                 that.$scope.currentDeal.typeDealLabel = found[0].label;
+                that.$scope.currentDeal.typeDealValue = found[0].value;
             };
             NewDealController.prototype.categoryChanged = function () {
                 var that = this;

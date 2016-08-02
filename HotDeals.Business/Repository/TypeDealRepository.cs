@@ -14,5 +14,6 @@ namespace HotDeals.Business.Repository
         {
             return this.DbSet.Where(x => ids.Contains(x.Id)).ToList();
         }
+        
     }
 }

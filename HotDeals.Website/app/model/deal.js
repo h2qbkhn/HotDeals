@@ -17,6 +17,7 @@ var HQHO;
                     this.title = "";
                     this.typeDealId = "";
                     this.typeDealLabel = "";
+                    this.typeDealValue = null;
                     this.categoryId = "";
                     this.subcategoryId = "";
                     this.linkTo = "";

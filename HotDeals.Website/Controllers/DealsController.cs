@@ -40,9 +40,7 @@ namespace HotDeals.Website.Controllers
             Deal deal = Mapper.Map<DealViewModel, Deal>(dealVm);
             this._dealRepository.Add(deal); 
             return Ok("a deal is added");
-        }
-
-        
+        }      
 
     }
 }

@@ -58,9 +58,9 @@ namespace HotDeals.Data
             subCategories.ForEach(cat => context.SubCategories.Add(cat));
 
             #region typedeal
-            var demoTypeDeal1 = new TypeDeal() { Label = "Free" };
-            var demoTypeDeal2 = new TypeDeal() { Label = "Bon plan" };
-            var demoTypeDeal3 = new TypeDeal() { Label = "Code promo" };
+            var demoTypeDeal1 = new TypeDeal() { Value = 3, Label = "Free" };
+            var demoTypeDeal2 = new TypeDeal() { Value= 1,  Label = "Bon plan" };
+            var demoTypeDeal3 = new TypeDeal() { Value = 2,  Label = "Code promo" };
             var typeDeals = new List<TypeDeal>();
             typeDeals.Add(demoTypeDeal1);
             typeDeals.Add(demoTypeDeal2);
@@ -68,7 +68,15 @@ namespace HotDeals.Data
             typeDeals.ForEach(type => context.TypeDeals.Add(type));
             #endregion
 
-            var demoDeal = new Deal() { Category = demoCategory1, SubCategory = demoSubCategory1, TypeDeal = demoTypeDeal1,
+            var demoDeal = new Deal() {
+                Title = "Demo title",
+                Description = "Third party compilation tools may work with Bootstrap, but they are not supported by our core team", 
+                Price = 100, 
+                OldPrice = 80, 
+                IsOnline = 1,               
+                Category = demoCategory1,
+                SubCategory = demoSubCategory1,
+                TypeDeal = demoTypeDeal1,
                 StartDate = new DateTime(2015, 7, 15),
                 EndDate = new DateTime(2015, 12, 31),
                 CreationDate = new DateTime(2015, 12, 31)
