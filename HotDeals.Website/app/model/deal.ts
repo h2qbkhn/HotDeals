@@ -1,6 +1,6 @@
 ﻿module HQHO.HotDeals.Models {
     "use strict"; 
-    export interface IDeal {
+    export interface IDeal extends IBase {
         title: string; 
         typeDealId: string; 
         categoryId: string; 
@@ -18,9 +18,10 @@
         isOnline: number; 
     }
 
-    export class Deal implements IDeal {
+    export class Deal extends Base implements IDeal {
         public title: string = "";
         public typeDealId: string = "";
+        public typeDealLabel: string = ""; 
         public categoryId: string = "";
         public subcategoryId: string = "";
         public linkTo: string = "";
@@ -36,7 +37,7 @@
         public creationDate: Date; 
         public isOnline: number = 1; 
         constructor() {
-
+            super(); 
         }
     }
 }

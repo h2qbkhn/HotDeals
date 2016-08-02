@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var HQHO;
 (function (HQHO) {
     var HotDeals;
@@ -5,10 +10,13 @@ var HQHO;
         var Models;
         (function (Models) {
             "use strict";
-            var Deal = (function () {
+            var Deal = (function (_super) {
+                __extends(Deal, _super);
                 function Deal() {
+                    _super.call(this);
                     this.title = "";
                     this.typeDealId = "";
+                    this.typeDealLabel = "";
                     this.categoryId = "";
                     this.subcategoryId = "";
                     this.linkTo = "";
@@ -22,7 +30,7 @@ var HQHO;
                     this.isOnline = 1;
                 }
                 return Deal;
-            })();
+            })(Models.Base);
             Models.Deal = Deal;
         })(Models = HotDeals.Models || (HotDeals.Models = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));

@@ -58,8 +58,17 @@ module HQHO.HotDeals {
                 });
         }
 
-        public typedealChanged() {
+        private _isFormValid() {
+            var that = this; 
+            return !that.$scope['newdeal_form']['$invalid']; 
+        }
 
+        public typedealChanged() {
+            var that = this; 
+            var found = that.typedeals.filter((itm) => {
+                return itm.id === that.$scope.currentDeal.typeDealId;
+            }); 
+            that.$scope.currentDeal.typeDealLabel = found[0].label; 
         }
 
         public categoryChanged() {
@@ -69,10 +78,12 @@ module HQHO.HotDeals {
             promises.push(that._getSubCategoriesByCategoryId(currentCategoryId));
             return that.$q.all(promises)
                 .then(() => {
-                    if (that.$scope.vm.subcategories && that.$scope.vm.subcategories.length > 0) {
-                        that.$scope.currentDeal.subcategoryId = that.$scope.vm.subcategories[0].id;
+                    if (that.subcategories && that.subcategories.length > 0) {
+                        that.$scope.vm.subcategories = that.subcategories; 
+                        that.$scope.currentDeal.subcategoryId = that.subcategories[0].id;
                     }
                 })
+               
         }
         public subcategoryChanged() {
 
@@ -80,14 +91,14 @@ module HQHO.HotDeals {
 
         public saveNewDeal() {
             var that = this;
+            if (!that._isFormValid()) return; 
             var dealToAdd = this.$scope.currentDeal;
-            dealToAdd.startDate = dealToAdd.startDate ? dealToAdd.startDate : new Date();
-            dealToAdd.endDate = dealToAdd.endDate ? dealToAdd.endDate : new Date();
             dealToAdd.creationDate = dealToAdd.endDate ? dealToAdd.endDate : new Date();
             return that.api.dealService.addEntity(dealToAdd).success((data) => {
                 that.$state.go("main.home");
             })
         }
+        
     }
 
     angular.module('HotDeals').controller('NewDealCtrl', ['$scope', '$q', '$state', '$timeout', 'Api', NewDealController]);

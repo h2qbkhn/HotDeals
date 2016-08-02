@@ -1,7 +1,7 @@
 ﻿<head>
     <link href="app/views/newdeal/newdeal.css" rel="stylesheet" />
 </head>
-<form class="form-horizontal" novalidate>
+<form class="form-horizontal" name="newdeal_form" novalidate>
     <div class="container-fluid">
         <div class="col-md-3 hq-card zone-newdeal zone-category">
             <div class="form-group">
@@ -22,22 +22,31 @@
                 <div class="col-md-7">
                     <div class="form-group">
                         <label for="titleIpt">Title(*)</label>
-                        <input type="text" ng-required="true" class="form-control" id="titleIpt" ng-model="currentDeal.title" />
-                    </div>
+                        <input type="text" name="title" class="form-control" id="titleIpt" ng-model="currentDeal.title" required
+                         ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.title.$invalid && newdeal_form.title.$dirty} " />                        
+                    </div>  
+                               
 
                     <div class="form-group">
                         <label for="linkToIpt">Lien du deal(*)</label>
-                        <input type="text" class="form-control" id="linkToIpt" ng-model="currentDeal.linkTo" />
+                        <input type="text" class="form-control" id="linkToIpt" ng-model="currentDeal.linkTo" 
+                        name="linkTo" required 
+                        ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.linkTo.$invalid && newdeal_form.linkTo.$dirty} "/>
                     </div>
+                   
 
                     <div class="form-group">
-                        <label for="nameSellerIpt">Nom du marchant</label>
-                        <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.nameSeller" />
+                        <label for="nameSellerIpt">Nom du marchant(*)</label>
+                        <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.nameSeller" 
+                        name="nameSeller" required
+                        ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.nameSeller.$invalid && newdeal_form.nameSeller.$dirty} "/>
                     </div>
+                  
 
                     <div class="form-group">
                         <label for="nameSellerIpt">Adresse du marchant</label>
-                        <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.addressSeller" />
+                        <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.addressSeller"
+                        name="addressSeller" />
                     </div>
 
                 </div>
@@ -53,7 +62,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="linkToIpt">Image</label>
                         <div class="container-thumbnail">
                             <img src="app/images/logo_areas.png" alt="...">
                             <button type="button" class="btn btn-primary btn-block">Choisir un image</button>
@@ -68,35 +76,45 @@
             <div class="form-group">
                 <div class="col-md-2 zone-prix">
                     <label for="priceIpt">Prix</label>
-                    <input type="number" class="form-control" id="priceIpt" ng-model="currentDeal.price" />
+                    <input type="number" class="form-control" id="priceIpt" ng-model="currentDeal.price" 
+                    ng-required="true" name="price" ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.price.$invalid && newdeal_form.price.$dirty} "/>
+                    
                 </div>
                 <div class="col-md-2 col-md-offset-1">
                     <label for="oldPriceIpt">Prix habituel</label>
-                    <input type="number" class="form-control" id="oldPriceIpt" ng-model="currentDeal.oldPrice" />
+                    <input type="number" class="form-control" id="oldPriceIpt" ng-model="currentDeal.oldPrice"
+                    name="oldPrice" />
                 </div>
                 <div class="col-md-5 col-md-offset-2 zone-code-reduction">
                     <label for="codeReductionIpt">Code de réduction</label>
-                    <input type="text" class="form-control" id="codeReductionIpt" ng-model="currentDeal.codeReduction" />
+                    <input type="text" class="form-control" id="codeReductionIpt" ng-model="currentDeal.codeReduction"
+                    name="codeReduction" />
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-5 zone-start-date">
                     <label for="startDateIpt">Start</label>
-                    <input type="date" class="form-control" id="startDateIpt" ng-model="currentDeal.startDate" />
+                    <input type="date" class="form-control" id="startDateIpt" ng-model="currentDeal.startDate"
+                    name="startDate"
+                    ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.startDate.$invalid && newdeal_form.startDate.$dirty} " />
                 </div>
 
                 <div class="col-md-5 col-md-offset-2 zone-end-date">
                     <label for="endDateIpt">End</label>
-                    <input type="date" class="form-control" id="endDateIpt" ng-model="currentDeal.endDate" />
+                    <input type="date" class="form-control" id="endDateIpt" ng-model="currentDeal.endDate"
+                    name="endDate"
+                    ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.endDate.$invalid && newdeal_form.endDate.$dirty} " />
                 </div>
             </div>
             <div class="form-group">
                 <label for="descriptionIpt">Description</label>
-                <textarea rows="4" class="form-control" id="descriptionIpt" ng-model="currentDeal.description"></textarea>
+                <textarea rows="4" class="form-control" id="descriptionIpt" ng-model="currentDeal.description"
+                name="description"></textarea>
             </div>
             <div class="form-group">
-                <input type="submit" ng-click="mt.saveNewDeal()" class="form-control btn btn-primary" id="submit" value="Submit" />
+                <input type="submit"
+                 ng-click="mt.saveNewDeal()" class="form-control btn btn-primary" id="submit" value="Submit" />
             </div>
         </div>
     </div>

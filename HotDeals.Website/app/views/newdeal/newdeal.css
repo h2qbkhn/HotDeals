@@ -1,21 +1,28 @@
-.zone-newdeal {
+form[name=newdeal_form] .form-group {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+form[name=newdeal_form] input.has-error {
+  border-color: red;
+}
+form[name=newdeal_form] .zone-newdeal {
   background-color: white;
   padding: 30px;
 }
-.zone-newdeal.zone-title .zone-start-date,
-.zone-newdeal.zone-title .zone-end-date,
-.zone-newdeal.zone-title .zone-prix,
-.zone-newdeal.zone-title .zone-code-reduction {
+form[name=newdeal_form] .zone-newdeal.zone-title .zone-start-date,
+form[name=newdeal_form] .zone-newdeal.zone-title .zone-end-date,
+form[name=newdeal_form] .zone-newdeal.zone-title .zone-prix,
+form[name=newdeal_form] .zone-newdeal.zone-title .zone-code-reduction {
   padding-right: 0px;
   padding-left: 0px;
 }
-.zone-newdeal.zone-title .zone-image {
+form[name=newdeal_form] .zone-newdeal.zone-title .zone-image {
   margin-top: 25px;
 }
-.zone-newdeal.zone-title .container-thumbnail {
+form[name=newdeal_form] .zone-newdeal.zone-title .container-thumbnail {
   display: flex;
   flex-direction: column;
 }
-.zone-newdeal.zone-title .container-thumbnail img {
+form[name=newdeal_form] .zone-newdeal.zone-title .container-thumbnail img {
   margin-bottom: 15px;
 }

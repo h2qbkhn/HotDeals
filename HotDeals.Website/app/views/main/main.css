@@ -4,6 +4,9 @@ body {
   background-position: center center;
   background-size: cover;
 }
+.mainpage {
+  margin-bottom: 30px;
+}
 button[type=button] {
   border-radius: 0px;
 }
@@ -28,5 +31,5 @@ input.form-control[type=date] {
   border-radius: 0;
 }
 .hq-btn {
-  border-radius: none !important;
+  border-radius: 0px !important;
 }

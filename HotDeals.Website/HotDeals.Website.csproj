@@ -250,7 +250,11 @@
     <Content Include="app\directives\templates\date-input.html" />
     <Content Include="app\images\bg_home.jpg" />
     <Content Include="app\images\logo_areas.png" />
+    <Content Include="app\model\base\base.js" />
+    <Content Include="app\model\category.js" />
     <Content Include="app\model\deal.js" />
+    <Content Include="app\model\subCategory.js" />
+    <Content Include="app\model\typeDeal.js" />
     <Content Include="app\views\home\home.css" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\main\main.css" />
@@ -466,7 +470,11 @@
     <TypeScriptCompile Include="app\controllers\main\main-controller.ts" />
     <TypeScriptCompile Include="app\controllers\newdeal\newdeal-controller.ts" />
     <TypeScriptCompile Include="app\directives\date-directive.ts" />
+    <TypeScriptCompile Include="app\model\base\base.ts" />
+    <TypeScriptCompile Include="app\model\category.ts" />
     <TypeScriptCompile Include="app\model\deal.ts" />
+    <TypeScriptCompile Include="app\model\typeDeal.ts" />
+    <TypeScriptCompile Include="app\model\subCategory.ts" />
     <TypeScriptCompile Include="app\services\apiService.ts" />
     <TypeScriptCompile Include="app\services\base\baseService.ts" />
     <TypeScriptCompile Include="app\services\category\categoryService.ts" />

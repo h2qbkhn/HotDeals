@@ -4,7 +4,7 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   background-color: white;
   padding: 15px;
 }
@@ -43,6 +43,7 @@
   font-style: oblique;
   text-align: center;
   padding-bottom: 15px;
+  font-weight: bolder;
 }
 .container-deal .detail-deal [name=description] {
   text-align: center;

@@ -3,11 +3,14 @@
 module HQHO.HotDeals {
     "use strict";
     import Deal = HQHO.HotDeals.Models.Deal;
+    import TypeDeal = HQHO.HotDeals.Models.TypeDeal; 
+    import Category = HQHO.HotDeals.Models.Category; 
+    import SubCategory = HQHO.HotDeals.Models.SubCategory; 
 
     export interface IBaseViewModel {
-        categories: any;
-        subcategories: any;
-        typedeals: any;
+        categories: Array<Category>;
+        subcategories: Array<SubCategory>;
+        typedeals: Array<TypeDeal>;
     }
     export interface IBaseScopeMethod {
         
@@ -20,9 +23,9 @@ module HQHO.HotDeals {
     }
 
     export class BaseController {
-        categories: any = []; 
-        subcategories: any = [];
-        typedeals: any = []; 
+        categories: Array<Category> = []; 
+        subcategories: Array<SubCategory> = [];
+        typedeals: Array<TypeDeal> = []; 
         constructor(protected $q: ng.IQService,
             protected $state,
             protected $timeout: ng.ITimeoutService, protected api: Services.Api) {
