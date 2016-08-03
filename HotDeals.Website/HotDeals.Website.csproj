@@ -19,7 +19,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -223,6 +223,7 @@
     <Compile Include="Castle\WindsorDependencyResolver.cs" />
     <Compile Include="Castle\WindsorDependencyScope.cs" />
     <Compile Include="Castle\WindsorWebApiInstaller.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -499,6 +500,7 @@
     <TypeScriptCompile Include="app\services\category\categoryService.ts" />
     <TypeScriptCompile Include="app\services\deal\dealService.ts" />
     <TypeScriptCompile Include="app\helpers\tools.ts" />
+    <TypeScriptCompile Include="app\services\login\loginService.ts" />
     <TypeScriptCompile Include="app\services\sub_category\subCategoryService.ts" />
     <TypeScriptCompile Include="app\services\typedeal\typedealService.ts" />
     <TypeScriptCompile Include="app\controllers\login\login-controller.ts" />
@@ -546,13 +548,13 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50354</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50354/</IISUrl>
+          <IISUrl>https://localhost:44300/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-          <servers defaultServer="SelfHostServer">
+          <servers defaultServer="">
             <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:50354/" workingDir="" />
           </servers>
         </WebProjectProperties>

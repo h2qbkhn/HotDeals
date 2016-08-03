@@ -5,6 +5,7 @@
         subCategoryService: Services.SubCategoryService; 
         categoryService: Services.CategoryService; 
         typedealService: Services.TypeDealService; 
+        loginService: Services.LoginService; 
     }
 
     export class Api implements IApi {
@@ -12,10 +13,11 @@
             public dealService: Services.DealService, 
             public subCategoryService: Services.SubCategoryService ,
             public categoryService: Services.CategoryService, 
-            public typedealService: Services.TypeDealService
+            public typedealService: Services.TypeDealService, 
+            public loginService : Services.LoginService
         ) {
         }
 
     }
-    angular.module('HotDeals').service('Api', ['DealServ', 'SubCategoryServ', 'CategoryServ', 'TypeDealServ', Api])
+    angular.module('HotDeals').service('Api', ['DealServ', 'SubCategoryServ', 'CategoryServ', 'TypeDealServ', 'LoginServ', Api])
 }

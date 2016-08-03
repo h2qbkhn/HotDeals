@@ -54,15 +54,15 @@ namespace HotDeals.Website
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "616966328476677",
+               appSecret: "c559f33d94b63154e72a4901f0616d23");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "715067237732-3scst47qerjbv9lsi4aihc5qrovq0c3i.apps.googleusercontent.com",
+                ClientSecret = "CAXPajCLnwFFmW8gcdDjFXcp"
+            });
         }
     }
 }

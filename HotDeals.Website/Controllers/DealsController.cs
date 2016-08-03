@@ -9,10 +9,12 @@ using System.Web.Http.Description;
 using AutoMapper.QueryableExtensions;
 using AutoMapper;
 using System;
+using System.Web.Mvc;
 
 namespace HotDeals.Website.Controllers
 {
-    [RoutePrefix("api/deals")]
+    [RequireHttps]
+    [System.Web.Http.RoutePrefix("api/deals")]
     public class DealsController : ApiController
     {
         private readonly IDealRepository _dealRepository;
@@ -22,8 +24,8 @@ namespace HotDeals.Website.Controllers
         {
             this._dealRepository = dealRepository;
         }
-        [Route("")]
-        [HttpGet]
+        [System.Web.Http.Route("")]
+        [System.Web.Http.HttpGet]
         [ResponseType(typeof(IList<Deal>))]
         public IHttpActionResult GetAllDeals()
         {
@@ -33,8 +35,8 @@ namespace HotDeals.Website.Controllers
             return Ok(deals);
         }
 
-        [Route("")]
-        [HttpPost]
+        [System.Web.Http.Route("")]
+        [System.Web.Http.HttpPost]
         [ResponseType(typeof(DealViewModel))]
         public IHttpActionResult Post(DealViewModel dealVm)
         {
@@ -43,8 +45,8 @@ namespace HotDeals.Website.Controllers
             return Ok("a deal is added");
         }   
         
-        [Route("search/{typeDealId?}/{isHot?}/{maxNumber?}")] 
-        [HttpGet]
+        [System.Web.Http.Route("search/{typeDealId?}/{isHot?}/{maxNumber?}")] 
+        [System.Web.Http.HttpGet]
         [ResponseType(typeof(IList<Deal>))]
         public IHttpActionResult GetDealsByTypeDealId(string typeDealId, int isHot = 1, int maxNumber = 10)
         {

@@ -43,6 +43,7 @@ namespace HotDeals.Website
                       "~/app/helpers/tools.js",
                       "~/app/helpers/enums/enums.js",
                       "~/app/services/base/baseService.js",
+                      "~/app/services/login/loginService.js",
                       "~/app/services/deal/dealService.js",
                       "~/app/services/typedeal/typedealService.js",
                       "~/app/services/category/categoryService.js",
