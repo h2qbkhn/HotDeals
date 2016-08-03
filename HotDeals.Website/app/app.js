@@ -46,6 +46,19 @@ var HQHO;
                     resolve: {}
                 });
                 states.push({
+                    name: "main.detaildeal", controller: "DetailDealCtrl", url: "/detaildeal/{dealId}", templateUrl: "app/views/detaildeal/detaildeal.html", ncyBreadcrumb: { label: "Detail deal" },
+                    resolve: {
+                        dealId: ['$stateParams', function ($stateParams) {
+                                return $stateParams.dealId;
+                            }],
+                        deal: ['$stateParams', 'Api', function ($stateParams, api) {
+                                return api.dealService.getEntityById($stateParams.dealId).success(function (data) {
+                                    return data;
+                                });
+                            }]
+                    }
+                });
+                states.push({
                     name: "main.account", controller: "AccountCtrl", url: "/Account/Login", templateUrl: "app/views/account/account.html", ncyBreadcrumb: { label: "Account" },
                     resolve: {}
                 });

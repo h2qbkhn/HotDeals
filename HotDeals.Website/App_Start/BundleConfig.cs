@@ -60,7 +60,8 @@ namespace HotDeals.Website
                       "~/app/controllers/account/account-controller.js",
                       "~/app/controllers/main/main-controller.js",                    
                       "~/app/controllers/home/home-controller.js",
-                      "~/app/controllers/newdeal/newdeal-controller.js"
+                      "~/app/controllers/newdeal/newdeal-controller.js",
+                      "~/app/controllers/detaildeal/detaildeal-controller.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

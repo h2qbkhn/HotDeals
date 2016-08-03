@@ -241,7 +241,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.js" />
     <Content Include="app\controllers\account\account-controller.js" />
     <Content Include="app\controllers\base\base-controller.js" />
     <Content Include="app\controllers\home\home-controller.js" />
@@ -254,6 +253,7 @@
     <Content Include="app\model\base\base.js" />
     <Content Include="app\model\deal.js" />
     <Content Include="app\views\account\account.html" />
+    <Content Include="app\views\detaildeal\detaildeal.html" />
     <Content Include="app\views\home\home.css" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\login\login.css" />
@@ -336,6 +336,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="app\views\login\login.less" />
+    <Content Include="app\views\detaildeal\detaildeal.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -487,6 +488,7 @@
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="app\controllers\account\account-controller.ts" />
     <TypeScriptCompile Include="app\controllers\base\base-controller.ts" />
+    <TypeScriptCompile Include="app\controllers\detaildeal\detaildeal-controller.ts" />
     <TypeScriptCompile Include="app\controllers\home\home-controller.ts" />
     <TypeScriptCompile Include="app\controllers\main\main-controller.ts" />
     <TypeScriptCompile Include="app\controllers\newdeal\newdeal-controller.ts" />
