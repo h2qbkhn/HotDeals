@@ -259,3 +259,4 @@ ModelManifest.xml
 /HotDeals.Website/app/controllers/home/home-controller.js
 /HotDeals.Website/app/app.js.map
 /HotDeals.Website/app/app.js
+*.map
