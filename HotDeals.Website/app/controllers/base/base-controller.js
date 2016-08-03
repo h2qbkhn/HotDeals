@@ -50,4 +50,3 @@ var HQHO;
         HotDeals.BaseController = BaseController;
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=base-controller.js.map

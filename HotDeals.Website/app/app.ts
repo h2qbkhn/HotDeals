@@ -52,7 +52,6 @@ module HQHO.HotDeals {
                 }
             });
 
-            //new deal page
             states.push({
                 name: "main.newdeal", controller: "NewDealCtrl", url: "/newdeal", templateUrl: "app/views/newdeal/newdeal.html", ncyBreadcrumb: { label: "New deal" },
                 resolve: {

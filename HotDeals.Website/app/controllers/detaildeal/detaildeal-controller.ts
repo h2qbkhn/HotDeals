@@ -13,7 +13,6 @@ module HQHO.HotDeals {
     export interface IDetailDealScopeMethod extends IBaseScopeMethod {
        
     }
-
     export interface IDetailDealScope extends IBaseScope {
         currentDeal: Deal;
     }

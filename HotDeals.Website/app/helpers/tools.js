@@ -12,4 +12,3 @@ var HQHO;
         HotDeals.Tools = Tools;
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=tools.js.map
