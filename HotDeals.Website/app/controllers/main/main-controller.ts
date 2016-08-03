@@ -3,7 +3,6 @@
 module HQHO.HotDeals {
     "use strict";
     export interface IMainViewModel {
-        //TODO add members
     }
     export interface IHotDealsRootScope extends ng.IRootScopeService {
         today: () => void;
