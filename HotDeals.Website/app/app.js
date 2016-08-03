@@ -45,6 +45,10 @@ var HQHO;
                     name: "main.newdeal", controller: "NewDealCtrl", url: "/newdeal", templateUrl: "app/views/newdeal/newdeal.html", ncyBreadcrumb: { label: "New deal" },
                     resolve: {}
                 });
+                states.push({
+                    name: "main.account", controller: "AccountCtrl", url: "/Account/Login", templateUrl: "app/views/account/account.html", ncyBreadcrumb: { label: "Account" },
+                    resolve: {}
+                });
                 for (var i = 0; i < states.length; i++) {
                     var state = states[i];
                     if (state.name !== 'auth')

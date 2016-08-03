@@ -58,6 +58,14 @@ module HQHO.HotDeals {
 
                 }
             });
+
+            states.push({
+                name: "main.account", controller: "AccountCtrl", url: "/Account/Login", templateUrl: "app/views/account/account.html", ncyBreadcrumb: { label: "Account" },
+                resolve: {
+
+                }
+            });
+
            
             for (var i = 0; i < states.length; i++) {
                 var state = states[i];

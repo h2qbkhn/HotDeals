@@ -57,6 +57,7 @@ namespace HotDeals.Website
                       "~/app/model/typeDeal.js",
                       "~/app/controllers/base/base-controller.js",
                       "~/app/controllers/login/login-controller.js",
+                      "~/app/controllers/account/account-controller.js",
                       "~/app/controllers/main/main-controller.js",                    
                       "~/app/controllers/home/home-controller.js",
                       "~/app/controllers/newdeal/newdeal-controller.js"
