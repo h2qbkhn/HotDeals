@@ -14,7 +14,7 @@ button[type=button] {
 input.form-control,
 textarea.form-control,
 select.form-control {
-  border-radius: 0px;
+  border-radius: 0px !important;
 }
 input.form-control[type=text],
 input.form-control[type=number],
@@ -25,6 +25,9 @@ input.form-control[type=date] {
   box-shadow: none;
   padding-left: 0px;
   padding-right: 0px;
+}
+.alert {
+  border-radius: 0px !important;
 }
 .hq-card {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);

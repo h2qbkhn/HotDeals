@@ -3,11 +3,17 @@
 </head>
 <form class="form-horizontal" name="newdeal_form" novalidate>
     <div class="container-fluid">
-        <div class="col-md-3 hq-card zone-newdeal zone-category">
+        <div class="col-md-4 hq-card zone-newdeal zone-category">        
             <div class="form-group">
                 <label for="typedealIpt">Type of deal(*)</label>
-                <select class="form-control" id="typedealIpt" ng-model="currentDeal.typeDealId" ng-change="mt.typedealChanged()" ng-options="option.id as option.label for option in vm.typedeals"></select>
+                <!-- <select class="form-control" id="typedealIpt" ng-model="currentDeal.typeDealId" ng-change="mt.typedealChanged()" ng-options="option.id as option.label for option in vm.typedeals"></select> -->
+                 <div class="list-group" >
+                    <a class="list-group-item hq-list-group-item" ng-repeat="typedeal in vm.typedeals" ng-class="{'active': currentDeal.typeDealId === typedeal.id }" 
+                        ng-click="mt.typedealChanged(typedeal.id)"> {{typedeal.label}}  
+                    </a>
+                </div>
             </div>
+
             <div class="form-group">
                 <label for="categoryIpt">Category(*)</label>
                 <select class="form-control" id="categoryIpt" ng-model="currentDeal.categoryId" ng-change="mt.categoryChanged()" ng-options="category.id as category.label for category in vm.categories"></select>
@@ -17,7 +23,7 @@
                 <select class="form-control" id="subcategoryIpt" ng-model="currentDeal.subcategoryId" ng-change="mt.subcategoryChanged()" ng-options="subcategory.id as subcategory.label for subcategory in vm.subcategories"></select>
             </div>
         </div>
-        <div class="col-md-8 col-md-offset-1 hq-card zone-newdeal zone-title">
+        <div class="col-md-8  hq-card zone-newdeal zone-title">
             <div class="row">
                 <div class="col-md-7">
                     <div class="form-group">
@@ -64,7 +70,7 @@
 
                     <div class="form-group">
                         <div class="container-thumbnail">
-                            <img src="app/images/logo_areas.png" alt="...">
+                            <img src="app/images/demo.png" alt="...">
                             <button type="button" class="btn btn-primary btn-block">Choisir un image</button>
                             <button type="button" class="btn btn-default btn-block">Ajouter un lien</button>
                         </div>
@@ -109,19 +115,21 @@
                 </div>
             </div>
 
-            <p class="text-danger" ng-show="newdeal_form.$submitted && (currentDeal.startDate > currentDeal.endDate) ">
+            <p  class="alert alert-danger" role="alert" ng-show="newdeal_form.$submitted && (currentDeal.startDate > currentDeal.endDate) ">
             The date is not valid
             </p>
 
             <div class="form-group">
                 <label for="descriptionIpt">Description</label>
                 <textarea rows="4" class="form-control" id="descriptionIpt" ng-model="currentDeal.description"
-                name="description"></textarea>
+                name="description"
+                ></textarea>
             </div>
 
-            <p class="bg-danger" ng-show="newdeal_form.$submitted && newdeal_form.$invalid">
+            <p class="alert alert-danger" role="alert" ng-show="newdeal_form.$submitted && newdeal_form.$invalid">
             The form is not valid
             </p>
+
 
             <div class="form-group">
                 <input type="submit"

@@ -80,9 +80,48 @@
 }
 
 .side-right{
-	.zone-search{
+	.zone-search, .zone-hot{
 		margin-top: 30px; 
 		background-color: white; 
 		padding: 15px; 
 	}
+    .zone-hot{
+        .title_zone_hot{
+            font-weight: bold;
+            border-bottom: 2px solid; 
+            padding-bottom:5px;  
+        }
+        .container_zone_hot{
+            width: 100%;  
+            .item_zone_hot{
+                display: flex; 
+                flex-direction: row; 
+                justify-content: flex-start; 
+                flex-wrap: nowrap; 
+                align-items: stretch; 
+                align-content: stretch; 
+                margin-top: 5px; 
+                overflow: hidden;
+                width: 100%;
+                padding: 5px 0px 5px 0px; 
+                height: 70px; 
+                img{
+                    max-height: 50px;
+                    //min-width: 50px; 
+                    height: 60px; 
+                    margin: 5px 10px 5px 0px; 
+                    cursor: pointer;
+                }
+                .detail{
+                    .title{
+                        font-weight: bold; 
+                    }
+                    .description{
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+
+        }
+    }
 }

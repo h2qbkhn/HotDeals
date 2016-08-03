@@ -6,7 +6,7 @@
         <div class="hq-card container-deal" ng-repeat="deal in vm.filteredDeals">
             <div class="img-deal">
                 <a name="image-link-deal">
-                    <img src="app/images/logo_areas.png" />
+                    <img src="app/images/demo.png" />
                 </a>
                 <div class="container-price">
                     <div name="price">{{deal.price}}</div>
@@ -65,27 +65,51 @@
                 </div>
             </div>
 
-            <div class="hq-card row zone-search">
+           <div class="hq-card row zone-hot">
                 <div class="title_zone_hot">
+                   Hot Bon Plans
                 </div>
                 <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotBonPlans">
-                    <div class="item_zone_hot">{{hotdeal.title}}</div>
+                    <div class="item_zone_hot">
+                        <img src="app/images/demo.png"/>
+                        <div class="detail">
+                            <div class="title">{{hotdeal.title}}</div>
+                            <div class="description">{{hotdeal.description}}</div>
+                        </div>
+                    
+                    </div>
                 </div>
             </div>
 
-            <div class="hq-card row zone-search">
+           <div class="hq-card row zone-hot">
                 <div class="title_zone_hot">
+                   Hot Code Promos
                 </div>
                 <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotCodePromos">
-                    <div class="item_zone_hot">{{hotdeal.title}}</div>
+                    <div class="item_zone_hot">
+                        <img src="app/images/demo.png"/>
+                        <div class="detail">
+                            <div class="title">{{hotdeal.title}}</div>
+                            <div class="description">{{hotdeal.description}}</div>
+                        </div>
+                    
+                    </div>
                 </div>
             </div>
 
-            <div class="hq-card row zone-search">
+            <div class="hq-card row zone-hot">
                 <div class="title_zone_hot">
+                   Hot Frees
                 </div>
                 <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotFrees">
-                    <div class="item_zone_hot">{{hotdeal.title}}</div>
+                    <div class="item_zone_hot">
+                        <img src="app/images/demo.png"/>
+                        <div class="detail">
+                            <div class="title">{{hotdeal.title}}</div>
+                            <div class="description">{{hotdeal.description}}</div>
+                        </div>
+                    
+                    </div>
                 </div>
             </div>
 

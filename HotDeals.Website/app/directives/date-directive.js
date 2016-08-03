@@ -24,7 +24,7 @@ var HQHO;
                     return directive;
                 };
                 return DateInputWrapper;
-            })();
+            }());
             Directives.DateInputWrapper = DateInputWrapper;
             var DateInputLinker = (function () {
                 function DateInputLinker(scope, element, attrs, ctrl) {
@@ -83,7 +83,7 @@ var HQHO;
                     };
                 }
                 return DateInputLinker;
-            })();
+            }());
             Directives.DateInputLinker = DateInputLinker;
             angular.module('HotDeals').directive('hdDateInput', DateInputWrapper.factory());
         })(Directives = HotDeals.Directives || (HotDeals.Directives = {}));

@@ -36,12 +36,12 @@ var HQHO;
                 return that.loadReferences()
                     .then(function () {
                     that.$scope.currentDeal.categoryId = that.categories[0].id;
+                    that.$scope.currentDeal.typeDealId = that.typedeals[0].id;
                     var promises = [];
                     promises.push(that._getSubCategoriesByCategoryId(that.$scope.currentDeal.categoryId));
                     return that.$q.all(promises);
                 }).then(function () {
-                    that.$scope.currentDeal.typeDealId = that.typedeals[0].id;
-                    that.typedealChanged();
+                    that.typedealChanged(that.$scope.currentDeal.typeDealId);
                     that.$scope.currentDeal.subcategoryId = that.subcategories[0].id;
                 })
                     .then(function () {
@@ -65,8 +65,9 @@ var HQHO;
             NewDealController.prototype.isBonPlan = function () {
                 return this.$scope.currentDeal.typeDealValue = ETypeDeal.BonPlan;
             };
-            NewDealController.prototype.typedealChanged = function () {
+            NewDealController.prototype.typedealChanged = function (id) {
                 var that = this;
+                that.$scope.currentDeal.typeDealId = id;
                 var found = that.typedeals.filter(function (itm) {
                     return itm.id === that.$scope.currentDeal.typeDealId;
                 });
@@ -99,7 +100,7 @@ var HQHO;
                 });
             };
             return NewDealController;
-        })(HotDeals.BaseController);
+        }(HotDeals.BaseController));
         HotDeals.NewDealController = NewDealController;
         angular.module('HotDeals').controller('NewDealCtrl', ['$scope', '$q', '$state', '$timeout', 'Api', NewDealController]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
