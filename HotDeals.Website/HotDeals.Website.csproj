@@ -244,6 +244,7 @@
     <Content Include="app\app.js" />
     <Content Include="app\controllers\base\base-controller.js" />
     <Content Include="app\controllers\home\home-controller.js" />
+    <Content Include="app\controllers\login\login-controller.js" />
     <Content Include="app\controllers\main\main-controller.js" />
     <Content Include="app\controllers\newdeal\newdeal-controller.js" />
     <Content Include="app\directives\date-directive.js" />
@@ -255,6 +256,7 @@
     <Content Include="app\views\home\home.css" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\login\login.css" />
+    <Content Include="app\views\login\login.html" />
     <Content Include="app\views\main\main.css" />
     <Content Include="app\views\main\main.html" />
     <Content Include="app\views\newdeal\newdeal.css" />
@@ -499,6 +501,7 @@
     <TypeScriptCompile Include="app\helpers\tools.ts" />
     <TypeScriptCompile Include="app\services\sub_category\subCategoryService.ts" />
     <TypeScriptCompile Include="app\services\typedeal\typedealService.ts" />
+    <TypeScriptCompile Include="app\controllers\login\login-controller.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-breadcrumb\angular-breadcrumb.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-loading-bar\angular-loading-bar.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />

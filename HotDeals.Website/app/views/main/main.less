@@ -1,37 +1,53 @@
-﻿
-body {
+﻿body {
     background-image: url('../../images/bg_home.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-attachment: fixed;   
+    background-attachment: fixed;
 }
-.mainpage{
-    margin-bottom: 30px; 
+
+.mainpage {
+    margin-bottom: 30px;
 }
-button[type=button]{
-border-radius: 0px;
+
+input {
+    &.has-error {
+        border-color: #d9534f;
+    }
 }
-input, textarea, select {
+
+button[type=button] {
+    border-radius: 0px;
+}
+
+input,
+textarea,
+select {
     &.form-control {
         border-radius: 0px !important;
     }
 }
+
 input {
     &.form-control {
-        &[type=text], &[type=number], &[type=date], &[type=password], &[type=email] {
+        &[type=text],
+        &[type=number],
+        &[type=date],
+        &[type=password],
+        &[type=email] {
             border-top: none;
             border-right: none;
             border-left: none;
             box-shadow: none;
             padding-left: 0px;
-            padding-right: 0px; 
+            padding-right: 0px;
         }
     }
 }
 
-.alert{
+.alert {
     border-radius: 0px !important;
+    padding: 5px 15px 5px 15px; 
 }
 
 .hq-card {
@@ -39,6 +55,7 @@ input {
     border: none;
     border-radius: 0;
 }
-.hq-btn{
-    border-radius: 0px !important; 
+
+.hq-btn {
+    border-radius: 0px !important;
 }

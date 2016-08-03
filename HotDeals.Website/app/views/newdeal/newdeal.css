@@ -10,9 +10,6 @@ form[name=newdeal_form] .list-group .hq-list-group-item {
   cursor: pointer;
   border-radius: 0px;
 }
-form[name=newdeal_form] input.has-error {
-  border-color: #d9534f;
-}
 form[name=newdeal_form] .zone-newdeal {
   background-color: white;
   padding: 30px;
