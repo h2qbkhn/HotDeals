@@ -7,6 +7,8 @@ var HQHO;
             function Tools() {
             }
             Tools.apiServiceBaseUrl = location.protocol + '//' + location.host + '/' + 'api/';
+            Tools.redirectUriAuth = location.protocol + '//' + location.host + '/' + 'authcomplete.html';
+            Tools.clientId = "hotdealsApp";
             return Tools;
         })();
         HotDeals.Tools = Tools;

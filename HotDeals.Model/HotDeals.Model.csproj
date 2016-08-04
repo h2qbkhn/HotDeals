@@ -44,10 +44,15 @@
     <Compile Include="Base\ContentBase.cs" />
     <Compile Include="Base\IContentBase.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Deal.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="ExternalLoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefreshToken.cs" />
     <Compile Include="SubCategory.cs" />
     <Compile Include="TypeDeal.cs" />
+    <Compile Include="UserModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

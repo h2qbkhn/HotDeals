@@ -44,9 +44,18 @@ module HQHO.HotDeals {
                 }, ncyBreadcrumb: { skip: true }
             });
 
+            states.push({
+                name: "main.login", controller: "LoginCtrl",url: "/login", templateUrl: "app/views/login/login.html",
+                ncyBreadcrumb: { label: "login" }, resolve: {
+
+                }
+
+            });
+
             // home page
             states.push({
-                name: "main.home", controller: "HomeCtrl", url: "/home", templateUrl: "app/views/home/home.html", ncyBreadcrumb: { label: "Home" },
+                name: "main.home", controller: "HomeCtrl", url: "/home", templateUrl: "app/views/home/home.html",
+                ncyBreadcrumb: { label: "Home" },
                 resolve: {
                     
                 }

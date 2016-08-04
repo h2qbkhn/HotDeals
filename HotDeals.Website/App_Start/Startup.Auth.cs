@@ -6,6 +6,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using HotDeals.Website.Models;
+using Microsoft.Owin.Security.OAuth;
+using HotDeals.Website.Providers;
+using Microsoft.Owin.Security.Facebook;
 
 namespace HotDeals.Website
 {
@@ -36,6 +39,8 @@ namespace HotDeals.Website
                 }
             });            
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+            OAuthBearerOptions = new OAuthBearerAuthenticationOptions();
+
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
             app.UseTwoFactorSignInCookie(DefaultAuthenticationTypes.TwoFactorCookie, TimeSpan.FromMinutes(5));
@@ -53,16 +58,22 @@ namespace HotDeals.Website
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
             //   consumerSecret: "");
+            facebookAuthOptions = new FacebookAuthenticationOptions()
+            {
+                AppId = "616966328476677",
+                AppSecret = "c559f33d94b63154e72a4901f0616d23",
+                Provider = new FacebookAuthProvider()
+            };
+            app.UseFacebookAuthentication(facebookAuthOptions);
 
-            app.UseFacebookAuthentication(
-               appId: "616966328476677",
-               appSecret: "c559f33d94b63154e72a4901f0616d23");
-
-            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            googleAuthOptions = new GoogleOAuth2AuthenticationOptions()
             {
                 ClientId = "715067237732-3scst47qerjbv9lsi4aihc5qrovq0c3i.apps.googleusercontent.com",
-                ClientSecret = "CAXPajCLnwFFmW8gcdDjFXcp"
-            });
+                ClientSecret = "CAXPajCLnwFFmW8gcdDjFXcp",
+                Provider = new GoogleAuthProvider()
+            };
+
+            app.UseGoogleAuthentication(googleAuthOptions);
         }
     }
 }
