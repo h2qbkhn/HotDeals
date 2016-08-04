@@ -35,6 +35,26 @@ namespace HotDeals.Website.Controllers
             return Ok(deals);
         }
 
+        [System.Web.Http.Route("detail/{dealId?}")]
+        [System.Web.Http.HttpGet]
+        [ResponseType(typeof(DealViewModel))]
+        public IHttpActionResult GetDealById(string dealId = null)
+        {
+            if (dealId == null)
+            {
+                BadRequest("dealId is null");
+            }
+            Guid guidDealId;
+            Guid.TryParse(dealId, out guidDealId);
+            if (guidDealId == Guid.Empty)
+            {
+                BadRequest("guidDealId is not valid");
+            }
+            Deal deal = this._dealRepository.GetById(guidDealId);
+            DealViewModel dealVm = Mapper.Map<Deal,DealViewModel>(deal); 
+            return Ok(dealVm);
+        }
+
         [System.Web.Http.Route("")]
         [System.Web.Http.HttpPost]
         [ResponseType(typeof(DealViewModel))]

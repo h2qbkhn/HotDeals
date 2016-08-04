@@ -22,7 +22,7 @@ module HQHO.HotDeals {
     }
 
     export interface IMainScopeMethod {
-        openLoginModal: (size: string) => {};
+        //openLoginModal: (size: string) => {};
     }
     export interface IMainScope extends ng.IScope {
         vm: IMainViewModel;
@@ -35,7 +35,7 @@ module HQHO.HotDeals {
             private $uibModal) {
             this.$scope.animationForModalEnabled = false;
             this.$scope.mt = {
-                openLoginModal: this.openLoginModal.bind(this)
+                //openLoginModal: this.openLoginModal.bind(this)
             }
 
             this.$scope.vm = {
@@ -45,23 +45,23 @@ module HQHO.HotDeals {
 
         }
 
-        public openLoginModal(size: string = '') {
-            var that = this;
-            var modalInstance = that.$uibModal.open({
-                animation: that.$scope.animationForModalEnabled,
-                templateUrl: 'app/views/login/login.html',
-                controller: 'LoginCtrl',
-                size: size,
-                resolve: {
+        //public openLoginModal(size: string = '') {
+        //    var that = this;
+        //    var modalInstance = that.$uibModal.open({
+        //        animation: that.$scope.animationForModalEnabled,
+        //        templateUrl: 'app/views/login/login.html',
+        //        controller: 'LoginCtrl',
+        //        size: size,
+        //        resolve: {
 
-                }
-            });
-            modalInstance.result.then(function (selectedItem) {
+        //        }
+        //    });
+        //    modalInstance.result.then(function (selectedItem) {
 
-            }, function () {
+        //    }, function () {
 
-            });
-        };
+        //    });
+        //};
     }
 
     angular.module('HotDeals').controller('MainCtrl', ['$scope', '$rootScope', '$uibModal', MainController]);

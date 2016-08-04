@@ -5,7 +5,7 @@
     <div class="col-md-8">
         <div class="hq-card container-deal" ng-repeat="deal in vm.filteredDeals">
             <div class="img-deal">
-                <a name="image-link-deal">
+                <a name="image-link-deal" ui-sref="main.detaildeal({dealId: deal.id})" >
                     <img src="app/images/demo.png" />
                 </a>
                 <div class="container-price">
@@ -71,7 +71,9 @@
                 </div>
                 <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotBonPlans">
                     <div class="item_zone_hot">
+                        <a ui-sref="main.detaildeal({dealId: hotdeal.id})">
                         <img src="app/images/demo.png"/>
+                        </a>
                         <div class="detail">
                             <div class="title">{{hotdeal.title}}</div>
                             <div class="description">{{hotdeal.description}}</div>
@@ -87,7 +89,8 @@
                 </div>
                 <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotCodePromos">
                     <div class="item_zone_hot">
-                        <img src="app/images/demo.png"/>
+                    <a ui-sref="main.detaildeal({dealId: hotdeal.id})">
+                        <img src="app/images/demo.png"/></a>
                         <div class="detail">
                             <div class="title">{{hotdeal.title}}</div>
                             <div class="description">{{hotdeal.description}}</div>
@@ -103,7 +106,8 @@
                 </div>
                 <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotFrees">
                     <div class="item_zone_hot">
-                        <img src="app/images/demo.png"/>
+                    <a ui-sref="main.detaildeal({dealId: hotdeal.id})">
+                        <img src="app/images/demo.png"/></a>
                         <div class="detail">
                             <div class="title">{{hotdeal.title}}</div>
                             <div class="description">{{hotdeal.description}}</div>

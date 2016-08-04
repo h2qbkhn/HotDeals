@@ -3,6 +3,7 @@
 
 module HQHO.HotDeals {
     "use strict";
+    import Deal = HQHO.HotDeals.Models.Deal;
 
     var app = angular.module("HotDeals", [
         "ui.router",
@@ -51,13 +52,34 @@ module HQHO.HotDeals {
                 }
             });
 
-            //new deal page
             states.push({
                 name: "main.newdeal", controller: "NewDealCtrl", url: "/newdeal", templateUrl: "app/views/newdeal/newdeal.html", ncyBreadcrumb: { label: "New deal" },
                 resolve: {
 
                 }
             });
+            states.push({
+                name: "main.detaildeal", controller: "DetailDealCtrl", url: "/detaildeal/{dealId}", templateUrl: "app/views/detaildeal/detaildeal.html", ncyBreadcrumb: { label: "Detail deal" },
+                resolve: {
+                    dealId: ['$stateParams', function ($stateParams) {
+                        return $stateParams.dealId
+                    }], 
+                    deal: ['$stateParams', 'Api', function ($stateParams, api) {
+                        return api.dealService.getEntityById($stateParams.dealId).success((data) => {
+                            return data;
+                        }) 
+                    }]
+                }
+            });
+
+
+            states.push({
+                name: "main.account", controller: "AccountCtrl", url: "/Account/Login", templateUrl: "app/views/account/account.html", ncyBreadcrumb: { label: "Account" },
+                resolve: {
+
+                }
+            });
+
            
             for (var i = 0; i < states.length; i++) {
                 var state = states[i];

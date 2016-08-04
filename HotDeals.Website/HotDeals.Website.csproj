@@ -223,7 +223,6 @@
     <Compile Include="Castle\WindsorDependencyResolver.cs" />
     <Compile Include="Castle\WindsorDependencyScope.cs" />
     <Compile Include="Castle\WindsorWebApiInstaller.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -242,10 +241,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.js" />
+    <Content Include="app\controllers\account\account-controller.js" />
     <Content Include="app\controllers\base\base-controller.js" />
     <Content Include="app\controllers\home\home-controller.js" />
-    <Content Include="app\controllers\login\login-controller.js" />
     <Content Include="app\controllers\main\main-controller.js" />
     <Content Include="app\controllers\newdeal\newdeal-controller.js" />
     <Content Include="app\directives\date-directive.js" />
@@ -254,6 +252,8 @@
     <Content Include="app\images\demo.png" />
     <Content Include="app\model\base\base.js" />
     <Content Include="app\model\deal.js" />
+    <Content Include="app\views\account\account.html" />
+    <Content Include="app\views\detaildeal\detaildeal.html" />
     <Content Include="app\views\home\home.css" />
     <Content Include="app\views\home\home.html" />
     <Content Include="app\views\login\login.css" />
@@ -336,6 +336,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="app\views\login\login.less" />
+    <Content Include="app\views\detaildeal\detaildeal.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -457,6 +458,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\controllers\login\" />
+    <Folder Include="app\services\login\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -483,7 +486,9 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\controllers\account\account-controller.ts" />
     <TypeScriptCompile Include="app\controllers\base\base-controller.ts" />
+    <TypeScriptCompile Include="app\controllers\detaildeal\detaildeal-controller.ts" />
     <TypeScriptCompile Include="app\controllers\home\home-controller.ts" />
     <TypeScriptCompile Include="app\controllers\main\main-controller.ts" />
     <TypeScriptCompile Include="app\controllers\newdeal\newdeal-controller.ts" />
@@ -500,10 +505,8 @@
     <TypeScriptCompile Include="app\services\category\categoryService.ts" />
     <TypeScriptCompile Include="app\services\deal\dealService.ts" />
     <TypeScriptCompile Include="app\helpers\tools.ts" />
-    <TypeScriptCompile Include="app\services\login\loginService.ts" />
     <TypeScriptCompile Include="app\services\sub_category\subCategoryService.ts" />
     <TypeScriptCompile Include="app\services\typedeal\typedealService.ts" />
-    <TypeScriptCompile Include="app\controllers\login\login-controller.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-breadcrumb\angular-breadcrumb.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-loading-bar\angular-loading-bar.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
