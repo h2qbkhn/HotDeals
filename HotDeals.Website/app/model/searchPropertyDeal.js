@@ -20,9 +20,8 @@ var HQHO;
                     this.typeLocation = null;
                 }
                 return SearchPropertyDeal;
-            }(Models.Base));
+            })(Models.Base);
             Models.SearchPropertyDeal = SearchPropertyDeal;
         })(Models = HotDeals.Models || (HotDeals.Models = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=searchPropertyDeal.js.map

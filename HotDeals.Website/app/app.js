@@ -57,4 +57,3 @@ var HQHO;
         ]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=app.js.map

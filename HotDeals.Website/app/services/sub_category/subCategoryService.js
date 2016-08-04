@@ -23,10 +23,9 @@ var HQHO;
                     });
                 };
                 return SubCategoryService;
-            }(Services.BaseService));
+            })(Services.BaseService);
             Services.SubCategoryService = SubCategoryService;
             angular.module('HotDeals').service('SubCategoryServ', SubCategoryService);
         })(Services = HotDeals.Services || (HotDeals.Services = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=subCategoryService.js.map

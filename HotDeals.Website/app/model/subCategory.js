@@ -17,9 +17,8 @@ var HQHO;
                     this.label = lab;
                 }
                 return SubCategory;
-            }(Models.Base));
+            })(Models.Base);
             Models.SubCategory = SubCategory;
         })(Models = HotDeals.Models || (HotDeals.Models = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=subCategory.js.map

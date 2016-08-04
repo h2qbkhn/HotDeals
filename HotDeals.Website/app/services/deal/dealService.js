@@ -27,10 +27,9 @@ var HQHO;
                     });
                 };
                 return DealService;
-            }(Services.BaseService));
+            })(Services.BaseService);
             Services.DealService = DealService;
             angular.module('HotDeals').service('DealServ', DealService);
         })(Services = HotDeals.Services || (HotDeals.Services = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=dealService.js.map

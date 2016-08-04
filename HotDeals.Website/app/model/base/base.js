@@ -11,9 +11,8 @@ var HQHO;
                 }
                 ;
                 return Base;
-            }());
+            })();
             Models.Base = Base;
         })(Models = HotDeals.Models || (HotDeals.Models = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=base.js.map

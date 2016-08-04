@@ -8,8 +8,7 @@ var HQHO;
             }
             Tools.apiServiceBaseUrl = location.protocol + '//' + location.host + '/' + 'api/';
             return Tools;
-        }());
+        })();
         HotDeals.Tools = Tools;
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=tools.js.map

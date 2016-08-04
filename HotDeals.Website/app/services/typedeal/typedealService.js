@@ -16,10 +16,9 @@ var HQHO;
                     _super.call(this, $http, "typedeals");
                 }
                 return TypeDealService;
-            }(Services.BaseService));
+            })(Services.BaseService);
             Services.TypeDealService = TypeDealService;
             angular.module('HotDeals').service('TypeDealServ', TypeDealService);
         })(Services = HotDeals.Services || (HotDeals.Services = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=typedealService.js.map

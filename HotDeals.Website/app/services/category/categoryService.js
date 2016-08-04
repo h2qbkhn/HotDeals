@@ -16,10 +16,9 @@ var HQHO;
                     _super.call(this, $http, "categories");
                 }
                 return CategoryService;
-            }(Services.BaseService));
+            })(Services.BaseService);
             Services.CategoryService = CategoryService;
             angular.module('HotDeals').service('CategoryServ', CategoryService);
         })(Services = HotDeals.Services || (HotDeals.Services = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=categoryService.js.map

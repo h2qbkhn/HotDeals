@@ -127,9 +127,8 @@ var HQHO;
                 });
             };
             return HomeController;
-        }(HotDeals.BaseController));
+        })(HotDeals.BaseController);
         HotDeals.HomeController = HomeController;
         angular.module('HotDeals').controller('HomeCtrl', ['$scope', '$q', '$state', '$timeout', 'Api', HomeController]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=home-controller.js.map

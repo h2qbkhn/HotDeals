@@ -18,9 +18,8 @@ var HQHO;
                     this.label = label;
                 }
                 return TypeDeal;
-            }(Models.Base));
+            })(Models.Base);
             Models.TypeDeal = TypeDeal;
         })(Models = HotDeals.Models || (HotDeals.Models = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
-//# sourceMappingURL=typeDeal.js.map
