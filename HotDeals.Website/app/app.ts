@@ -12,6 +12,7 @@ module HQHO.HotDeals {
         "ngResource",
         "angular-loading-bar",
         "ncy-angular-breadcrumb",
+        "LocalStorageModule", 
     ]);
 
     app.run(["$rootScope", ($rootScope) => {
@@ -26,8 +27,11 @@ module HQHO.HotDeals {
         
     }]);
 
-    app.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "cfpLoadingBarProvider", "$breadcrumbProvider", "$locationProvider",
-        function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider, $breadcrumbProvider, $locationProvider) {
+    app.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "cfpLoadingBarProvider",
+        "$breadcrumbProvider", "$locationProvider","localStorageServiceProvider",
+        function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider,
+            $breadcrumbProvider, $locationProvider, localStorageServiceProvider
+        ) {
             $breadcrumbProvider.setOptions({
                 prefixStateName: "main.home",
                 template: "bootstrap3"
@@ -54,10 +58,18 @@ module HQHO.HotDeals {
 
             // home page
             states.push({
+                name: "main.associate", controller: "AssociateCtrl", url: "/associate", templateUrl: "app/views/associate/associate.html",
+                ncyBreadcrumb: { label: "Associate" },
+                resolve: {
+                    
+                }
+            });
+
+            states.push({
                 name: "main.home", controller: "HomeCtrl", url: "/home", templateUrl: "app/views/home/home.html",
                 ncyBreadcrumb: { label: "Home" },
                 resolve: {
-                    
+
                 }
             });
 

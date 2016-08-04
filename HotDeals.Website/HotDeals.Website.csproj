@@ -253,6 +253,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\authComplete.js" />
     <Content Include="app\controllers\base\base-controller.js" />
     <Content Include="app\controllers\home\home-controller.js" />
     <Content Include="app\controllers\newdeal\newdeal-controller.js" />
@@ -263,6 +264,8 @@
     <Content Include="app\model\base\base.js" />
     <Content Include="app\model\deal.js" />
     <Content Include="app\views\account\account.html" />
+    <Content Include="app\views\associate\associate.html" />
+    <Content Include="authcomplete.html" />
     <Content Include="app\views\detaildeal\detaildeal.html" />
     <Content Include="app\views\home\home.css" />
     <Content Include="app\views\home\home.html" />
@@ -300,6 +303,8 @@
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\angular-breadcrumb.js" />
     <Content Include="Scripts\angular-breadcrumb.min.js" />
+    <Content Include="Scripts\angular-local-storage.js" />
+    <Content Include="Scripts\angular-local-storage.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
@@ -347,6 +352,8 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="app\views\login\login.less" />
     <Content Include="app\views\detaildeal\detaildeal.less" />
+    <Content Include="Scripts\angular-local-storage.min.js.map" />
+    <Content Include="app\views\associate\associate.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -495,6 +502,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="app\controllers\account\account-controller.ts" />
+    <TypeScriptCompile Include="app\controllers\associate\associate-controller.ts" />
     <TypeScriptCompile Include="app\controllers\base\base-controller.ts" />
     <TypeScriptCompile Include="app\controllers\detaildeal\detaildeal-controller.ts" />
     <TypeScriptCompile Include="app\controllers\home\home-controller.ts" />
@@ -514,7 +522,10 @@
     <TypeScriptCompile Include="app\services\category\categoryService.ts" />
     <TypeScriptCompile Include="app\services\deal\dealService.ts" />
     <TypeScriptCompile Include="app\helpers\tools.ts" />
+    <TypeScriptCompile Include="app\services\login\authInterceptorService.ts" />
+    <TypeScriptCompile Include="app\services\login\authService.ts" />
     <TypeScriptCompile Include="app\services\login\loginService.ts" />
+    <TypeScriptCompile Include="app\services\login\tokensManagerService.ts" />
     <TypeScriptCompile Include="app\services\sub_category\subCategoryService.ts" />
     <TypeScriptCompile Include="app\services\typedeal\typedealService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-breadcrumb\angular-breadcrumb.d.ts" />
