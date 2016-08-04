@@ -19,3 +19,4 @@ var HQHO;
         })(Enums = HotDeals.Enums || (HotDeals.Enums = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
+//# sourceMappingURL=enums.js.map

@@ -6,17 +6,17 @@ var HQHO;
         (function (Services) {
             "use strict";
             var Api = (function () {
-                function Api(dealService, subCategoryService, categoryService, typedealService, loginService) {
+                function Api(dealService, subCategoryService, categoryService, typedealService) {
                     this.dealService = dealService;
                     this.subCategoryService = subCategoryService;
                     this.categoryService = categoryService;
                     this.typedealService = typedealService;
-                    this.loginService = loginService;
                 }
                 return Api;
             })();
             Services.Api = Api;
-            angular.module('HotDeals').service('Api', ['DealServ', 'SubCategoryServ', 'CategoryServ', 'TypeDealServ', 'LoginServ', Api]);
+            angular.module('HotDeals').service('Api', ['DealServ', 'SubCategoryServ', 'CategoryServ', 'TypeDealServ', Api]);
         })(Services = HotDeals.Services || (HotDeals.Services = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
+//# sourceMappingURL=apiService.js.map

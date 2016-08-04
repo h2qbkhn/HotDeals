@@ -25,3 +25,4 @@ var HQHO;
         })(Models = HotDeals.Models || (HotDeals.Models = {}));
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
+//# sourceMappingURL=searchPropertyDeal.js.map

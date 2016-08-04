@@ -11,12 +11,13 @@ body {
 input.has-error {
   border-color: #d9534f;
 }
-button[type=button] {
-  border-radius: 0px;
+nav.navbar {
+  border-radius: 0px !important;
 }
 input.form-control,
 textarea.form-control,
-select.form-control {
+select.form-control,
+button[type=button].form-control {
   border-radius: 0px !important;
 }
 input.form-control[type=text],

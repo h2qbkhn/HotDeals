@@ -105,3 +105,4 @@ var HQHO;
         angular.module('HotDeals').controller('NewDealCtrl', ['$scope', '$q', '$state', '$timeout', 'Api', NewDealController]);
     })(HotDeals = HQHO.HotDeals || (HQHO.HotDeals = {}));
 })(HQHO || (HQHO = {}));
+//# sourceMappingURL=newdeal-controller.js.map
