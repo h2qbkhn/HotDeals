@@ -1,13 +1,16 @@
 body {
-  background-image: url('../../images/bg_home.jpg');
+  background-color: #e9ebec;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
 }
+.hq-bg-white {
+  background-color: white;
+}
 .mainpage {
-  margin-bottom: 70px;
-  margin-top: 70px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 input.has-error {
   border-color: #d9534f;
