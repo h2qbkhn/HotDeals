@@ -255,9 +255,6 @@
     <Content Include="app\images\demo.png" />
     <Content Include="app\model\base\base.js" />
     <Content Include="app\model\deal.js" />
-    <Content Include="app\views\account\account.html" />
-    <Content Include="app\views\associate\associate.html" />
-    <Content Include="authcomplete.html" />
     <Content Include="app\views\detaildeal\detaildeal.html" />
     <Content Include="app\views\home\home.css" />
     <Content Include="app\views\home\home.html" />
@@ -345,7 +342,7 @@
     <Content Include="app\views\login\login.less" />
     <Content Include="app\views\detaildeal\detaildeal.less" />
     <Content Include="Scripts\angular-local-storage.min.js.map" />
-    <Content Include="app\views\associate\associate.less" />
+    <Content Include="app\views\common\common.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />

@@ -16,9 +16,11 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@*@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink" })*@
+            <button type="button" class="btn btn-default navbar-btn" ng-click="mt.gotoRegister()">Register</button>
+        </li>
         <li>
-            <a  ng-click="mt.gotoLogin()">Login</a>
+            <button type="button" class="btn btn-default navbar-btn" ng-click="mt.gotoLogin()">Login</button>
         </li>
     </ul>
 }

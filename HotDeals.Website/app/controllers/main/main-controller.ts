@@ -24,6 +24,7 @@ module HQHO.HotDeals {
     export interface IMainScopeMethod {
         //openLoginModal: (size: string) => {};
         gotoLogin: () => {};
+        gotoRegister: () => {}; 
     }
     export interface IMainScope extends ng.IScope {
         vm: IMainViewModel;
@@ -38,7 +39,8 @@ module HQHO.HotDeals {
             this.$scope.animationForModalEnabled = false;
             this.$scope.mt = {
                 //openLoginModal: this.openLoginModal.bind(this)
-                gotoLogin: this.gotoLogin.bind(this)
+                gotoLogin: this.gotoLogin.bind(this), 
+                gotoRegister: this.gotoRegister.bind(this)
             }
 
             this.$scope.vm = {
@@ -50,6 +52,9 @@ module HQHO.HotDeals {
 
         public gotoLogin() {
             this.$window.location.href = "/Account/Login"; 
+        }
+        public gotoRegister() {
+            this.$window.location.href = "/Account/Register"; 
         }
 
         //public openLoginModal(size: string = '') {
