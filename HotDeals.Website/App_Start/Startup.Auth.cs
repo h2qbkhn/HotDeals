@@ -7,7 +7,6 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using HotDeals.Website.Models;
 using Microsoft.Owin.Security.OAuth;
-using HotDeals.Website.Providers;
 using Microsoft.Owin.Security.Facebook;
 
 namespace HotDeals.Website
@@ -62,7 +61,6 @@ namespace HotDeals.Website
             {
                 AppId = "616966328476677",
                 AppSecret = "c559f33d94b63154e72a4901f0616d23",
-                Provider = new FacebookAuthProvider()
             };
             app.UseFacebookAuthentication(facebookAuthOptions);
 
@@ -70,7 +68,6 @@ namespace HotDeals.Website
             {
                 ClientId = "715067237732-3scst47qerjbv9lsi4aihc5qrovq0c3i.apps.googleusercontent.com",
                 ClientSecret = "CAXPajCLnwFFmW8gcdDjFXcp",
-                Provider = new GoogleAuthProvider()
             };
 
             app.UseGoogleAuthentication(googleAuthOptions);

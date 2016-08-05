@@ -229,11 +229,9 @@
     <Compile Include="Castle\WindsorDependencyScope.cs" />
     <Compile Include="Castle\WindsorWebApiInstaller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AuctionsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DealsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\TypeDealController.cs" />
@@ -245,15 +243,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\FacebookAuthProvider.cs" />
-    <Compile Include="Providers\GoogleAuthProvider.cs" />
-    <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
-    <Compile Include="Providers\SimpleRefreshTokenProvider.cs" />
-    <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\authComplete.js" />
     <Content Include="app\controllers\base\base-controller.js" />
     <Content Include="app\controllers\home\home-controller.js" />
     <Content Include="app\controllers\newdeal\newdeal-controller.js" />
@@ -448,12 +440,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Auctions\Index.cshtml" />
-    <Content Include="Views\Deals\Create.cshtml" />
-    <Content Include="Views\Deals\Delete.cshtml" />
-    <Content Include="Views\Deals\Details.cshtml" />
-    <Content Include="Views\Deals\Edit.cshtml" />
-    <Content Include="Views\Deals\Index.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -473,6 +459,11 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -501,8 +492,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
-    <TypeScriptCompile Include="app\controllers\account\account-controller.ts" />
-    <TypeScriptCompile Include="app\controllers\associate\associate-controller.ts" />
     <TypeScriptCompile Include="app\controllers\base\base-controller.ts" />
     <TypeScriptCompile Include="app\controllers\detaildeal\detaildeal-controller.ts" />
     <TypeScriptCompile Include="app\controllers\home\home-controller.ts" />

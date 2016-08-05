@@ -16,7 +16,7 @@
     <link href="Content/bootstrap-social.css" rel="stylesheet" />
     <link href="~/css/font-awesome.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="Content/angular-toastr.css" />*@
-    @*<link rel="stylesheet" href="Content/main.css" />*@
+    <link rel="stylesheet" href="~/app/views/main/main.css" />
     @*<link rel="stylesheet" href="Content/ag-grid.css" />*@
     @*<link rel="stylesheet" href="Content/theme-fresh.css" />*@
     @*<link rel="stylesheet" href="Content/font-awesome.css" />*@
@@ -26,10 +26,8 @@
 
 </head>
 <body ng-app="HotDeals" ng-cloak>
-    <div ui-view></div>
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/dependencies")
-    @Scripts.Render("~/bundles/app")
+    <div ui-view class="mainpage"></div> 
+   
    @* @Scripts.Render("~/bundles/css")*@
 </body>
 </html>

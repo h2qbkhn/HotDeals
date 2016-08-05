@@ -19,8 +19,6 @@ namespace HotDeals.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<TypeDeal> TypeDeals { get; set; }
-        public DbSet<Client> Clients { get; set; }
-        public DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 
 

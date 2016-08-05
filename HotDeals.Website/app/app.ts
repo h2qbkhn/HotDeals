@@ -42,31 +42,24 @@ module HQHO.HotDeals {
             var states = [];
 
             states.push({
-                name: "main", controller: "MainCtrl", templateUrl: "app/views/main/main.html",
+                name: "main", controller: "MainCtrl",
+                
                 resolve: {
                    
                 }, ncyBreadcrumb: { skip: true }
             });
 
             states.push({
-                name: "main.login", controller: "LoginCtrl",url: "/login", templateUrl: "app/views/login/login.html",
+                name: "login", controller: "LoginCtrl",url: "/login", templateUrl: "app/views/login/login.html",
                 ncyBreadcrumb: { label: "login" }, resolve: {
 
                 }
 
             });
 
-            // home page
+           
             states.push({
-                name: "main.associate", controller: "AssociateCtrl", url: "/associate", templateUrl: "app/views/associate/associate.html",
-                ncyBreadcrumb: { label: "Associate" },
-                resolve: {
-                    
-                }
-            });
-
-            states.push({
-                name: "main.home", controller: "HomeCtrl", url: "/home", templateUrl: "app/views/home/home.html",
+                name: "home", controller: "HomeCtrl", url: "/home", templateUrl: "app/views/home/home.html",
                 ncyBreadcrumb: { label: "Home" },
                 resolve: {
 
@@ -74,13 +67,13 @@ module HQHO.HotDeals {
             });
 
             states.push({
-                name: "main.newdeal", controller: "NewDealCtrl", url: "/newdeal", templateUrl: "app/views/newdeal/newdeal.html", ncyBreadcrumb: { label: "New deal" },
+                name: "newdeal", controller: "NewDealCtrl", url: "/newdeal", templateUrl: "app/views/newdeal/newdeal.html", ncyBreadcrumb: { label: "New deal" },
                 resolve: {
 
                 }
             });
             states.push({
-                name: "main.detaildeal", controller: "DetailDealCtrl", url: "/detaildeal/{dealId}", templateUrl: "app/views/detaildeal/detaildeal.html", ncyBreadcrumb: { label: "Detail deal" },
+                name: "detaildeal", controller: "DetailDealCtrl", url: "/detaildeal/{dealId}", templateUrl: "app/views/detaildeal/detaildeal.html", ncyBreadcrumb: { label: "Detail deal" },
                 resolve: {
                     dealId: ['$stateParams', function ($stateParams) {
                         return $stateParams.dealId
@@ -95,7 +88,7 @@ module HQHO.HotDeals {
 
 
             states.push({
-                name: "main.account", controller: "AccountCtrl", url: "/Account/Login", templateUrl: "app/views/account/account.html", ncyBreadcrumb: { label: "Account" },
+                name: "account", controller: "AccountCtrl", url: "/Account/Login", templateUrl: "app/views/account/account.html", ncyBreadcrumb: { label: "Account" },
                 resolve: {
 
                 }
