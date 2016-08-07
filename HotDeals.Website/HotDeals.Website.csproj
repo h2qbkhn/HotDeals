@@ -235,6 +235,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\TypeDealController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,12 +259,11 @@
     <Content Include="app\views\detaildeal\detaildeal.html" />
     <Content Include="app\views\home\home.css" />
     <Content Include="app\views\home\home.html" />
-    <Content Include="app\views\login\login.css" />
-    <Content Include="app\views\login\login.html" />
     <Content Include="app\views\main\main.css" />
     <Content Include="app\views\main\main.html" />
     <Content Include="app\views\newdeal\newdeal.css" />
     <Content Include="app\views\newdeal\newdeal.html" />
+    <Content Include="app\views\user\user.html" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -339,10 +339,10 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="app\views\login\login.less" />
     <Content Include="app\views\detaildeal\detaildeal.less" />
     <Content Include="Scripts\angular-local-storage.min.js.map" />
     <Content Include="app\views\common\common.less" />
+    <Content Include="app\views\user\user.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -492,9 +492,9 @@
     <TypeScriptCompile Include="app\controllers\base\base-controller.ts" />
     <TypeScriptCompile Include="app\controllers\detaildeal\detaildeal-controller.ts" />
     <TypeScriptCompile Include="app\controllers\home\home-controller.ts" />
-    <TypeScriptCompile Include="app\controllers\login\login-controller.ts" />
     <TypeScriptCompile Include="app\controllers\main\main-controller.ts" />
     <TypeScriptCompile Include="app\controllers\newdeal\newdeal-controller.ts" />
+    <TypeScriptCompile Include="app\controllers\user\user-controller.ts" />
     <TypeScriptCompile Include="app\directives\date-directive.ts" />
     <TypeScriptCompile Include="app\helpers\enums\enums.ts" />
     <TypeScriptCompile Include="app\model\base\base.ts" />
@@ -514,6 +514,7 @@
     <TypeScriptCompile Include="app\services\login\tokensManagerService.ts" />
     <TypeScriptCompile Include="app\services\sub_category\subCategoryService.ts" />
     <TypeScriptCompile Include="app\services\typedeal\typedealService.ts" />
+    <TypeScriptCompile Include="app\services\user\userService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-breadcrumb\angular-breadcrumb.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-loading-bar\angular-loading-bar.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />

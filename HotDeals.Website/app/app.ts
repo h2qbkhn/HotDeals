@@ -72,6 +72,22 @@ module HQHO.HotDeals {
 
                 }
             });
+
+            states.push({
+                name: "user", controller: "UserCtrl", url: "/user/{userId}", templateUrl: "app/views/user/user.html",
+                ncyBreadcrumb: { label: "User" },
+                resolve: {
+                    userId: ['$stateParams', function ($stateParams) {
+                        return $stateParams.userId
+                    }], 
+                    user: ['$stateParams', 'Api', function ($stateParams, api) {
+                        return api.userService.getUserById($stateParams.userId).success((data) => {
+                            return data; 
+                        })
+                    }]
+                }
+            });
+
             states.push({
                 name: "detaildeal", controller: "DetailDealCtrl", url: "/detaildeal/{dealId}", templateUrl: "app/views/detaildeal/detaildeal.html", ncyBreadcrumb: { label: "Detail deal" },
                 resolve: {

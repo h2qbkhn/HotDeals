@@ -16,11 +16,8 @@
             public dealService: Services.DealService,
             public subCategoryService: Services.SubCategoryService,
             public categoryService: Services.CategoryService,
-            public typedealService: Services.TypeDealService,
-            public loginService: Services.LoginService, 
-            public authService: Services.AuthService,
-            public tokensManagerService: Services.TokensManagerService, 
-            public authInterceptorService: Services.AuthInterceptorService
+            public typedealService: Services.TypeDealService
+           
         ) {
         }
 
