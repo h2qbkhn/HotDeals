@@ -508,10 +508,6 @@
     <TypeScriptCompile Include="app\services\category\categoryService.ts" />
     <TypeScriptCompile Include="app\services\deal\dealService.ts" />
     <TypeScriptCompile Include="app\helpers\tools.ts" />
-    <TypeScriptCompile Include="app\services\login\authInterceptorService.ts" />
-    <TypeScriptCompile Include="app\services\login\authService.ts" />
-    <TypeScriptCompile Include="app\services\login\loginService.ts" />
-    <TypeScriptCompile Include="app\services\login\tokensManagerService.ts" />
     <TypeScriptCompile Include="app\services\sub_category\subCategoryService.ts" />
     <TypeScriptCompile Include="app\services\typedeal\typedealService.ts" />
     <TypeScriptCompile Include="app\services\user\userService.ts" />
