@@ -5,10 +5,8 @@
         subCategoryService: Services.SubCategoryService;
         categoryService: Services.CategoryService;
         typedealService: Services.TypeDealService;
-        loginService: Services.LoginService;
-        authService: Services.AuthService; 
-        tokensManagerService: Services.TokensManagerService; 
-        authInterceptorService: Services.AuthInterceptorService; 
+        userService: Services.TypeDealService;
+      
     }
 
     export class Api implements IApi {
@@ -16,13 +14,14 @@
             public dealService: Services.DealService,
             public subCategoryService: Services.SubCategoryService,
             public categoryService: Services.CategoryService,
-            public typedealService: Services.TypeDealService
+            public typedealService: Services.TypeDealService,
+            public userService: Services.TypeDealService
            
         ) {
         }
 
     }
     angular.module('HotDeals').service('Api', ['DealServ', 'SubCategoryServ', 'CategoryServ',
-        'TypeDealServ', 'LoginServ','AuthServ', 'TokensManagerServ', 'AuthInterceptorServ', 
+        'TypeDealServ','UserServ', 
         Api])
 }

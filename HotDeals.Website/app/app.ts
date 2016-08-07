@@ -74,17 +74,10 @@ module HQHO.HotDeals {
             });
 
             states.push({
-                name: "user", controller: "UserCtrl", url: "/user/{userId}", templateUrl: "app/views/user/user.html",
+                name: "user", controller: "UserCtrl", url: "/user", templateUrl: "app/views/user/user.html",
                 ncyBreadcrumb: { label: "User" },
                 resolve: {
-                    userId: ['$stateParams', function ($stateParams) {
-                        return $stateParams.userId
-                    }], 
-                    user: ['$stateParams', 'Api', function ($stateParams, api) {
-                        return api.userService.getUserById($stateParams.userId).success((data) => {
-                            return data; 
-                        })
-                    }]
+                   
                 }
             });
 

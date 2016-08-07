@@ -71,6 +71,18 @@ namespace HotDeals.Website
                 cfg.CreateMap<TypeDealViewModel, TypeDeal>()
                 .ForMember(x => x.Label, a => a.MapFrom(y => y.Label));
 
+                cfg.CreateMap<Comment, CommentViewModel>()
+                .ForMember(x => x.Content, a => a.MapFrom(y => y.Content));
+
+                cfg.CreateMap<CommentViewModel, Comment>()
+                .ForMember(x => x.Content, a => a.MapFrom(y => y.Content));
+
+                cfg.CreateMap<User, UserViewModel>()
+                .ForMember(x => x.FirstName, a => a.MapFrom(y => y.FirstName));
+
+                cfg.CreateMap<UserViewModel, User>()
+                .ForMember(x => x.FirstName, a => a.MapFrom(y => y.FirstName));
+
             }); 
         }
     }

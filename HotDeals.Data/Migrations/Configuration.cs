@@ -11,7 +11,7 @@ namespace HotDeals.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "HotDeals.Data.HotDealsContext";
         }
 
@@ -90,6 +90,20 @@ namespace HotDeals.Data.Migrations
                 CreationDate = new DateTime(2015, 12, 31)
             };
 
+            var user1 = new User()
+            {
+                FirstName = "Hong Quan",
+                LastName = "HO"
+            };
+            user1.Deals = new List<Deal>();
+            user1.Comments = new List<Comment>();
+            var comment1 = new Comment()
+            {
+                DatePost = new DateTime(2016, 07, 08),
+                Content = "This deal is good"
+            };
+            user1.Comments.Add(comment1);
+
             var demoDeal3 = new Deal()
             {
                 Title = "Demo title",
@@ -105,10 +119,18 @@ namespace HotDeals.Data.Migrations
                 EndDate = new DateTime(2015, 12, 31),
                 CreationDate = new DateTime(2015, 12, 31)
             };
+            demoDeal3.Comments = new List<Comment>();
+            demoDeal3.Comments.Add(comment1);
+            user1.Deals.Add(demoDeal3);
+
+            context.Users.Add(user1);
+            context.Comments.Add(comment1);
+
             context.Deals.Add(demoDeal1);
             context.Deals.Add(demoDeal2);
             context.Deals.Add(demoDeal3);
             context.SaveChanges();
+
         }
     }
 }

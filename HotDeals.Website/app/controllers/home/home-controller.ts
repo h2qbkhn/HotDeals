@@ -22,7 +22,6 @@ module HQHO.HotDeals {
     }
     export interface IHomeScopeMethod extends IBaseScopeMethod {
         searchPropertiesChanged: () => void;
-        gotoLoginPage: () => void; 
     }
 
     export interface IHomeScope extends IBaseScope {
@@ -53,8 +52,7 @@ module HQHO.HotDeals {
             this; $scope.vm.searchCategories = [];
 
             this.$scope.mt = {
-                searchPropertiesChanged: this.searchPropertiesChanged.bind(this), 
-                gotoLoginPage: this.gotoLoginPage.bind(this)
+                searchPropertiesChanged: this.searchPropertiesChanged.bind(this) 
             }
             this._init();
         }
@@ -75,13 +73,6 @@ module HQHO.HotDeals {
                     that.setupReferencesForSearch();
                     that.searchPropertiesChanged();
                 })
-        }
-
-        public gotoLoginPage(): any {
-            var that = this; 
-            that.api.loginService.login('Google', 'url').success(() => {
-
-            }); 
         }
 
         public getHotDeals(typeDealId: string, value: number) {

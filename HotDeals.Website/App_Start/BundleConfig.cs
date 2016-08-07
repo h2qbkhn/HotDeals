@@ -44,10 +44,7 @@ namespace HotDeals.Website
                       "~/app/helpers/tools.js",
                       "~/app/helpers/enums/enums.js",
                       "~/app/services/base/baseService.js",
-                      "~/app/services/login/authService.js",
-                      "~/app/services/login/tokensManagerService.js",
-                      "~/app/services/login/authInterceptorService.js",
-                      "~/app/services/login/loginService.js",
+                      "~/app/services/user/userService.js",
                       "~/app/services/deal/dealService.js",
                       "~/app/services/typedeal/typedealService.js",
                       "~/app/services/category/categoryService.js",
@@ -56,6 +53,7 @@ namespace HotDeals.Website
                       "~/app/directives/date-directive.js",
                       "~/app/model/base/base.js",
                       "~/app/model/deal.js",
+                      "~/app/model/user.js",
                       "~/app/model/category.js",
                       "~/app/model/subCategory.js",
                       "~/app/model/typeDeal.js",
@@ -65,8 +63,8 @@ namespace HotDeals.Website
                       "~/app/controllers/main/main-controller.js",                    
                       "~/app/controllers/home/home-controller.js",
                       "~/app/controllers/newdeal/newdeal-controller.js",
-                      "~/app/controllers/detaildeal/detaildeal-controller.js"
-                      //"~/app/authComplete.js"
+                      "~/app/controllers/detaildeal/detaildeal-controller.js",
+                      "~/app/controllers/user/user-controller.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
