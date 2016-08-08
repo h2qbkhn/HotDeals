@@ -79,9 +79,7 @@ module HQHO.HotDeals {
 
         public gotoLoginPage(): any {
             var that = this; 
-            that.api.loginService.login('Google', 'url').success(() => {
-
-            }); 
+           
         }
 
         public getHotDeals(typeDealId: string, value: number) {
