@@ -248,9 +248,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\controllers\base\base-controller.js" />
-    <Content Include="app\controllers\home\home-controller.js" />
-    <Content Include="app\controllers\newdeal\newdeal-controller.js" />
     <Content Include="app\directives\date-directive.js" />
     <Content Include="app\directives\templates\date-input.html" />
     <Content Include="app\images\bg_home.jpg" />
