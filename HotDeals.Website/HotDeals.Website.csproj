@@ -252,13 +252,9 @@
     <Content Include="app\directives\templates\date-input.html" />
     <Content Include="app\images\bg_home.jpg" />
     <Content Include="app\images\demo.png" />
-    <Content Include="app\model\base\base.js" />
     <Content Include="app\views\detaildeal\detaildeal.html" />
-    <Content Include="app\views\home\home.css" />
     <Content Include="app\views\home\home.html" />
-    <Content Include="app\views\main\main.css" />
     <Content Include="app\views\main\main.html" />
-    <Content Include="app\views\newdeal\newdeal.css" />
     <Content Include="app\views\newdeal\newdeal.html" />
     <Content Include="app\views\user\user.html" />
     <Content Include="Content\bootstrap-datepicker.css" />
