@@ -2,9 +2,26 @@
 @factor-width : 5;
 @factor-height: 6;
 #detailDealPage {
-    .zone-comment {
-        margin-top: 30px;
+	.zone-user{
+		//margin-right: 15px; 
+	}
+    .ratings {
+        padding-right: 10px;
+        padding-left: 10px;
+        color: #d17581;
     }
+    .thumbnail {
+        padding: 0;
+        margin-top: 10px; 
+        .caption-full {
+            padding: 9px;
+            color: #333;
+        }
+        img {
+            width: 100%;
+        }
+    }
+   
     .card {
         padding-top: 20px;
         margin: 10px 0 20px 0;
@@ -20,6 +37,12 @@
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+        .btn {
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            line-height: 18px;
+        }
         .card-heading {
             padding: 0 20px;
             margin: 0;
@@ -214,38 +237,6 @@
                 padding: 0 20px;
                 margin-bottom: 17px;
             }
-        }
-    }
-    .btn {
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        line-height: 18px;
-    }
-    .card_user {
-        width: unit(@x * @factor-width, px);
-        height: unit(@x * @factor-height, px);
-        background-color: yellow;
-        .img {
-            position: absolute;
-            border-radius: 50%;
-            width: unit(@x * 2, px);
-            height: unit(@x * 2, px);
-            background-color: red;
-            z-index: 30;
-            left: unit(@x * 2.75, px);
-            top: unit(@x, px);
-        }
-        .part-upper {
-            width: unit(@x * @factor-width, px);
-            height: unit(@x * 2, px);
-            background-color: blue;
-        }
-        .part-lower {
-            width: unit(@x * @factor-width, px);
-            height: unit(@x * 4, px);
-            top: unit(@x * 2, px);
-            background-color: green;
         }
     }
 }

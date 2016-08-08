@@ -6,7 +6,7 @@
         <div class="hq-card container-deal" ng-repeat="deal in vm.filteredDeals">
             <div class="img-deal">
                 <a name="image-link-deal" ui-sref="detaildeal({dealId: deal.id})">
-                    <img src="app/images/demo.png" />
+                    <img ng-src="{{deal.srcImg}}" />
                 </a>
                 <div class="container-price">
                     <div name="price">{{deal.price}}</div>
@@ -44,9 +44,16 @@
     </div>
     <div class="col-md-4">
         <div class="side-right">
+            
+        
             <button class="btn btn-block btn-info hq-card btn-lg" ui-sref="newdeal({})">
                 Ajouter un deal
             </button>
+
+            <button class="btn btn-block btn-warning hq-card btn-lg" ui-sref="user({})">
+                Tester un user
+            </button>
+
             <div class="hq-card  zone-search">
                 <div class="form-group">
                     <label for="typedealIpt">Type of deal</label>
@@ -68,7 +75,7 @@
                 <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotBonPlans">
                     <div class="item_zone_hot">
                         <a ui-sref="detaildeal({dealId: hotdeal.id})">
-                            <img src="app/images/demo.png" />
+                            <img  ng-src="{{hotdeal.srcImg}}" />
                         </a>
                         <div class="detail">
                             <div class="title">{{hotdeal.title}}</div>
@@ -84,7 +91,7 @@
                 <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotCodePromos">
                     <div class="item_zone_hot">
                         <a ui-sref="detaildeal({dealId: hotdeal.id})">
-                            <img src="app/images/demo.png" /></a>
+                            <img  ng-src="{{hotdeal.srcImg}}" /></a>
                         <div class="detail">
                             <div class="title">{{hotdeal.title}}</div>
                             <div class="description">{{hotdeal.description}}</div>
@@ -99,7 +106,7 @@
                 <div class="container_zone_hot" ng-repeat="hotdeal in vm.hotFrees">
                     <div class="item_zone_hot">
                         <a ui-sref="detaildeal({dealId: hotdeal.id})">
-                            <img src="app/images/demo.png" /></a>
+                            <img  ng-src="{{hotdeal.srcImg}}" /></a>
                         <div class="detail">
                             <div class="title">{{hotdeal.title}}</div>
                             <div class="description">{{hotdeal.description}}</div>

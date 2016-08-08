@@ -24,6 +24,10 @@
         public endDate: Date;
         public creationDate: Date; 
         public isOnline: number = 1; 
+
+        public posterFirstName: string = ""; 
+        public posterLastName: string = ""; 
+ 
         constructor() {
             super(); 
         }

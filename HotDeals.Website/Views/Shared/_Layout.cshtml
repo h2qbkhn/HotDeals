@@ -13,33 +13,53 @@
 
     @Styles.Render("~/app/views/main/main.css")
     @Styles.Render("~/app/views/detaildeal/detaildeal.css")
-    @Styles.Render("~/app/views/login/login.css")
+    @Styles.Render("~/app/views/user/user.css")
 
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/dependencies")
     @Scripts.Render("~/bundles/app")
 </head>
-<body  ng-app="HotDeals" ng-cloak>
-    <div class="navbar navbar-inverse navbar-fixed-top" ng-controller="MainCtrl">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body ng-app="HotDeals" ng-cloak class="skin-blue fixed" data-spy="scroll">
+    <header class="main-header">
+        <a href="/home" class="logo">
+            Hot Deals
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation" ng-controller="MainCtrl">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Navbar Right Menu -->
+                    @Html.Partial("_LoginPartial")
+                    
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content" >
+        </nav>
+    </header>
+    <div class="container body-content">
         @RenderBody()
         @RenderSection("SPAViews", required: false)
         <hr />
@@ -48,7 +68,7 @@
         </footer>
     </div>
 
-    
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
