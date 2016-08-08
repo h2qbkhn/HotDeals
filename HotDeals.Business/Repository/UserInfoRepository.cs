@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace HotDeals.Business.Repository
 {
-    public class UserRepository : RepositoryBase<Model.User>, IUserRepository
+    public class UserInfoRepository : RepositoryBase<Model.UserInfo>, IUserInfoRepository
     {
-        public IEnumerable<User> GetByIds(Guid[] ids)
+        public IEnumerable<UserInfo> GetByIds(Guid[] ids)
         {
             return this.DbSet.Where(x => ids.Contains(x.Id)).ToList();
         }

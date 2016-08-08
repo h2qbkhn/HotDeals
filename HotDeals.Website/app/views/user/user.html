@@ -1,4 +1,5 @@
-﻿<head></head>
+﻿<head>
+</head>
 <div id="userPage">
     <div class="row profile">
         <div class="col-md-3">
@@ -42,28 +43,46 @@
                 <div class="tab-content">
                     <div ng-repeat="itm in vm.menus track by $index" id="tab{{$index}}" class="tab-pane" ng-class="{'active': $index == 0}">
                         <!-- Apply any bg-* class to to the info-box to color it -->
-                        <div class="info-box bg-red">
-                            <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Likes</span>
-                                <span class="info-box-number">41,410</span>
-                                <!-- The progress section is optional -->
-                                <div class="progress">
-                                    <div class="progress-bar" style="width: 70%"></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="info-box bg-red">
+                                    <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Likes</span>
+                                        <span class="info-box-number">41,410</span>
+                                        <!-- The progress section is optional -->
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 70%"></div>
+                                        </div>
+                                        <span class="progress-description">
+                                            70% Increase in 30 Days
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <span class="progress-description">
-      									70% Increase in 30 Days
-    							</span>
+                                <!-- /.info-box -->
                             </div>
-                            <!-- /.info-box-content -->
+                            <div class="col-md-6">
+                                <div class="info-box bg-green">
+                                    <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Likes</span>
+                                        <span class="info-box-number">41,410</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 70%"></div>
+                                        </div>
+                                        <span class="progress-description">
+                                            70% Increase in 30 Days
+                                        </span>
+                                    </div><!-- /.info-box-content -->
+                                </div>
+                            </div>
                         </div>
-                        <!-- /.info-box -->
                     </div>
+                    <!--  <div ng-repeat="itm in vm.menus track by $index" id="tab{{$index}}" ng-class="{active: $index == 0}">
+                        <p>{{$index}}</p>
+                    </div> -->
                 </div>
-                <!--  <div ng-repeat="itm in vm.menus track by $index" id="tab{{$index}}" ng-class="{active: $index == 0}">
-                    <p>{{$index}}</p>
-                </div> -->
             </div>
         </div>
     </div>
-</div>

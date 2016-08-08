@@ -236,13 +236,12 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\TypeDealController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -523,7 +522,6 @@
     <TypeScriptCompile Include="app\model\base\base.ts" />
     <TypeScriptCompile Include="app\model\category.ts" />
     <TypeScriptCompile Include="app\model\searchPropertyDeal.ts" />
-    <TypeScriptCompile Include="app\model\user.ts" />
     <TypeScriptCompile Include="app\model\deal.ts" />
     <TypeScriptCompile Include="app\model\typeDeal.ts" />
     <TypeScriptCompile Include="app\model\subCategory.ts" />

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace HotDeals.Business.Repository
 {
-    public interface IUserRepository: IRepository<Model.User>
+    public interface IUserInfoRepository: IRepository<Model.UserInfo>
     {
-        IEnumerable<Model.User> GetByIds(Guid[] ids);
+        IEnumerable<Model.UserInfo> GetByIds(Guid[] ids);
     }
 }

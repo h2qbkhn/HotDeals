@@ -74,7 +74,7 @@ module HQHO.HotDeals {
             });
 
             states.push({
-                name: "user", controller: "UserCtrl", url: "/user", templateUrl: "app/views/user/user.html",
+                name: "user", controller: "UserCtrl", url: "/user/{userId}", templateUrl: "app/views/user/user.html",
                 ncyBreadcrumb: { label: "User" },
                 resolve: {
                    
@@ -95,15 +95,7 @@ module HQHO.HotDeals {
                 }
             });
 
-
-            states.push({
-                name: "account", controller: "AccountCtrl", url: "/Account/Login", templateUrl: "app/views/account/account.html", ncyBreadcrumb: { label: "Account" },
-                resolve: {
-
-                }
-            });
-
-           
+       
             for (var i = 0; i < states.length; i++) {
                 var state = states[i];
                 if (state.name !== 'auth')

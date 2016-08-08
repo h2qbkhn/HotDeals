@@ -5,7 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using HotDeals.Model;
 
-namespace HotDeals.Website.Models
+namespace HotDeals.Model
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -17,22 +17,22 @@ namespace HotDeals.Website.Models
             // Add custom user claims here
             return userIdentity;
         }
-        public virtual User UserInfo { get; set;  }
+        public virtual UserInfo UserInfo { get; set;  }
 
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
-            : base("HotDealsConnectionString", throwIfV1Schema: false)
-        {
-        }
+    //public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    //{
+    //    public ApplicationDbContext()
+    //        : base("HotDealsConnectionString", throwIfV1Schema: false)
+    //    {
+    //    }
 
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-        public DbSet<User> UserInfo { get; set; }
+    //    public static ApplicationDbContext Create()
+    //    {
+    //        return new ApplicationDbContext();
+    //    }
+    //    public DbSet<User> UserInfo { get; set; }
 
-    }
+    //}
 }

@@ -96,10 +96,10 @@
     <Compile Include="Repository\IDealRepository.cs" />
     <Compile Include="Repository\ISubCategoryRepository.cs" />
     <Compile Include="Repository\ITypeDealRepository.cs" />
-    <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Repository\IUserInfoRepository.cs" />
     <Compile Include="Repository\SubCategoryRepository.cs" />
     <Compile Include="Repository\TypeDealRepository.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\UserInfoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HotDeals.Data\HotDeals.Data.csproj">

@@ -34,8 +34,8 @@ namespace HotDeals.Website
                .ImplementedBy<TypeDealRepository>().LifestylePerWebRequest());
             container.Register(Component.For<ICommentRepository>()
                .ImplementedBy<ICommentRepository>().LifestylePerWebRequest());
-            container.Register(Component.For<IUserRepository>()
-               .ImplementedBy<UserRepository>().LifestylePerWebRequest());
+            container.Register(Component.For<IUserInfoRepository>()
+               .ImplementedBy<UserInfoRepository>().LifestylePerWebRequest());
 
 
         }

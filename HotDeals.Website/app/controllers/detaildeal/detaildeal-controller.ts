@@ -3,7 +3,6 @@
 module HQHO.HotDeals {
     "use strict";
     import Deal = HQHO.HotDeals.Models.Deal;
-    import User = HQHO.HotDeals.Models.User;
     import TypeDeal = HQHO.HotDeals.Models.TypeDeal;
 
     import ETypeDeal = HQHO.HotDeals.Enums.ETypeDeal;
@@ -16,7 +15,7 @@ module HQHO.HotDeals {
     }
     export interface IDetailDealScope extends IBaseScope {
         currentDeal: Deal;
-        poster: User; 
+        poster: any; 
     }
 
     export class DetailDealController extends BaseController {

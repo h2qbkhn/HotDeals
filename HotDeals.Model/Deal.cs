@@ -25,7 +25,7 @@ namespace HotDeals.Model
         public virtual SubCategory SubCategory { get; set;  }
         public Guid PosterId { get; set;  }
         [ForeignKey("PosterId")]
-        public virtual User Poster { get; set;  }
+        public virtual UserInfo Poster { get; set;  }
         public virtual ICollection<Comment> Comments { get; set;  }
         public string LinkTo { get; set;  }
         public string NameSeller { get; set;  }

@@ -90,7 +90,7 @@ namespace HotDeals.Data.Migrations
                 CreationDate = new DateTime(2015, 12, 31)
             };
 
-            var user1 = new User()
+            var user1 = new UserInfo()
             {
                 FirstName = "Hong Quan",
                 LastName = "HO"
@@ -123,7 +123,7 @@ namespace HotDeals.Data.Migrations
             demoDeal3.Comments.Add(comment1);
             user1.Deals.Add(demoDeal3);
 
-            context.Users.Add(user1);
+            context.UserInfos.Add(user1);
             context.Comments.Add(comment1);
 
             context.Deals.Add(demoDeal1);

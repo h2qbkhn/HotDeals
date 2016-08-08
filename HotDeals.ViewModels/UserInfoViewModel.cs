@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HotDeals.ViewModels
 {
-    public class UserViewModel: ContentBase
+    public class UserInfoViewModel: ContentBase
     {
         public string FirstName { get; set; }
         public string LastName { get; set;  }
