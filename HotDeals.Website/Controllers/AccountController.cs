@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HotDeals.Website.Models;
+using HotDeals.Model;
 
 namespace HotDeals.Website.Controllers
 {
@@ -151,7 +152,12 @@ namespace HotDeals.Website.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    UserInfo = new User { FirstName = model.FirstName, LastName = model.LastName }
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

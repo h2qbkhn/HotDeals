@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using HotDeals.Model; 
+using HotDeals.Model;
+using System.Security.Claims;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace HotDeals.Data
 {
-    public class HotDealsContext: DbContext
+    public class HotDealsContext: DbContext, IdentityDbContext<ApplicationUser>
     {
         public HotDealsContext(): base("name=HotDealsConnectionString")
         {
