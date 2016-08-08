@@ -1,0 +1,55 @@
+﻿<head></head>
+<div id="userPage">
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="http://placehold.it/100x100" class="img-responsive" alt="">
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        Marcus Doe
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Developer
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    <button type="button" class="btn btn-success btn-sm">Follow</button>
+                    <button type="button" class="btn btn-danger btn-sm">Message</button>
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav ">
+                        <li ng-repeat="itm in vm.menus track by $index" ng-class="{'active': $index == 0}" >
+                            <a href="#tab{{$index}}" data-toggle="tab">
+                                <i class="glyphicon" ng-class="itm.icon"></i> {{itm.name}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="profile-content">
+                <div class="tab-content">
+                    <div ng-repeat="itm in vm.menus track by $index" id="tab{{$index}}" class="tab-pane" ng-class="{'active': $index == 0}" >
+                        <h3>{{$index}}</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    
+                </div>
+               <!--  <div ng-repeat="itm in vm.menus track by $index" id="tab{{$index}}" ng-class="{active: $index == 0}">
+                    <p>{{$index}}</p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
