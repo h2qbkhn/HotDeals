@@ -4,13 +4,14 @@
 
 <form class="form-horizontal" name="newdeal_form" novalidate>
     <div class="container-fluid">
-        <div class="col-md-4 hq-card zone-newdeal zone-category">        
+        <div class="col-md-4 hq-card zone-newdeal zone-category">
             <div class="form-group">
                 <label for="typedealIpt">Type of deal(*)</label>
                 <!-- <select class="form-control" id="typedealIpt" ng-model="currentDeal.typeDealId" ng-change="mt.typedealChanged()" ng-options="option.id as option.label for option in vm.typedeals"></select> -->
-                 <div class="list-group" >
-                    <a class="list-group-item hq-list-group-item" ng-repeat="typedeal in vm.typedeals" ng-class="{'active': currentDeal.typeDealId === typedeal.id }" 
-                        ng-click="mt.typedealChanged(typedeal.id)"> {{typedeal.label}}  
+                <div class="list-group">
+                    <a class="list-group-item hq-list-group-item" ng-repeat="typedeal in vm.typedeals" ng-class="{'active': currentDeal.typeDealId === typedeal.id }"
+                       ng-click="mt.typedealChanged(typedeal.id)">
+                        {{typedeal.label}}
                     </a>
                 </div>
             </div>
@@ -25,78 +26,78 @@
             </div>
         </div>
         <div class="col-md-8  hq-card zone-newdeal zone-title">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="form-group">
-                        <label for="titleIpt">Title(*)</label>
-                        <input type="text" name="title" class="form-control" id="titleIpt" ng-model="currentDeal.title" required
-                         ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.title.$invalid} " />                        
-                    </div>  
-                               
 
-                    <div class="form-group">
-                        <label for="linkToIpt">Lien du deal(*)</label>
-                        <input type="text" class="form-control" id="linkToIpt" ng-model="currentDeal.linkTo" 
-                        name="linkTo" required 
-                        ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.linkTo.$invalid } "/>
-                    </div>
-                   
-
-                    <div class="form-group">
-                        <label for="nameSellerIpt">Nom du marchant(*)</label>
-                        <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.nameSeller" 
-                        name="nameSeller" required
-                        ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.nameSeller.$invalid } "/>
-                    </div>
-                  
-
-                    <div class="form-group">
-                        <label for="nameSellerIpt">Adresse du marchant</label>
-                        <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.addressSeller"
-                        name="addressSeller" ng-required="currentDeal.isOnline === 0 "
-                        ng-class="{'has-error': newdeal_form.$submitted && newdeal_form.addressSeller.$invalid } "  />
-                    </div>
-
-                </div>
-
-                <div class="col-md-4 col-md-offset-1 zone-image">
-                    <div class="form-group">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn" ng-class="currentDeal.isOnline === 1 ? 'btn-success': ''"
-                                    ng-click="currentDeal.isOnline = 1">Online</button>
-                            <button type="button" class="btn" ng-class="currentDeal.isOnline === 0 ? 'btn-success': ''"
-                                    ng-click="currentDeal.isOnline = 0 ">Store</button>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="container-thumbnail">
-                            <img src="app/images/demo.png" alt="...">
-                            <button type="button" class="btn btn-primary btn-block">Choisir un image</button>
-                            <button type="button" class="btn btn-default btn-block">Ajouter un lien</button>
-                        </div>
-                    </div>
-
+            <div class="form-group">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn" ng-class="currentDeal.isOnline === 1 ? 'btn-success': ''"
+                            ng-click="currentDeal.isOnline = 1">
+                        Online
+                    </button>
+                    <button type="button" class="btn" ng-class="currentDeal.isOnline === 0 ? 'btn-success': ''"
+                            ng-click="currentDeal.isOnline = 0 ">
+                        Store
+                    </button>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="titleIpt">Title(*)</label>
+                <input type="text" name="title" class="form-control" id="titleIpt" ng-model="currentDeal.title" required
+                       ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.title.$invalid} " />
+            </div>
+
+
+            <div class="form-group">
+                <label for="linkToIpt">Lien du deal(*)</label>
+                <input type="text" class="form-control" id="linkToIpt" ng-model="currentDeal.linkTo"
+                       name="linkTo" required
+                       ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.linkTo.$invalid } " />
+            </div>
+
+
+            <div class="form-group">
+                <label for="nameSellerIpt">Nom du marchant(*)</label>
+                <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.nameSeller"
+                       name="nameSeller" required
+                       ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.nameSeller.$invalid } " />
+            </div>
+
+
+            <div class="form-group">
+                <label for="nameSellerIpt">Adresse du marchant</label>
+                <input type="text" class="form-control" id="nameSellerIpt" ng-model="currentDeal.addressSeller"
+                       name="addressSeller" ng-required="currentDeal.isOnline === 0 "
+                       ng-class="{'has-error': newdeal_form.$submitted && newdeal_form.addressSeller.$invalid } " />
+            </div>
+
+
+            <div class="form-group">
+                <div class="container-thumbnail">
+                    <img src="http://placehold.it/500x200" alt="...">
+                    <button type="button" class="btn btn-primary btn-block">Choisir un image</button>
+                    <button type="button" class="btn btn-default btn-block">Ajouter un lien</button>
+                </div>
+            </div>
+
+
 
 
             <div class="form-group">
                 <div class="col-md-2 zone-prix">
                     <label for="priceIpt">Prix</label>
-                    <input type="number" class="form-control" id="priceIpt" ng-model="currentDeal.price" 
-                    ng-required="true" name="price" ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.price.$invalid } "/>                    
+                    <input type="number" class="form-control" id="priceIpt" ng-model="currentDeal.price"
+                           ng-required="true" name="price" ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.price.$invalid } " />
                 </div>
                 <div class="col-md-3 col-md-offset-1">
                     <label for="oldPriceIpt">Prix habituel</label>
                     <input type="number" class="form-control" id="oldPriceIpt" ng-model="currentDeal.oldPrice"
-                    name="oldPrice" />
+                           name="oldPrice" />
                 </div>
                 <div class="col-md-4 col-md-offset-2 zone-code-reduction">
                     <label for="codeReductionIpt">Code de réduction</label>
                     <input type="text" class="form-control" id="codeReductionIpt" ng-model="currentDeal.codeReduction"
-                    name="codeReduction" ng-required="mt.isCodePromo()" 
-                     ng-class="{'has-error': newdeal_form.$submitted && newdeal_form.codeReduction.$invalid } "  />
+                           name="codeReduction" ng-required="mt.isCodePromo()"
+                           ng-class="{'has-error': newdeal_form.$submitted && newdeal_form.codeReduction.$invalid } " />
                 </div>
             </div>
 
@@ -104,37 +105,36 @@
                 <div class="col-md-5 zone-start-date">
                     <label for="startDateIpt">Start</label>
                     <input type="date" class="form-control" id="startDateIpt" ng-model="currentDeal.startDate"
-                    name="startDate"
-                    ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.startDate.$invalid } " />
+                           name="startDate"
+                           ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.startDate.$invalid } " />
                 </div>
 
                 <div class="col-md-5 col-md-offset-2 zone-end-date">
                     <label for="endDateIpt">End</label>
                     <input type="date" class="form-control" id="endDateIpt" ng-model="currentDeal.endDate"
-                    name="endDate"
-                    ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.endDate.$invalid } " />
+                           name="endDate"
+                           ng-class="{'has-error':newdeal_form.$submitted && newdeal_form.endDate.$invalid } " />
                 </div>
             </div>
 
-            <p  class="alert alert-danger" role="alert" ng-show="newdeal_form.$submitted && (currentDeal.startDate > currentDeal.endDate) ">
-            The date is not valid
+            <p class="alert alert-danger" role="alert" ng-show="newdeal_form.$submitted && (currentDeal.startDate > currentDeal.endDate) ">
+                The date is not valid
             </p>
 
             <div class="form-group">
                 <label for="descriptionIpt">Description</label>
-                <textarea rows="4" class="form-control" id="descriptionIpt" ng-model="currentDeal.description"
-                name="description"
-                ></textarea>
+                <textarea rows="10" class="form-control" id="descriptionIpt" ng-model="currentDeal.description"
+                          name="description"></textarea>
             </div>
 
             <p class="alert alert-danger" role="alert" ng-show="newdeal_form.$submitted && newdeal_form.$invalid">
-            The form is not valid
+                The form is not valid
             </p>
 
 
             <div class="form-group">
                 <input type="submit"
-                 ng-click="mt.saveNewDeal()" class="form-control btn btn-primary" id="submit" value="Submit" />
+                       ng-click="mt.saveNewDeal()" class="form-control btn btn-primary" id="submit" value="Submit" />
             </div>
         </div>
     </div>

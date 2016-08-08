@@ -8,7 +8,7 @@ namespace HotDeals.Website
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-           
+
             bundles.Add(new Bundle("~/bundles/dependencies").Include(
                 "~/Scripts/jquery-2.1.4.js",
                 "~/Scripts/bootstrap.js",
@@ -60,7 +60,7 @@ namespace HotDeals.Website
                       "~/app/controllers/base/base-controller.js",
                       "~/app/controllers/login/login-controller.js",
                       "~/app/controllers/account/account-controller.js",
-                      "~/app/controllers/main/main-controller.js",                    
+                      "~/app/controllers/main/main-controller.js",
                       "~/app/controllers/home/home-controller.js",
                       "~/app/controllers/newdeal/newdeal-controller.js",
                       "~/app/controllers/detaildeal/detaildeal-controller.js",
@@ -69,7 +69,9 @@ namespace HotDeals.Website
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"
+                      //"~/Content/site.css", 
+                      "~/admin-lte/css/skins/_all-skins.min.css",
+                       "~/admin-lte/css/AdminLTE.min.css"
                       ));
         }
     }

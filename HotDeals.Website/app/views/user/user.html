@@ -27,7 +27,7 @@
                 <!-- SIDEBAR MENU -->
                 <div class="profile-usermenu">
                     <ul class="nav ">
-                        <li ng-repeat="itm in vm.menus track by $index" ng-class="{'active': $index == 0}" >
+                        <li ng-repeat="itm in vm.menus track by $index" ng-class="{'active': $index == 0}">
                             <a href="#tab{{$index}}" data-toggle="tab">
                                 <i class="glyphicon" ng-class="itm.icon"></i> {{itm.name}}
                             </a>
@@ -40,13 +40,27 @@
         <div class="col-md-9">
             <div class="profile-content">
                 <div class="tab-content">
-                    <div ng-repeat="itm in vm.menus track by $index" id="tab{{$index}}" class="tab-pane" ng-class="{'active': $index == 0}" >
-                        <h3>{{$index}}</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div ng-repeat="itm in vm.menus track by $index" id="tab{{$index}}" class="tab-pane" ng-class="{'active': $index == 0}">
+                        <!-- Apply any bg-* class to to the info-box to color it -->
+                        <div class="info-box bg-red">
+                            <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Likes</span>
+                                <span class="info-box-number">41,410</span>
+                                <!-- The progress section is optional -->
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 70%"></div>
+                                </div>
+                                <span class="progress-description">
+      									70% Increase in 30 Days
+    							</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
                     </div>
-                    
                 </div>
-               <!--  <div ng-repeat="itm in vm.menus track by $index" id="tab{{$index}}" ng-class="{active: $index == 0}">
+                <!--  <div ng-repeat="itm in vm.menus track by $index" id="tab{{$index}}" ng-class="{active: $index == 0}">
                     <p>{{$index}}</p>
                 </div> -->
             </div>

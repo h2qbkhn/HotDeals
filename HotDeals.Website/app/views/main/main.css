@@ -4,6 +4,8 @@ body {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
 .hq-bg-white {
   background-color: white;
@@ -18,10 +20,12 @@ input.has-error {
 nav.navbar {
   border-radius: 0px !important;
 }
+button[type=button] {
+  border-radius: 0px !important;
+}
 input.form-control,
 textarea.form-control,
-select.form-control,
-button[type=button].form-control {
+select.form-control {
   border-radius: 0px !important;
 }
 input.form-control[type=text],
