@@ -1,6 +1,10 @@
 ﻿@using Microsoft.AspNet.Identity
-@{ 
-    var currentUser = User.Identity.GetUserName();
+@using Microsoft.AspNet.Identity.EntityFramework
+@using HotDeals.Model
+@using HotDeals.Data
+@{
+    var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new HotDealsContext()));
+    var currentUser = manager.FindById(User.Identity.GetUserId());
 }
 @if (Request.IsAuthenticated)
 {
@@ -96,7 +100,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="http://placehold.it/160x160" class="user-image" alt="User Image">
                     <span class="hidden-xs">
-                        @currentUser
+                        @currentUser.UserInfo.FirstName
                     </span>
                 </a>
                 <ul class="dropdown-menu">
@@ -104,7 +108,7 @@
                     <li class="user-header">
                         <img src="http://placehold.it/160x160" class="img-circle" alt="User Image">
                         <p>
-                            Alexander Pierce - Web Developer
+                            @currentUser.UserInfo.FirstName - Web Developer
                             <small>Member since Nov. 2012</small>
                         </p>
                     </li>
@@ -123,7 +127,7 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                         <div class="pull-left">
-                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            <a ui-sref="user({userId: '@currentUser.Id'})" class="btn btn-default btn-flat">Profile</a>
                         </div>
                         <div class="pull-right">
                             <a href="#" class="btn btn-default btn-flat">Sign out</a>
@@ -133,10 +137,10 @@
             </li>
         </ul>
     </div>
-                            }
-                            else
-                            {
-    <div class="navbar-custom-menu container-fluid">
+}
+else
+{
+    <div class="navbar-custom-menu container-fluid" style="margin-right: 45px; ">
         <ul class="nav navbar-nav navbar-right">
             <li>
                 @*@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink" })*@

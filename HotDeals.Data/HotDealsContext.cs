@@ -11,18 +11,22 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace HotDeals.Data
 {
-    public class HotDealsContext: DbContext, IdentityDbContext<ApplicationUser>
+    public class HotDealsContext: IdentityDbContext<ApplicationUser>
     {
         public HotDealsContext(): base("name=HotDealsConnectionString")
         {
-            Database.SetInitializer<HotDealsContext>(new HotDealsDbInitializer());
-            //Database.SetInitializer<HotDealsContext>(null);
+            //Database.SetInitializer<HotDealsContext>(new HotDealsDbInitializer());
+            Database.SetInitializer<HotDealsContext>(null);
+        }
+        public static HotDealsContext Create()
+        {
+            return new HotDealsContext();
         }
         public DbSet<Deal> Deals { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<TypeDeal> TypeDeals { get; set; }
-        public DbSet<User> Users { get; set;  }
+        public DbSet<UserInfo> UserInfos { get; set;  }
         public DbSet<Comment> Comments { get; set;  }
     }
 
@@ -103,7 +107,7 @@ namespace HotDeals.Data
                 CreationDate = new DateTime(2015, 12, 31)
             };
 
-            var user1 = new User()
+            var user1 = new UserInfo()
             {
                 FirstName = "Hong Quan",
                 LastName = "HO"
@@ -136,7 +140,7 @@ namespace HotDeals.Data
             demoDeal3.Comments.Add(comment1);
             user1.Deals.Add(demoDeal3);
 
-            context.Users.Add(user1);
+            context.UserInfos.Add(user1);
             context.Comments.Add(comment1); 
 
             context.Deals.Add(demoDeal1); 

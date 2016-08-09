@@ -8,6 +8,8 @@ using Owin;
 using HotDeals.Website.Models;
 using Microsoft.Owin.Security.OAuth;
 using Microsoft.Owin.Security.Facebook;
+using HotDeals.Data;
+using HotDeals.Model;
 
 namespace HotDeals.Website
 {
@@ -17,7 +19,7 @@ namespace HotDeals.Website
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(HotDealsContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 

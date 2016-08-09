@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HotDeals.Model
 {
-    public class User: ContentBase
+    public class UserInfo: ContentBase
     {
         public string Gender { get; set; } 
         public string FirstName { get; set; }
